@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package alertas;
+package menusuperior;
 
 import java.awt.Frame;
 import javax.swing.JFrame;

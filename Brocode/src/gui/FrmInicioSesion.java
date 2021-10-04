@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pruebas;
+package gui;
 
-import alertas.MenuCierre;
+import menusuperior.MenuCierre;
 import java.sql.ResultSet;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import conexion.ConexionSQL;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 /**
  *
@@ -23,8 +21,9 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
     ConexionSQL cc = new ConexionSQL();
     Connection con = cc.conexion();
-    
+
     MenuCierre mc = new MenuCierre();
+
     /**
      * Creates new form Prueba
      */
@@ -212,7 +211,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 500, 590));
 
         jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
-        jbtnMinimizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\JHAIR\\Documents\\BROCODE\\Brocode\\src\\imagenes\\imgMinimizar.png")); // NOI18N
+        jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
         jbtnMinimizar.setBorder(null);
         jbtnMinimizar.setBorderPainted(false);
         jbtnMinimizar.setContentAreaFilled(false);
@@ -226,7 +225,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
         jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\JHAIR\\Documents\\BROCODE\\Brocode\\src\\imagenes\\imgCerrar.png")); // NOI18N
+        jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
         jbtnCerrar.setBorder(null);
         jbtnCerrar.setContentAreaFilled(false);
         jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -350,24 +349,6 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         mc.minimizarPrograma(this);
     }//GEN-LAST:event_jbtnMinimizarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            UIManager.setLookAndFeel(new NimbusLookAndFeel());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmInicioSesion().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

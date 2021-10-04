@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pruebas;
+package gui;
 
-import alertas.MenuCierre;
+import menusuperior.MenuCierre;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import conexion.ConexionSQL;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 /**
  *
@@ -22,7 +20,6 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     ConexionSQL cc = new ConexionSQL();
     Connection con = cc.conexion();
-
     MenuCierre mc = new MenuCierre();
 
     /**
@@ -55,13 +52,13 @@ public class FrmRegistro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jtxtUsuario = new javax.swing.JTextField();
+        jbtnCerrar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jbtnIniciarSesion = new javax.swing.JButton();
         jlblRegistro = new javax.swing.JLabel();
-        jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -160,12 +157,25 @@ public class FrmRegistro extends javax.swing.JFrame {
 
         BackGround.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 450, 500));
 
+        jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
+        jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
+        jbtnCerrar.setBorder(null);
+        jbtnCerrar.setContentAreaFilled(false);
+        jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCerrarActionPerformed(evt);
+            }
+        });
+        BackGround.add(jbtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 20, 20));
+
         jPanel3.setBackground(new java.awt.Color(0, 62, 195));
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Si ya tiene una cuenta, puede iniciar");
+        jLabel4.setText("Si ya tiene una cuenta, inicie sesión");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         jLabel5.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
@@ -177,7 +187,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("sesión este botón");
+        jLabel6.setText("con el botón \"Iniciar sesión\"");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         jbtnIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
@@ -235,21 +245,8 @@ public class FrmRegistro extends javax.swing.JFrame {
 
         BackGround.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 500, 590));
 
-        jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
-        jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\JHAIR\\Documents\\BROCODE\\Brocode\\src\\imagenes\\imgCerrar.png")); // NOI18N
-        jbtnCerrar.setBorder(null);
-        jbtnCerrar.setContentAreaFilled(false);
-        jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnCerrarActionPerformed(evt);
-            }
-        });
-        BackGround.add(jbtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
         jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
-        jbtnMinimizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\JHAIR\\Documents\\BROCODE\\Brocode\\src\\imagenes\\imgMinimizar.png")); // NOI18N
+        jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
         jbtnMinimizar.setBorder(null);
         jbtnMinimizar.setBorderPainted(false);
         jbtnMinimizar.setContentAreaFilled(false);
@@ -259,7 +256,7 @@ public class FrmRegistro extends javax.swing.JFrame {
                 jbtnMinimizarActionPerformed(evt);
             }
         });
-        BackGround.add(jbtnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        BackGround.add(jbtnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 20, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,6 +301,7 @@ public class FrmRegistro extends javax.swing.JFrame {
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(rootPane, "Registro exitoso");
                 return true;
+
             } catch (Exception e) {
 
                 JOptionPane.showMessageDialog(rootPane, "Error de registro" + e.getMessage());
@@ -392,25 +390,6 @@ public class FrmRegistro extends javax.swing.JFrame {
         jtxtContrasena.setText("");
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            UIManager.setLookAndFeel(new NimbusLookAndFeel()); //Deja bordes redondos
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmRegistro().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackGround;
