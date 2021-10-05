@@ -29,7 +29,6 @@ public class FrmInicioSesion extends javax.swing.JFrame {
      */
     public FrmInicioSesion() {
         initComponents();
-        escalarImagenes();
     }
 
     /**
@@ -48,10 +47,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jtxtContrasena = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        jbtnIniciarSesion = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -112,49 +111,56 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 250, -1));
 
-        jbtnIniciarSesion.setBackground(new java.awt.Color(81, 104, 244));
-        jbtnIniciarSesion.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jbtnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnIniciarSesion.setText("Iniciar sesión");
-        jbtnIniciarSesion.setBorder(null);
-        jbtnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnIniciarSesionActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jbtnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 250, 40));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\JHAIR\\Documents\\BROCODE\\Brocode\\src\\imagenes\\icon-user.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-user.png"))); // NOI18N
         jLabel10.setToolTipText("");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 165, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\JHAIR\\Documents\\BROCODE\\Brocode\\src\\imagenes\\icon-password.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-password.png"))); // NOI18N
         jLabel8.setToolTipText("");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 255, -1, -1));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
+        jButton1.setText("Iniciar sesión");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 250, 40));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 450, 500));
 
         jPanel3.setBackground(new java.awt.Color(0, 62, 195));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Si desea crear una cuenta, presione");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 488, -1));
 
-        jLabel5.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Montserrat SemiBold", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("BIENVENIDO");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 250, -1));
 
         jLabel6.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("el botón \"Registrarse\"");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 250, 480, -1));
+
+        jlblInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgRegistro.png"))); // NOI18N
+        jPanel3.add(jlblInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 333, 250));
 
         jbtnRegistrarse.setBackground(new java.awt.Color(255, 255, 255));
         jbtnRegistrarse.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
@@ -167,46 +173,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
                 jbtnRegistrarseActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jbtnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlblInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(51, 51, 51)
-                .addComponent(jbtnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jlblInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
+        jPanel3.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 250, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 500, 590));
 
@@ -294,10 +261,6 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
     }
 
-    public void escalarImagenes() {
-        rsscalelabel.RSScaleLabel.setScaleLabel(jlblInicioSesion, "src/imagenes/imgInicioSesion.png");
-    }
-
     public boolean validarCamposVacios() {
         if (jtxtUsuario.getText().isEmpty() || jtxtUsuario.getText().equals("   Ingrese su nombre de usuario")) {
             return false;
@@ -313,11 +276,6 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         frmRegistro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnRegistrarseActionPerformed
-
-    private void jbtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnIniciarSesionActionPerformed
-        validarUsuario();
-
-    }//GEN-LAST:event_jbtnIniciarSesionActionPerformed
 
     private void jtxtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtUsuarioMousePressed
         if (jtxtUsuario.getText().equals("   Ingrese su nombre de usuario")) {
@@ -349,8 +307,13 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         mc.minimizarPrograma(this);
     }//GEN-LAST:event_jbtnMinimizarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        validarUsuario();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -364,7 +327,6 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbtnCerrar;
-    private javax.swing.JButton jbtnIniciarSesion;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JButton jbtnRegistrarse;
     private javax.swing.JLabel jlblInicioSesion;

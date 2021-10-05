@@ -5,11 +5,15 @@
  */
 package gui;
 
+import menusuperior.MenuCierre;
+
 /**
  *
  * @author JHAIR
  */
 public class FrmPantallaPrincipal extends javax.swing.JFrame {
+
+    MenuCierre mc = new MenuCierre();
 
     /**
      * Creates new form FrmPantallaPrincipal
@@ -27,27 +31,171 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jbtnCerrar = new javax.swing.JButton();
+        jbtnMinimizar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jtxtNombre = new javax.swing.JTextField();
+        lblUs = new javax.swing.JLabel();
+        lblCon = new javax.swing.JLabel();
+        jtxtContrasena = new javax.swing.JPasswordField();
+        lblNombre = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jtxtUsuario = new javax.swing.JTextField();
+        imagen = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jbtnRegistrarse = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DASHBOARD");
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
+        jPanel2.setBackground(new java.awt.Color(26, 28, 32));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
+        jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
+        jbtnCerrar.setBorder(null);
+        jbtnCerrar.setContentAreaFilled(false);
+        jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
+        jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
+        jbtnMinimizar.setBorder(null);
+        jbtnMinimizar.setBorderPainted(false);
+        jbtnMinimizar.setContentAreaFilled(false);
+        jbtnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnMinimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnMinimizarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user-config.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jtxtNombre.setBackground(new java.awt.Color(243, 242, 245));
+        jtxtNombre.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        jtxtNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 250, 40));
+
+        lblUs.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblUs.setForeground(new java.awt.Color(0, 0, 0));
+        lblUs.setText("Usuario");
+        jPanel1.add(lblUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+
+        lblCon.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblCon.setForeground(new java.awt.Color(0, 0, 0));
+        lblCon.setText("Contraseña");
+        jPanel1.add(lblCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+
+        jtxtContrasena.setBackground(new java.awt.Color(243, 242, 245));
+        jtxtContrasena.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        jtxtContrasena.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtContrasena.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jtxtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 250, 40));
+
+        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
+        lblNombre.setText("Nombre");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/passwordBlanco.png"))); // NOI18N
+        jLabel8.setToolTipText("");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 265, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-name.png"))); // NOI18N
+        jLabel9.setToolTipText("");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 105, -1, -1));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-user.png"))); // NOI18N
+        jLabel10.setToolTipText("");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 185, -1, -1));
+
+        jtxtUsuario.setBackground(new java.awt.Color(243, 242, 245));
+        jtxtUsuario.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        jtxtUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jtxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 250, 40));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 360, 370));
+
+        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgDatosPersonales.png"))); // NOI18N
+        jPanel2.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 311, 432));
+
+        jPanel3.setBackground(new java.awt.Color(81, 104, 244));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 460, 70));
+
+        jPanel4.setBackground(new java.awt.Color(81, 104, 244));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 270, 460, 70));
+
+        jLabel2.setFont(new java.awt.Font("Montserrat", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Datos Personales");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 77, -1, -1));
+
+        jbtnRegistrarse.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jbtnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
+        jbtnRegistrarse.setText("Guardar cambios");
+        jbtnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnRegistrarse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 610, 250, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarActionPerformed
+        mc.cerrarPrograma();
+    }//GEN-LAST:event_jbtnCerrarActionPerformed
+
+    private void jbtnMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMinimizarActionPerformed
+        mc.minimizarPrograma(this);
+    }//GEN-LAST:event_jbtnMinimizarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imagen;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton jbtnCerrar;
+    private javax.swing.JButton jbtnMinimizar;
+    private javax.swing.JButton jbtnRegistrarse;
+    private javax.swing.JPasswordField jtxtContrasena;
+    private javax.swing.JTextField jtxtNombre;
+    private javax.swing.JTextField jtxtUsuario;
+    private javax.swing.JLabel lblCon;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblUs;
     // End of variables declaration//GEN-END:variables
 }
