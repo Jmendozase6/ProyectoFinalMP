@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/gui/FrmInicioSesion.java</file>
+            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/guiusuarios/FrmInicioSesion.java</file>
+            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/guiproductos/FrmAgregarProducto.java</file>
+            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/guiusuarios/FrmDashboard.java</file>
             <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/main/Ejecutar.java</file>
-            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/gui/FrmPantallaPrincipal.java</file>
-            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/gui/FrmRegistro.java</file>
+            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/guiusuarios/FrmRegistro.java</file>
+            <file>file:/C:/Users/JHAIR/Documents/BROCODE/Brocode/src/guiusuarios/FrmDatosPersonales.java</file>
         </group>
     </open-files>
 </project-private>

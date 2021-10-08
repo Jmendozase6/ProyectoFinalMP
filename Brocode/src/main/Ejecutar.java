@@ -5,8 +5,8 @@
  */
 package main;
 
-import gui.FrmPantallaPrincipal;
-import gui.FrmRegistro;
+import guiproductos.FrmAgregarProducto;
+import guiusuarios.FrmInicioSesion;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
@@ -27,9 +27,8 @@ public class Ejecutar {
             System.out.println(e.getMessage());
 
         }
-
-        FrmRegistro frmRegistro = new FrmRegistro();
-        frmRegistro.setVisible(true);
+        FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
+        frmInicioSesion.setVisible(true);
 
     }
 }
