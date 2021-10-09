@@ -154,6 +154,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jcbxProveedor.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jcbxProveedor.setForeground(new java.awt.Color(0, 0, 0));
         jcbxProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proveedor 1", "Proveedor 2", "Proveedor 3", "Proveedor 4", "Proveedor 5", "Proveedor 6" }));
+        jcbxProveedor.setSelectedIndex(-1);
         jPanel2.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 440, 260, 40));
 
         jLabel3.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N

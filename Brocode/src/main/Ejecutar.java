@@ -5,7 +5,6 @@
  */
 package main;
 
-import guiproductos.FrmAgregarProducto;
 import guiusuarios.FrmInicioSesion;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
