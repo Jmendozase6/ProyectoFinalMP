@@ -5,7 +5,7 @@
  */
 package main;
 
-import guiusuarios.FrmInicioSesion;
+import gui.usuarios.FrmInicioSesion;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
