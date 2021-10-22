@@ -16,16 +16,34 @@ import javax.swing.JToggleButton;
  */
 public class MenuOpciones {
 
+    /**
+     * AL QUITARLE EL UNDECORATED AL FRAME, DEBEMOS HACER LAS OPERACIONES DE
+     * CERRAR Y MINIMIZAR MANUALMENTE Y QUE SE PUEDA MOVER CON EL MOUSE
+     */
+    /**
+     * Permite cerrar la ventana.
+     */
     public void cerrarPrograma() {
         if (JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Comprobación", 0) == 0) {
             System.exit(0);
         }
     }
 
+    /**
+     * Permite minimizar la ventana.
+     *
+     * @param frm
+     */
     public void minimizarPrograma(Frame frm) {
         frm.setExtendedState(Frame.ICONIFIED);
     }
 
+    /**
+     * Permite hacer visible la contraseña del PasswordField.
+     *
+     * @param jbtnVer
+     * @param jtxtContrasena
+     */
     public void verPass(JToggleButton jbtnVer, JPasswordField jtxtContrasena) {
         if (jbtnVer.isSelected()) {
             jtxtContrasena.setEchoChar((char) 0);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package usuarios.sql;
+package sql.usuarios;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import modelos.Usuarios;
+import modelos.Usuario;
 
 /**
  *
@@ -24,7 +24,7 @@ public class SqlInicioSesion {
 
     ConexionSQL cc = new ConexionSQL();
     Connection con = cc.getConnection();
-    Usuarios us = Usuarios.getInstance();
+    Usuario us = Usuario.getInstance();
     ResultSet rs;
     Statement st;
 
@@ -45,6 +45,8 @@ public class SqlInicioSesion {
                 if (resultado == 1) {
                     us.setUsuario(usuario);
                     us.setContrasena(pass);
+                    us.setIdUsuario(rs.getInt("Id"));
+                    
                     FrmDashboard f = new FrmDashboard();
                     f.setVisible(true);
                     rootPane.dispose();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package usuarios.sql;
+package sql.usuarios;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
@@ -12,11 +12,10 @@ import conexion.ConexionSQL;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import modelos.Usuarios;
+import modelos.Usuario;
 
 /**
  *
@@ -26,34 +25,39 @@ public class SqlDatosPersonales {
 
     ConexionSQL cc = new ConexionSQL();
     Connection con = cc.getConnection();
-    Usuarios us = Usuarios.getInstance();
+    Usuario us = Usuario.getInstance();
     ResultSet rs;
     PreparedStatement pst;
     Statement st;
 
-    public void guardarCambios(String nombre, String usuario, String contrasena, JFrame rootPane) {
+    public void actualizarUsuario(String nombre, String usuario, String contrasena) {
 
-        String SQL = "UPDATE usuarios SET Nombre=?, Usuario=?, Contrasena=?";
+        String SQL = "UPDATE usuarios SET Nombre=?, Usuario=?, Contrasena=? WHERE id=?";
 
         try {
-
+            us.setNombre(nombre);
+            us.setUsuario(usuario);
+            us.setContrasena(contrasena);
+            
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
-            pst.setString(1, nombre);
-            pst.setString(2, usuario);
-            pst.setString(3, contrasena);
+            pst.setString(1, us.getNombre());
+            pst.setString(2, us.getUsuario());
+            pst.setString(3, us.getContrasena());
+
+            pst.setInt(4, us.getIdUsuario());
 
             int n = pst.executeUpdate();
 
             if (n >= 0) {
 
-                JOptionPane.showMessageDialog(rootPane, "Los datos se actualizaron correctamente");
+                JOptionPane.showMessageDialog(null, "Los datos se actualizaron correctamente");
 
             }
 
         } catch (HeadlessException | SQLException e) {
 
-            JOptionPane.showMessageDialog(rootPane, "No se actualizaron los datos", "Error", 0);
+            JOptionPane.showMessageDialog(null, "No se actualizaron los datos", "Error", 0);
 
         }
     }
@@ -67,6 +71,7 @@ public class SqlDatosPersonales {
             rs = st.executeQuery(SQL);
 
             while (rs.next()) {
+
                 jtxtNombre.setText(rs.getString("Nombre"));
                 jtxtUsuario.setText(rs.getString("Usuario"));
                 jtxtContrasena.setText(rs.getString("Contrasena"));

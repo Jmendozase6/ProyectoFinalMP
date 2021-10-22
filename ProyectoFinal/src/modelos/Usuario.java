@@ -9,25 +9,34 @@ package modelos;
  *
  * @author Jhair
  */
-public class Usuarios {
+public class Usuario {
 
-    private static Usuarios uss;
+    private static Usuario uss;
     private int idUsuario;
     private String nombre;
     private String usuario;
     private String contrasena;
 
-    private Usuarios() {
+    private Usuario() {
 
     }
 
-    //El modelo singleton solo permite la instancia de solo un objeto a lo largo de todo el programa, 
-    //cada instancia creada tendrá como referencia al mismo objeto
-    public static Usuarios getInstance() {
+    /**
+     * El modelo singleton solo permite la instancia de solo un objeto a lo
+     * largo de todo el programa, cada instancia creada tendrá como referencia
+     * al mismo objeto
+     *
+     * @return
+     */
+    public static Usuario getInstance() {
         if (uss == null) {
-            uss = new Usuarios();
+            uss = new Usuario();
         }
         return uss;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public int getIdUsuario() {

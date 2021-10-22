@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package productos.sql;
+package sql.productos;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
@@ -15,6 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.sql.ResultSet;
 
 /**
  *
@@ -24,27 +25,31 @@ public class SqlAgregarProducto {
 
     ConexionSQL cc = new ConexionSQL();
     Connection con = cc.getConnection();
+    PreparedStatement pst;
+    ResultSet rs;
+    String SQL;
 
     public boolean agregarProducto(Date date, JTextField jtxtNombre, JTextField jtxtMarca, JTextField jtxtPrecioUni, JTextField jtxtCantidad, JComboBox jcbxProveedor, JFrame rootPane) {
-        String nombre, marca, proveedor, SQL;
-        double precioUnitario, cantidad;
+
+        String nombre, marca, proveedor, cantidad;
+        double precioUnitario;
         SQL = "INSERT INTO productos (Nombre,Marca,Precio_unitario,Cantidad,Proveedor,Fecha_entrada) values(?,?,?,?,?,?)";
 
         nombre = jtxtNombre.getText();
         marca = jtxtMarca.getText();
         precioUnitario = Double.parseDouble(jtxtPrecioUni.getText());
-        cantidad = Double.parseDouble(jtxtCantidad.getText());
+        cantidad = jtxtCantidad.getText();
         proveedor = jcbxProveedor.getSelectedItem().toString();
         java.sql.Date date2 = new java.sql.Date(date.getTime());
 
         try {
 
-            PreparedStatement pst = (PreparedStatement) con.prepareStatement(SQL);
+            pst = (PreparedStatement) con.prepareStatement(SQL);
 
             pst.setString(1, nombre);
             pst.setString(2, marca);
             pst.setDouble(3, precioUnitario);
-            pst.setDouble(4, cantidad);
+            pst.setString(4, cantidad);
             pst.setString(5, proveedor);
             pst.setDate(6, date2);
             pst.executeUpdate();
@@ -58,5 +63,28 @@ public class SqlAgregarProducto {
         }
 
         return false;
+    }
+
+    public void mostrarProveedores(JComboBox cbxProveedores) {
+
+        SQL = "SELECT * FROM proveedores";
+
+        try {
+
+            pst = (PreparedStatement) con.prepareStatement(SQL);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                cbxProveedores.addItem(rs.getString("Nombres"));
+
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error: " + e.getMessage());
+
+        }
+
     }
 }

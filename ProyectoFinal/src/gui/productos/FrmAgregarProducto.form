@@ -103,7 +103,7 @@
                   <Color blue="f5" green="f2" red="f3" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="14" style="0"/>
+                  <Font name="Montserrat" size="16" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -126,7 +126,7 @@
                   <Color blue="f5" green="f2" red="f3" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="14" style="0"/>
+                  <Font name="Montserrat" size="16" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -149,7 +149,7 @@
                   <Color blue="f5" green="f2" red="f3" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="14" style="0"/>
+                  <Font name="Montserrat" size="16" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -169,7 +169,7 @@
             <Component class="javax.swing.JLabel" name="lblNombre">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="18" style="0"/>
+                  <Font name="Montserrat" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -185,7 +185,7 @@
             <Component class="javax.swing.JLabel" name="lblMarca">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="18" style="0"/>
+                  <Font name="Montserrat" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -201,7 +201,7 @@
             <Component class="javax.swing.JLabel" name="lblPrecioUni">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="18" style="0"/>
+                  <Font name="Montserrat" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -217,7 +217,7 @@
             <Component class="javax.swing.JLabel" name="lblCantidad">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="18" style="0"/>
+                  <Font name="Montserrat" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -233,7 +233,7 @@
             <Component class="javax.swing.JLabel" name="lblProveedor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="18" style="0"/>
+                  <Font name="Montserrat" size="20" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -258,16 +258,8 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Proveedor 1"/>
-                    <StringItem index="1" value="Proveedor 2"/>
-                    <StringItem index="2" value="Proveedor 3"/>
-                    <StringItem index="3" value="Proveedor 4"/>
-                    <StringItem index="4" value="Proveedor 5"/>
-                    <StringItem index="5" value="Proveedor 6"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
-                <Property name="selectedIndex" type="int" value="-1"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -323,7 +315,7 @@
                   <Color blue="f5" green="f2" red="f3" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Montserrat" size="14" style="0"/>
+                  <Font name="Montserrat" size="16" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
