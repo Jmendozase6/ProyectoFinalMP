@@ -22,16 +22,20 @@ import modelos.Usuario;
  */
 public class SqlInicioSesion {
 
-    ConexionSQL cc = new ConexionSQL();
-    Connection con = cc.getConnection();
+    private final ConexionSQL cc = new ConexionSQL();
+    private final Connection con;
     Usuario us = Usuario.getInstance();
     ResultSet rs;
     Statement st;
 
+    public SqlInicioSesion() {
+        this.con = cc.getConnection();
+    }
+
     public void validarUsuario(String usuario, String pass, JFrame rootPane) {
 
         int resultado;
-        String SQL = "select * from usuarios where Usuario='" + usuario + "' and Contrasena='" + pass + "'";
+        String SQL = "SELECT * FROM usuarios WHERE Usuario='" + usuario + "' AND Contrasena='" + pass + "'";
 
         try {
 
@@ -43,22 +47,22 @@ public class SqlInicioSesion {
                 resultado = 1;
 
                 if (resultado == 1) {
+                    us.setIdUsuario(rs.getInt("Id"));
                     us.setUsuario(usuario);
                     us.setContrasena(pass);
-                    us.setIdUsuario(rs.getInt("Id"));
-                    
+
                     FrmDashboard f = new FrmDashboard();
                     f.setVisible(true);
                     rootPane.dispose();
                 }
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Error de acceso: Usuario no registrado.");
+                JOptionPane.showMessageDialog(null, "Error de acceso: Usuario no registrado.");
             }
 
         } catch (HeadlessException | SQLException e) {
 
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
 
     }

@@ -25,7 +25,7 @@ import sql.productos.SqlDashboard;
 public class FrmDashboard extends javax.swing.JFrame {
 
     MenuOpciones mc = new MenuOpciones();
-    Usuario uss = Usuario.getInstance();
+    Usuario us = Usuario.getInstance();
     SqlDashboard sqlD = new SqlDashboard();
     //La clase que contiene las consultas sql correspondientes
     SqlAgregarProducto sqlAG = new SqlAgregarProducto();
@@ -189,6 +189,7 @@ public class FrmDashboard extends javax.swing.JFrame {
             }
         };
         jtblProductos.setBackground(new java.awt.Color(255, 255, 255));
+        jtblProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtblProductos.setFont(new java.awt.Font("Montserrat", 0, 15)); // NOI18N
         jtblProductos.setForeground(new java.awt.Color(0, 0, 0));
         jtblProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -219,7 +220,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtblProductos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 1040, 400));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 1040, 420));
 
         jtxtBuscar.setBackground(new java.awt.Color(243, 242, 245));
         jtxtBuscar.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
@@ -236,14 +237,14 @@ public class FrmDashboard extends javax.swing.JFrame {
                 jtxtBuscarKeyReleased(evt);
             }
         });
-        jPanel1.add(jtxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 750, 31));
+        jPanel1.add(jtxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 18, 750, 31));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBarraBuscar.png"))); // NOI18N
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 18, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLupa.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 40, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 18, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -307,8 +308,9 @@ public class FrmDashboard extends javax.swing.JFrame {
         jcbxProveedor.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 560, 250, 40));
 
-        jPanel3.setBackground(new java.awt.Color(26, 28, 32));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Montserrat", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.gray, java.awt.Color.gray), "Datos del producto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Montserrat", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbtnAgregar.setBackground(new java.awt.Color(26, 28, 32));
@@ -326,7 +328,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         });
         jPanel3.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 190, 40));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 488, 1040, 228));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 486, 1040, 230));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -365,6 +367,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
         jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
         if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+            us.setNombre("");
             FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
             frmInicioSesion.setVisible(true);
             this.dispose();

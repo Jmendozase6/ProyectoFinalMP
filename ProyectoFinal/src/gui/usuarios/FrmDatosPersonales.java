@@ -27,6 +27,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     public FrmDatosPersonales() {
         initComponents();
         sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
+        us.setNombre(jtxtNombre.getText());
+        System.out.println("ID "+ us.getIdUsuario());
+        System.out.println("NOMBRE "+ us.getNombre());
+        System.out.println("USUARIO " + us.getUsuario());
+        System.out.println("PASS " + us.getContrasena());
     }
 
     @SuppressWarnings("unchecked")
@@ -330,6 +335,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
         jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
         if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+            us.setNombre("");
             FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
             frmInicioSesion.setVisible(true);
             this.dispose();

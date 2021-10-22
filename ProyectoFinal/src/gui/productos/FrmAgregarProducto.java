@@ -11,6 +11,7 @@ import gui.usuarios.FrmInicioSesion;
 import java.awt.Color;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import modelos.Usuario;
 import opciones.MenuOpciones;
 import sql.productos.SqlAgregarProducto;
 
@@ -26,7 +27,8 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     SqlAgregarProducto sqlAG = new SqlAgregarProducto();
     //Agregar la fecha
     Date date = new Date();
-
+    //Usuario 
+    Usuario us = Usuario.getInstance();
     public FrmAgregarProducto() {
         initComponents();
         mostrarProveedores();
@@ -354,6 +356,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
         jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
         if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+            us.setNombre("");
             FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
             frmInicioSesion.setVisible(true);
             this.dispose();

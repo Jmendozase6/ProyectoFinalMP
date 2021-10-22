@@ -23,12 +23,16 @@ import modelos.Usuario;
  */
 public class SqlDatosPersonales {
 
-    ConexionSQL cc = new ConexionSQL();
-    Connection con = cc.getConnection();
+    private final ConexionSQL cc = new ConexionSQL();
+    private final Connection con;
     Usuario us = Usuario.getInstance();
     ResultSet rs;
     PreparedStatement pst;
     Statement st;
+
+    public SqlDatosPersonales() {
+        this.con = cc.getConnection();
+    }
 
     public void actualizarUsuario(String nombre, String usuario, String contrasena) {
 
@@ -38,7 +42,7 @@ public class SqlDatosPersonales {
             us.setNombre(nombre);
             us.setUsuario(usuario);
             us.setContrasena(contrasena);
-            
+
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
             pst.setString(1, us.getNombre());
@@ -71,7 +75,6 @@ public class SqlDatosPersonales {
             rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-
                 jtxtNombre.setText(rs.getString("Nombre"));
                 jtxtUsuario.setText(rs.getString("Usuario"));
                 jtxtContrasena.setText(rs.getString("Contrasena"));

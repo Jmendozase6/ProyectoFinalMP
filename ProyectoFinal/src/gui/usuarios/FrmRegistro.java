@@ -334,7 +334,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     private void jbtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarseActionPerformed
         if (validarCamposVacios()) {
-            sqlR.agregarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()), this);
+            sqlR.agregarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()), this, jlblError);
             limpiarCampos();
         } else {
             jlblError.setForeground(Color.decode("#E83232"));

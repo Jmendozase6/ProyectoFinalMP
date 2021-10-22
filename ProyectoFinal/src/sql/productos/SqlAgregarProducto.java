@@ -23,11 +23,15 @@ import java.sql.ResultSet;
  */
 public class SqlAgregarProducto {
 
-    ConexionSQL cc = new ConexionSQL();
-    Connection con = cc.getConnection();
+    private final ConexionSQL cc = new ConexionSQL();
+    private final Connection con;
     PreparedStatement pst;
     ResultSet rs;
     String SQL;
+
+    public SqlAgregarProducto() {
+        this.con = cc.getConnection();
+    }
 
     public boolean agregarProducto(Date date, JTextField jtxtNombre, JTextField jtxtMarca, JTextField jtxtPrecioUni, JTextField jtxtCantidad, JComboBox jcbxProveedor, JFrame rootPane) {
 

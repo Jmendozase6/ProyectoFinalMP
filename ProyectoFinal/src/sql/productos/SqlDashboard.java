@@ -24,12 +24,16 @@ import modelos.Usuario;
  */
 public class SqlDashboard {
 
-    ConexionSQL cc = new ConexionSQL();
-    Connection con = cc.getConnection();
+    private final ConexionSQL cc = new ConexionSQL();
+    private final Connection con;
     PreparedStatement pst;
     Statement st;
     ResultSet rs;
     Usuario us = Usuario.getInstance();
+
+    public SqlDashboard() {
+        this.con = cc.getConnection();
+    }
 
     public void buscarDatos(String valor, JTable jtblProductos, JFrame rootPane) {
 
