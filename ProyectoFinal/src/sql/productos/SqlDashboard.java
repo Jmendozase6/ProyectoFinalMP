@@ -37,7 +37,7 @@ public class SqlDashboard {
 
     public void buscarDatos(String valor, JTable jtblProductos, JFrame rootPane) {
 
-        String[] titulos = {"Id", "Nombre", "Marca", "Precio Unitario", "Cantidad", "Proveedor", "Fecha entrada"};
+        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio Unitario", "Cantidad", "Proveedor"};
         Object[] registros = new Object[7];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
 
@@ -50,13 +50,13 @@ public class SqlDashboard {
 
             while (rs.next()) {
 
-                registros[0] = rs.getInt("Id");
+                registros[0] = rs.getString("Id");
                 registros[1] = rs.getString("Nombre");
-                registros[2] = rs.getString("Marca");
-                registros[3] = rs.getDouble("Precio_unitario");
-                registros[4] = rs.getString("Cantidad");
-                registros[5] = rs.getString("Proveedor");
-                registros[6] = rs.getDate("Fecha_entrada");
+                registros[2] = rs.getString("Categoria");
+                registros[3] = rs.getString("Marca");
+                registros[4] = rs.getString("Precio_unitario");
+                registros[5] = rs.getString("Cantidad");
+                registros[6] = rs.getString("Proveedor");
 
                 modelo.addRow(registros);
             }
@@ -70,9 +70,9 @@ public class SqlDashboard {
         }
     }
 
-    public void mostrarDatos(JTable jtblProductos, JFrame rootPane) {
+    public void mostrarDatos(JTable jtblProductos) {
 
-        String[] titulos = {"Id", "Nombre", "Marca", "Precio Unitario", "Cantidad", "Proveedor", "Fecha entrada"};
+        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio Unitario", "Cantidad", "Proveedor"};
 
         Object[] registros = new Object[7];
 
@@ -87,12 +87,11 @@ public class SqlDashboard {
 
                 registros[0] = rs.getString("Id");
                 registros[1] = rs.getString("Nombre");
-                registros[2] = rs.getString("Marca");
-                registros[3] = rs.getString("Precio_unitario");
-                registros[4] = rs.getString("Cantidad");
-                registros[5] = rs.getString("Proveedor");
-                registros[6] = rs.getString("Fecha_entrada");
-//                registros[7] = //AÑADIR AQUI EL CHECKBOX
+                registros[2] = rs.getString("Categoria");
+                registros[3] = rs.getString("Marca");
+                registros[4] = rs.getString("Precio_unitario");
+                registros[5] = rs.getString("Cantidad");
+                registros[6] = rs.getString("Proveedor");
 
                 modelo.addRow(registros);
             }
@@ -101,24 +100,25 @@ public class SqlDashboard {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(rootPane, "Error al mostrar los datos" + e.getMessage(), "Error", 0);
+            JOptionPane.showMessageDialog(null, "Error al mostrar los datos" + e.getMessage(), "Error", 0);
         }
     }
 
-    public void actualizarDatosProducto(String nombre, String marca, double precioUnitario, double cantidad, String proveedor, int idProducto) {
+    public void actualizarDatosProducto(String nombre, String categoria, String marca, double precioUnitario, double cantidad, String proveedor, int idProducto) {
 
-        String SQL = "UPDATE productos SET Nombre=?, Marca=?, Precio_unitario=?, Cantidad=?, Proveedor=? WHERE id=?";
+        String SQL = "UPDATE productos SET Nombre=?, Categoria=?, Marca=? , Precio_unitario=?, Cantidad=?, Proveedor=? WHERE id=?";
 
         try {
 
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
             pst.setString(1, nombre);
+            pst.setString(3, categoria);
             pst.setString(2, marca);
-            pst.setDouble(3, precioUnitario);
-            pst.setDouble(4, cantidad);
-            pst.setString(5, proveedor);
-            pst.setInt(6, idProducto);
+            pst.setDouble(4, precioUnitario);
+            pst.setDouble(5, cantidad);
+            pst.setString(6, proveedor);
+            pst.setInt(7, idProducto);
 
             int n = pst.executeUpdate();
 
@@ -131,6 +131,21 @@ public class SqlDashboard {
         } catch (HeadlessException | SQLException e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "No se actualizaron los datos", "Error", 0);
+
+        }
+    }
+
+    public void eliminarProducto(int idProducto) {
+        String SQL = "DELETE FROM productos WHERE Id=" + idProducto;
+
+        try {
+
+            st = (Statement) con.createStatement();
+            st.executeUpdate(SQL);
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, "Error al eliminar el elemento: " + e.getMessage(), "Error", 0);
 
         }
     }

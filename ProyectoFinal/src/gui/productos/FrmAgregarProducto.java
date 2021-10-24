@@ -29,9 +29,11 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     Date date = new Date();
     //Usuario 
     Usuario us = Usuario.getInstance();
+
     public FrmAgregarProducto() {
         initComponents();
         mostrarProveedores();
+        jcbxProveedor.setSelectedIndex(-1);
     }
 
     @SuppressWarnings("unchecked")
@@ -59,6 +61,8 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jbtnAgregar = new javax.swing.JButton();
+        lblMarca1 = new javax.swing.JLabel();
+        jtxtCategoria = new javax.swing.JTextField();
         jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -117,13 +121,23 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jtxtPrecioUni.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         jtxtPrecioUni.setForeground(new java.awt.Color(0, 0, 0));
         jtxtPrecioUni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jtxtPrecioUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 250, 40));
+        jtxtPrecioUni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtPrecioUniKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jtxtPrecioUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 250, 40));
 
         jtxtCantidad.setBackground(new java.awt.Color(243, 242, 245));
         jtxtCantidad.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         jtxtCantidad.setForeground(new java.awt.Color(0, 0, 0));
         jtxtCantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 250, 40));
+        jtxtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtCantidadKeyTyped(evt);
+            }
+        });
+        jPanel2.add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 250, 40));
 
         lblNombre.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(0, 0, 0));
@@ -133,28 +147,28 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         lblMarca.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         lblMarca.setForeground(new java.awt.Color(0, 0, 0));
         lblMarca.setText("Marca");
-        jPanel2.add(lblMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        jPanel2.add(lblMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
 
         lblPrecioUni.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         lblPrecioUni.setForeground(new java.awt.Color(0, 0, 0));
         lblPrecioUni.setText("Precio unitario");
-        jPanel2.add(lblPrecioUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
+        jPanel2.add(lblPrecioUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
 
         lblCantidad.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(0, 0, 0));
         lblCantidad.setText("Cantidad");
-        jPanel2.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
+        jPanel2.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, -1, -1));
 
         lblProveedor.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         lblProveedor.setForeground(new java.awt.Color(0, 0, 0));
         lblProveedor.setText("Proveedor");
-        jPanel2.add(lblProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, -1, -1));
+        jPanel2.add(lblProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, -1, -1));
 
         jcbxProveedor.setBackground(new java.awt.Color(204, 204, 204));
         jcbxProveedor.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jcbxProveedor.setForeground(new java.awt.Color(0, 0, 0));
         jcbxProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 440, 260, 40));
+        jPanel2.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 250, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/Borde1.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, -1, -1));
@@ -169,7 +183,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jtxtMarca.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         jtxtMarca.setForeground(new java.awt.Color(0, 0, 0));
         jtxtMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jtxtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 250, 40));
+        jPanel2.add(jtxtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 250, 40));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/Borde1.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -193,7 +207,18 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
                 jbtnAgregarActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, 190, 40));
+        jPanel2.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, 190, 40));
+
+        lblMarca1.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
+        lblMarca1.setForeground(new java.awt.Color(0, 0, 0));
+        lblMarca1.setText("Categoría");
+        jPanel2.add(lblMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jtxtCategoria.setBackground(new java.awt.Color(243, 242, 245));
+        jtxtCategoria.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
+        jtxtCategoria.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtxtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 250, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 90, 1060, 630));
 
@@ -327,7 +352,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
         if (validarCamposVacios()) {
 
-            if (sqlAG.agregarProducto(date, jtxtNombre, jtxtMarca, jtxtPrecioUni, jtxtCantidad, jcbxProveedor, this)) {
+            if (sqlAG.agregarProducto(date, jtxtNombre, jtxtCategoria, jtxtMarca, jtxtPrecioUni, jtxtCantidad, jcbxProveedor, this)) {
                 limpiarCampos();
             }
 
@@ -364,9 +389,18 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jbtnCerrarSesion.setForeground(Color.white);
     }//GEN-LAST:event_jbtnCerrarSesionMouseClicked
 
+    private void jtxtPrecioUniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPrecioUniKeyTyped
+        mc.soloDigitos(evt);
+    }//GEN-LAST:event_jtxtPrecioUniKeyTyped
+
+    private void jtxtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtCantidadKeyTyped
+        mc.soloDigitos(evt);
+    }//GEN-LAST:event_jtxtCantidadKeyTyped
+
     // Limpia los textfield
     private void limpiarCampos() {
         jtxtNombre.setText("");
+        jtxtCategoria.setText("");
         jtxtMarca.setText("");
         jtxtPrecioUni.setText("");
         jtxtCantidad.setText("");
@@ -422,11 +456,13 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jbtnPantallaPrincipal;
     private javax.swing.JComboBox<String> jcbxProveedor;
     private javax.swing.JTextField jtxtCantidad;
+    private javax.swing.JTextField jtxtCategoria;
     private javax.swing.JTextField jtxtMarca;
     private javax.swing.JTextField jtxtNombre;
     private javax.swing.JTextField jtxtPrecioUni;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblMarca1;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecioUni;
     private javax.swing.JLabel lblProveedor;

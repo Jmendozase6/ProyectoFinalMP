@@ -32,7 +32,7 @@ public class FrmDashboard extends javax.swing.JFrame {
 
     public FrmDashboard() {
         initComponents();
-        sqlD.mostrarDatos(jtblProductos, null);
+        sqlD.mostrarDatos(jtblProductos);
         editarTabla();
         mostrarProveedores();
     }
@@ -60,19 +60,22 @@ public class FrmDashboard extends javax.swing.JFrame {
         jtxtBuscar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jcbxProveedor = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jtxtCantidad = new javax.swing.JTextField();
+        jtxtPrecioUnitario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jtxtMarca = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jtxtCategoria = new javax.swing.JTextField();
         jtxtNombre = new javax.swing.JTextField();
         jtxtIdProducto = new javax.swing.JTextField();
-        jtxtPrecioUnitario = new javax.swing.JTextField();
-        jtxtMarca = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jtxtCantidad = new javax.swing.JTextField();
-        jcbxProveedor = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
+        jbtnEliminar = new javax.swing.JButton();
         jbtnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -231,6 +234,9 @@ public class FrmDashboard extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtxtBuscarFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtxtBuscarFocusLost(evt);
+            }
         });
         jtxtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -246,79 +252,117 @@ public class FrmDashboard extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLupa.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 18, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, -1, 40));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(81, 104, 244), new java.awt.Color(81, 104, 244)));
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Id Producto");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, -1, 40));
-
-        jLabel6.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Marca");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 610, -1, 40));
-
-        jLabel7.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Precio unitario");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 660, -1, 40));
-
-        jtxtNombre.setBackground(new java.awt.Color(153, 255, 255));
-        jtxtNombre.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jtxtNombre.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 560, 250, 40));
-
-        jtxtIdProducto.setBackground(new java.awt.Color(153, 255, 255));
-        jtxtIdProducto.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jtxtIdProducto.setForeground(new java.awt.Color(0, 0, 0));
-        jtxtIdProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jtxtIdProducto.setFocusable(false);
-        jPanel1.add(jtxtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 250, 40));
-
-        jtxtPrecioUnitario.setBackground(new java.awt.Color(153, 255, 255));
-        jtxtPrecioUnitario.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jtxtPrecioUnitario.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jtxtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 660, 250, 40));
-
-        jtxtMarca.setBackground(new java.awt.Color(153, 255, 255));
-        jtxtMarca.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jtxtMarca.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jtxtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, 250, 40));
-
-        jLabel8.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Cantidad");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 510, -1, 40));
+        jcbxProveedor.setBackground(new java.awt.Color(153, 255, 255));
+        jcbxProveedor.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
+        jcbxProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        jcbxProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 250, 40));
 
         jLabel9.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Proveedor");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 560, -1, 40));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, -1, 40));
+
+        jLabel8.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Cantidad");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, 40));
 
         jtxtCantidad.setBackground(new java.awt.Color(153, 255, 255));
-        jtxtCantidad.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
+        jtxtCantidad.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
         jtxtCantidad.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 510, 250, 40));
+        jtxtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtCantidadKeyTyped(evt);
+            }
+        });
+        jPanel3.add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 250, 40));
 
-        jcbxProveedor.setBackground(new java.awt.Color(153, 255, 255));
-        jcbxProveedor.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jcbxProveedor.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 560, 250, 40));
+        jtxtPrecioUnitario.setBackground(new java.awt.Color(153, 255, 255));
+        jtxtPrecioUnitario.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
+        jtxtPrecioUnitario.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtPrecioUnitario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtPrecioUnitarioKeyTyped(evt);
+            }
+        });
+        jPanel3.add(jtxtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, 250, 40));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.gray, java.awt.Color.gray), "Datos del producto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Montserrat", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel3.setOpaque(false);
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel7.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Precio unitario");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, -1, 40));
 
-        jbtnAgregar.setBackground(new java.awt.Color(26, 28, 32));
+        jtxtMarca.setBackground(new java.awt.Color(153, 255, 255));
+        jtxtMarca.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
+        jtxtMarca.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jtxtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 250, 40));
+
+        jLabel10.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Marca");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 40));
+
+        jLabel5.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Id Producto");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, 40));
+
+        jLabel1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Nombre");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 40));
+
+        jLabel6.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Categoría");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 40));
+
+        jtxtCategoria.setBackground(new java.awt.Color(153, 255, 255));
+        jtxtCategoria.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
+        jtxtCategoria.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jtxtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 250, 40));
+
+        jtxtNombre.setBackground(new java.awt.Color(153, 255, 255));
+        jtxtNombre.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
+        jtxtNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 250, 40));
+
+        jtxtIdProducto.setBackground(new java.awt.Color(153, 255, 255));
+        jtxtIdProducto.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
+        jtxtIdProducto.setForeground(new java.awt.Color(0, 0, 0));
+        jtxtIdProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtxtIdProducto.setFocusable(false);
+        jPanel3.add(jtxtIdProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 250, 40));
+
+        jbtnEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnEliminar.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
+        jbtnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/btnEliminar.png"))); // NOI18N
+        jbtnEliminar.setText("Eliminar");
+        jbtnEliminar.setBorder(null);
+        jbtnEliminar.setContentAreaFilled(false);
+        jbtnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jbtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 175, 190, 40));
+
+        jbtnAgregar.setBackground(new java.awt.Color(255, 255, 255));
         jbtnAgregar.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jbtnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/btnAgregar.png"))); // NOI18N
         jbtnAgregar.setText("Actualizar");
         jbtnAgregar.setBorder(null);
+        jbtnAgregar.setContentAreaFilled(false);
         jbtnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbtnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -326,7 +370,7 @@ public class FrmDashboard extends javax.swing.JFrame {
                 jbtnAgregarActionPerformed(evt);
             }
         });
-        jPanel3.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 190, 40));
+        jPanel3.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 175, 190, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 486, 1040, 230));
 
@@ -377,30 +421,64 @@ public class FrmDashboard extends javax.swing.JFrame {
 
     private void jtxtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarKeyReleased
         sqlD.buscarDatos(jtxtBuscar.getText(), jtblProductos, this);
+        editarTabla();
     }//GEN-LAST:event_jtxtBuscarKeyReleased
 
     private void jtxtBuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxtBuscarFocusGained
         jtxtBuscar.setText("");
     }//GEN-LAST:event_jtxtBuscarFocusGained
 
+    private void jtblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblProductosMouseClicked
+        mostrarDatosProductos();
+        jtxtNombre.requestFocus();
+    }//GEN-LAST:event_jtblProductosMouseClicked
+
+    private void jtblProductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtblProductosKeyReleased
+        mostrarDatosProductos();
+    }//GEN-LAST:event_jtblProductosKeyReleased
+
+    private void jtxtPrecioUnitarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPrecioUnitarioKeyTyped
+        mc.soloDigitos(evt);
+    }//GEN-LAST:event_jtxtPrecioUnitarioKeyTyped
+
+    private void jtxtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtCantidadKeyTyped
+        mc.soloDigitos(evt);
+    }//GEN-LAST:event_jtxtCantidadKeyTyped
+
     private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
         if (validarCamposVacios()) {
-            sqlD.actualizarDatosProducto(jtxtNombre.getText(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUnitario.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString(), Integer.parseInt(jtxtIdProducto.getText()));
+            sqlD.actualizarDatosProducto(jtxtNombre.getText(), jtxtCategoria.getText(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUnitario.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString(), Integer.parseInt(jtxtIdProducto.getText()));
             limpiarTabla();
-            sqlD.mostrarDatos(jtblProductos, null);
+            sqlD.mostrarDatos(jtblProductos);
             editarTabla();
         } else {
             JOptionPane.showMessageDialog(rootPane, "Rellene todos los campos", "Campos vacíos", 2);
         }
     }//GEN-LAST:event_jbtnAgregarActionPerformed
 
-    private void jtblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblProductosMouseClicked
-        mostrarDatosProductos();
-    }//GEN-LAST:event_jtblProductosMouseClicked
+    private void jbtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarActionPerformed
 
-    private void jtblProductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtblProductosKeyReleased
-        mostrarDatosProductos();
-    }//GEN-LAST:event_jtblProductosKeyReleased
+        try {
+            int id = Integer.parseInt(jtxtIdProducto.getText());
+            if (id < 0) {
+
+            } else {
+                if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar?", "Comprobación", 0) == 0) {
+                    sqlD.eliminarProducto(id);
+                    limpiarTabla();
+                    editarTabla();
+                    sqlD.mostrarDatos(jtblProductos);
+                }
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "No seleccionó ninguna fila", "Error", 0);
+        }
+
+    }//GEN-LAST:event_jbtnEliminarActionPerformed
+
+    private void jtxtBuscarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxtBuscarFocusLost
+        jtxtBuscar.setText("Buscar...");
+    }//GEN-LAST:event_jtxtBuscarFocusLost
 
     private void editarTabla() {
         //Editar las propiedades(fuente,tamaño,color) de los titulos de la tabla
@@ -414,25 +492,26 @@ public class FrmDashboard extends javax.swing.JFrame {
         columnModel.getColumn(1).setPreferredWidth(170);
         columnModel.getColumn(2).setPreferredWidth(170);
         columnModel.getColumn(3).setPreferredWidth(140);
-        columnModel.getColumn(4).setPreferredWidth(100);
-        columnModel.getColumn(5).setPreferredWidth(170);
-        columnModel.getColumn(6).setPreferredWidth(150);
+        columnModel.getColumn(4).setPreferredWidth(170);
+        columnModel.getColumn(5).setPreferredWidth(80);
+        columnModel.getColumn(6).setPreferredWidth(170);
 
         jtblProductos.setColumnModel(columnModel);
     }
 
     private void mostrarProveedores() {
         sqlAG.mostrarProveedores(jcbxProveedor);
+        jcbxProveedor.setSelectedIndex(-1);
     }
 
     private boolean validarCamposVacios() {
-        if (jtxtIdProducto.getText().isEmpty()) {
+        if (jtxtNombre.getText().isEmpty()) {
             return false;
-        } else if (jtxtNombre.getText().isEmpty()) {
-            return false;
-        } else if (jtxtMarca.getText().isEmpty()) {
+        } else if (jtxtCategoria.getText().isEmpty()) {
             return false;
         } else if (jtxtMarca.getText().isEmpty()) {
+            return false;
+        } else if (jtxtPrecioUnitario.getText().isEmpty()) {
             return false;
         } else if (jtxtCantidad.getText().isEmpty()) {
             return false;
@@ -442,6 +521,16 @@ public class FrmDashboard extends javax.swing.JFrame {
         return true;
     }
 
+    private void limpiarCampos() {
+        jtxtCantidad.setText("");
+        jtxtCategoria.setText("");
+        jtxtIdProducto.setText("");
+        jtxtMarca.setText("");
+        jtxtNombre.setText("");
+        jtxtPrecioUnitario.setText("");
+        jcbxProveedor.setSelectedIndex(-1);
+    }
+
     private void mostrarDatosProductos() {
         int nFila = jtblProductos.getSelectedRow();
         if (nFila == -1) {
@@ -449,10 +538,11 @@ public class FrmDashboard extends javax.swing.JFrame {
         } else {
             jtxtIdProducto.setText(jtblProductos.getValueAt(nFila, 0).toString());
             jtxtNombre.setText(jtblProductos.getValueAt(nFila, 1).toString());
-            jtxtMarca.setText(jtblProductos.getValueAt(nFila, 2).toString());
-            jtxtPrecioUnitario.setText(jtblProductos.getValueAt(nFila, 3).toString());
-            jtxtCantidad.setText(jtblProductos.getValueAt(nFila, 4).toString());
-            jcbxProveedor.setSelectedItem(jtblProductos.getValueAt(nFila, 5).toString());
+            jtxtCategoria.setText(jtblProductos.getValueAt(nFila, 2).toString());
+            jtxtMarca.setText(jtblProductos.getValueAt(nFila, 3).toString());
+            jtxtPrecioUnitario.setText(jtblProductos.getValueAt(nFila, 4).toString());
+            jtxtCantidad.setText(jtblProductos.getValueAt(nFila, 5).toString());
+            jcbxProveedor.setSelectedItem(jtblProductos.getValueAt(nFila, 6).toString());
         }
     }
 
@@ -471,6 +561,7 @@ public class FrmDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -493,12 +584,14 @@ public class FrmDashboard extends javax.swing.JFrame {
     private javax.swing.JButton jbtnCerrar;
     private javax.swing.JLabel jbtnCerrarSesion;
     private javax.swing.JLabel jbtnDatosPersonales;
+    private javax.swing.JButton jbtnEliminar;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JLabel jbtnPantallaPrincipal;
     private javax.swing.JComboBox<String> jcbxProveedor;
     private javax.swing.JTable jtblProductos;
     private javax.swing.JTextField jtxtBuscar;
     private javax.swing.JTextField jtxtCantidad;
+    private javax.swing.JTextField jtxtCategoria;
     private javax.swing.JTextField jtxtIdProducto;
     private javax.swing.JTextField jtxtMarca;
     private javax.swing.JTextField jtxtNombre;

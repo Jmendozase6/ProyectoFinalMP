@@ -33,14 +33,15 @@ public class SqlAgregarProducto {
         this.con = cc.getConnection();
     }
 
-    public boolean agregarProducto(Date date, JTextField jtxtNombre, JTextField jtxtMarca, JTextField jtxtPrecioUni, JTextField jtxtCantidad, JComboBox jcbxProveedor, JFrame rootPane) {
+    public boolean agregarProducto(Date date, JTextField jtxtNombre, JTextField jtxtCategoria, JTextField jtxtMarca, JTextField jtxtPrecioUni, JTextField jtxtCantidad, JComboBox jcbxProveedor, JFrame rootPane) {
 
-        String nombre, marca, proveedor, cantidad;
+        String nombre, categoria, marca, proveedor, cantidad;
         double precioUnitario;
-        SQL = "INSERT INTO productos (Nombre,Marca,Precio_unitario,Cantidad,Proveedor,Fecha_entrada) values(?,?,?,?,?,?)";
+        SQL = "INSERT INTO productos (Nombre,Categoria,Marca,Precio_unitario,Cantidad,Proveedor,Fecha_entrada) values(?,?,?,?,?,?,?)";
 
         nombre = jtxtNombre.getText();
         marca = jtxtMarca.getText();
+        categoria = jtxtCategoria.getText();
         precioUnitario = Double.parseDouble(jtxtPrecioUni.getText());
         cantidad = jtxtCantidad.getText();
         proveedor = jcbxProveedor.getSelectedItem().toString();
@@ -51,11 +52,12 @@ public class SqlAgregarProducto {
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
             pst.setString(1, nombre);
-            pst.setString(2, marca);
-            pst.setDouble(3, precioUnitario);
-            pst.setString(4, cantidad);
-            pst.setString(5, proveedor);
-            pst.setDate(6, date2);
+            pst.setString(2, categoria);
+            pst.setString(3, marca);
+            pst.setDouble(4, precioUnitario);
+            pst.setString(5, cantidad);
+            pst.setString(6, proveedor);
+            pst.setDate(7, date2);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(rootPane, "Registro de producto exitoso");
             return true;

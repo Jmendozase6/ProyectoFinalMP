@@ -161,7 +161,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Si desea crear una cuenta, presione");
+        jLabel4.setText("Si aún no tiene una cuenta puede");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 488, -1));
 
@@ -175,7 +175,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("el botón \"Registrarse\"");
+        jLabel6.setText("registrarse ahora");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 480, -1));
 
@@ -193,7 +193,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
                 jbtnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel3.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 250, 40));
+        jPanel3.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 250, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 500, 590));
 

@@ -309,7 +309,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Si desea crear una cuenta, presione"/>
+                <Property name="text" type="java.lang.String" value="Si a&#xfa;n no tiene una cuenta puede"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
               <Constraints>
@@ -345,7 +345,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="el bot&#xf3;n &quot;Registrarse&quot;"/>
+                <Property name="text" type="java.lang.String" value="registrarse ahora"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
               <Constraints>
@@ -390,7 +390,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="120" y="300" width="250" height="40"/>
+                  <AbsoluteConstraints x="120" y="290" width="250" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>

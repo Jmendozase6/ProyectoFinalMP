@@ -6,6 +6,7 @@
 package opciones;
 
 import java.awt.Frame;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JToggleButton;
@@ -51,4 +52,12 @@ public class MenuOpciones {
             jtxtContrasena.setEchoChar('*');
         }
     }
+
+    public void soloDigitos(KeyEvent evt) {
+        char car = evt.getKeyChar();
+        if ((car < '0' || car > '9') && (car < ',' || car > '.')) {
+            evt.consume();
+        }
+    }
+
 }

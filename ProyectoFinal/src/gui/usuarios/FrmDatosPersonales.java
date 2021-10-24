@@ -28,10 +28,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         initComponents();
         sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
         us.setNombre(jtxtNombre.getText());
-        System.out.println("ID "+ us.getIdUsuario());
-        System.out.println("NOMBRE "+ us.getNombre());
-        System.out.println("USUARIO " + us.getUsuario());
-        System.out.println("PASS " + us.getContrasena());
     }
 
     @SuppressWarnings("unchecked")
