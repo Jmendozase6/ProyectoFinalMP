@@ -6,10 +6,13 @@
 package gui.productos;
 
 import FiveCodMover.FiveCodMoverJFrame;
+import generadorqr.CodigoQr;
 import gui.usuarios.FrmDatosPersonales;
 import gui.usuarios.FrmInicioSesion;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -52,7 +55,9 @@ public class FrmDashboard extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jbtnAgregarProd = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
-        jbtnCerrarSesion = new javax.swing.JLabel();
+        jbtnGenerarQr = new javax.swing.JLabel();
+        jbtnCerrarSesion1 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
         jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -147,16 +152,30 @@ public class FrmDashboard extends javax.swing.JFrame {
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, 10));
 
-        jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnCerrarSesion.setText("Cerrar sesión");
-        jbtnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbtnGenerarQr.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnGenerarQr.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnGenerarQr.setText("Generar Qr");
+        jbtnGenerarQr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnGenerarQr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnCerrarSesionMouseClicked(evt);
+                jbtnGenerarQrMouseClicked(evt);
             }
         });
-        jPanel2.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        jPanel2.add(jbtnGenerarQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+
+        jbtnCerrarSesion1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnCerrarSesion1.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnCerrarSesion1.setText("Cerrar sesión");
+        jbtnCerrarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnCerrarSesion1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnCerrarSesion1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jbtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+
+        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 180, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 222, 662));
 
@@ -408,16 +427,10 @@ public class FrmDashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbtnAgregarProdMouseClicked
 
-    private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
-        jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
-            us.setNombre("");
-            FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
-            frmInicioSesion.setVisible(true);
-            this.dispose();
-        }
-        jbtnCerrarSesion.setForeground(Color.white);
-    }//GEN-LAST:event_jbtnCerrarSesionMouseClicked
+    private void jbtnGenerarQrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnGenerarQrMouseClicked
+        CodigoQr codigoQr = new CodigoQr();
+        codigoQr.generarQr();
+    }//GEN-LAST:event_jbtnGenerarQrMouseClicked
 
     private void jtxtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarKeyReleased
         sqlD.buscarDatos(jtxtBuscar.getText(), jtblProductos, this);
@@ -460,14 +473,15 @@ public class FrmDashboard extends javax.swing.JFrame {
 
         try {
             int id = Integer.parseInt(jtxtIdProducto.getText());
-            if (id < 0) {
+            if (id == -1) {
 
             } else {
                 if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar?", "Comprobación", 0) == 0) {
                     sqlD.eliminarProducto(id);
                     limpiarTabla();
-                    editarTabla();
                     sqlD.mostrarDatos(jtblProductos);
+                    editarTabla();
+                    limpiarCampos();
                 }
             }
         } catch (NumberFormatException e) {
@@ -479,6 +493,17 @@ public class FrmDashboard extends javax.swing.JFrame {
     private void jtxtBuscarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxtBuscarFocusLost
         jtxtBuscar.setText("Buscar...");
     }//GEN-LAST:event_jtxtBuscarFocusLost
+
+    private void jbtnCerrarSesion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesion1MouseClicked
+        jbtnGenerarQr.setForeground(new Color(102, 255, 255));
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+            us.setNombre("");
+            FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
+            frmInicioSesion.setVisible(true);
+            this.dispose();
+        }
+        jbtnGenerarQr.setForeground(Color.white);
+    }//GEN-LAST:event_jbtnCerrarSesion1MouseClicked
 
     private void editarTabla() {
         //Editar las propiedades(fuente,tamaño,color) de los titulos de la tabla
@@ -579,12 +604,14 @@ public class FrmDashboard extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JButton jbtnAgregar;
     private javax.swing.JLabel jbtnAgregarProd;
     private javax.swing.JButton jbtnCerrar;
-    private javax.swing.JLabel jbtnCerrarSesion;
+    private javax.swing.JLabel jbtnCerrarSesion1;
     private javax.swing.JLabel jbtnDatosPersonales;
     private javax.swing.JButton jbtnEliminar;
+    private javax.swing.JLabel jbtnGenerarQr;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JLabel jbtnPantallaPrincipal;
     private javax.swing.JComboBox<String> jcbxProveedor;

@@ -78,6 +78,7 @@ public class SqlDashboard {
 
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         String SQL = "SELECT * FROM productos";
+
         try {
 
             st = (Statement) con.createStatement();
@@ -113,8 +114,8 @@ public class SqlDashboard {
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
             pst.setString(1, nombre);
-            pst.setString(3, categoria);
-            pst.setString(2, marca);
+            pst.setString(2, categoria);
+            pst.setString(3, marca);
             pst.setDouble(4, precioUnitario);
             pst.setDouble(5, cantidad);
             pst.setString(6, proveedor);

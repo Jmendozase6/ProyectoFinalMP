@@ -6,6 +6,7 @@
 package gui.productos;
 
 import FiveCodMover.FiveCodMoverJFrame;
+import generadorqr.CodigoQr;
 import gui.usuarios.FrmDatosPersonales;
 import gui.usuarios.FrmInicioSesion;
 import java.awt.Color;
@@ -74,8 +75,10 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jbtnDatosPersonales1 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        jbtnCerrarSesion = new javax.swing.JLabel();
+        jbtnGenerarQr = new javax.swing.JLabel();
+        jbtnCerrarSesion1 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -139,27 +142,27 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         });
         jPanel2.add(jtxtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 250, 40));
 
-        lblNombre.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Montserrat Medium", 0, 20)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setText("Nombre");
         jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
 
-        lblMarca.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
+        lblMarca.setFont(new java.awt.Font("Montserrat Medium", 0, 20)); // NOI18N
         lblMarca.setForeground(new java.awt.Color(0, 0, 0));
         lblMarca.setText("Marca");
         jPanel2.add(lblMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
 
-        lblPrecioUni.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
+        lblPrecioUni.setFont(new java.awt.Font("Montserrat Medium", 0, 20)); // NOI18N
         lblPrecioUni.setForeground(new java.awt.Color(0, 0, 0));
         lblPrecioUni.setText("Precio unitario");
         jPanel2.add(lblPrecioUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
 
-        lblCantidad.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
+        lblCantidad.setFont(new java.awt.Font("Montserrat Medium", 0, 20)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(0, 0, 0));
         lblCantidad.setText("Cantidad");
         jPanel2.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, -1, -1));
 
-        lblProveedor.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
+        lblProveedor.setFont(new java.awt.Font("Montserrat Medium", 0, 20)); // NOI18N
         lblProveedor.setForeground(new java.awt.Color(0, 0, 0));
         lblProveedor.setText("Proveedor");
         jPanel2.add(lblProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, -1, -1));
@@ -209,7 +212,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         });
         jPanel2.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, 190, 40));
 
-        lblMarca1.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
+        lblMarca1.setFont(new java.awt.Font("Montserrat Medium", 0, 20)); // NOI18N
         lblMarca1.setForeground(new java.awt.Color(0, 0, 0));
         lblMarca1.setText("Categoría");
         jPanel2.add(lblMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
@@ -296,19 +299,33 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 180, 10));
 
-        jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnCerrarSesion.setText("Cerrar sesión");
-        jbtnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbtnGenerarQr.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnGenerarQr.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnGenerarQr.setText("Generar Qr");
+        jbtnGenerarQr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnGenerarQr.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnCerrarSesionMouseClicked(evt);
+                jbtnGenerarQrMouseClicked(evt);
             }
         });
-        jPanel5.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        jPanel5.add(jbtnGenerarQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+
+        jbtnCerrarSesion1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnCerrarSesion1.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnCerrarSesion1.setText("Cerrar sesión");
+        jbtnCerrarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnCerrarSesion1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnCerrarSesion1MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jbtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, 10));
+
+        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 180, 10));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 222, 662));
 
@@ -377,18 +394,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbtnDatosPersonalesMouseClicked
 
-    //Cerrar sesión y nos lleva a la ventana de inicio de sesión
-    private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
-        jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
-            us.setNombre("");
-            FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
-            frmInicioSesion.setVisible(true);
-            this.dispose();
-        }
-        jbtnCerrarSesion.setForeground(Color.white);
-    }//GEN-LAST:event_jbtnCerrarSesionMouseClicked
-
     private void jtxtPrecioUniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPrecioUniKeyTyped
         mc.soloDigitos(evt);
     }//GEN-LAST:event_jtxtPrecioUniKeyTyped
@@ -396,6 +401,22 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private void jtxtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtCantidadKeyTyped
         mc.soloDigitos(evt);
     }//GEN-LAST:event_jtxtCantidadKeyTyped
+
+    private void jbtnGenerarQrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnGenerarQrMouseClicked
+        CodigoQr codigoQr = new CodigoQr();
+        codigoQr.generarQr();
+    }//GEN-LAST:event_jbtnGenerarQrMouseClicked
+
+    private void jbtnCerrarSesion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesion1MouseClicked
+        jbtnGenerarQr.setForeground(new Color(102, 255, 255));
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+            us.setNombre("");
+            FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
+            frmInicioSesion.setVisible(true);
+            this.dispose();
+        }
+        jbtnGenerarQr.setForeground(Color.white);
+    }//GEN-LAST:event_jbtnCerrarSesion1MouseClicked
 
     // Limpia los textfield
     private void limpiarCampos() {
@@ -447,11 +468,13 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JButton jbtnAgregar;
     private javax.swing.JButton jbtnCerrar;
-    private javax.swing.JLabel jbtnCerrarSesion;
+    private javax.swing.JLabel jbtnCerrarSesion1;
     private javax.swing.JLabel jbtnDatosPersonales;
     private javax.swing.JLabel jbtnDatosPersonales1;
+    private javax.swing.JLabel jbtnGenerarQr;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JLabel jbtnPantallaPrincipal;
     private javax.swing.JComboBox<String> jcbxProveedor;
