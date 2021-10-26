@@ -12,7 +12,6 @@ import conexion.ConexionSQL;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -35,7 +34,7 @@ public class SqlDashboard {
         this.con = cc.getConnection();
     }
 
-    public void buscarDatos(String valor, JTable jtblProductos, JFrame rootPane) {
+    public void buscarDatos(String valor, JTable jtblProductos) {
 
         String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio Unitario", "Cantidad", "Proveedor"};
         Object[] registros = new Object[7];
@@ -65,7 +64,7 @@ public class SqlDashboard {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(rootPane, "Error al filtrar datos" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al filtrar datos" + e.getMessage());
 
         }
     }
@@ -130,13 +129,15 @@ public class SqlDashboard {
             }
 
         } catch (HeadlessException | SQLException e) {
+
             System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "No se actualizaron los datos", "Error", 0);
+            JOptionPane.showMessageDialog(null, "No se actualizaron los datos" + e.getMessage(), "Error", 0);
 
         }
     }
 
     public void eliminarProducto(int idProducto) {
+        
         String SQL = "DELETE FROM productos WHERE Id=" + idProducto;
 
         try {

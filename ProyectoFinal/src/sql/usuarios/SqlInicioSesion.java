@@ -47,6 +47,7 @@ public class SqlInicioSesion {
                 resultado = 1;
 
                 if (resultado == 1) {
+                    
                     us.setIdUsuario(rs.getInt("Id"));
                     us.setUsuario(usuario);
                     us.setContrasena(pass);

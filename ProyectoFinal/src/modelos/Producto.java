@@ -12,6 +12,7 @@ import java.util.Date;
  * @author Jhair
  */
 public class Producto {
+    
     private int idProducto;
     private String nombre;
     private String marca;

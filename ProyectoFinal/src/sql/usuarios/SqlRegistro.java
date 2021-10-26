@@ -7,11 +7,9 @@ package sql.usuarios;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
 import conexion.ConexionSQL;
 import java.awt.Color;
 import java.awt.HeadlessException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,7 +30,7 @@ public class SqlRegistro {
         this.con = cc.getConnection();
     }
 
-    public boolean agregarUsuario(String nombre, String user, String pass, JFrame rootPane, JLabel error) {
+    public boolean agregarUsuario(String nombre, String user, String pass, JLabel error) {
 
         SQL = "INSERT INTO usuarios (Nombre,Usuario,Contrasena) values(?,?,?)";
 
@@ -45,14 +43,13 @@ public class SqlRegistro {
             pst.setString(3, pass);
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(rootPane, "Registro exitoso");
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
             error.setForeground(new Color(34, 35, 40));
             return true;
         } catch (HeadlessException | SQLException e) {
 
-            JOptionPane.showMessageDialog(rootPane, "Error de registro" + e.getMessage(), "Error", 0);
+            JOptionPane.showMessageDialog(null, "Error de registro" + e.getMessage(), "Error", 0);
             return false;
-
         }
 
     }

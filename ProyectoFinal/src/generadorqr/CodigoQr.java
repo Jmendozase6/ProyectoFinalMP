@@ -9,7 +9,6 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
-import com.google.zxing.pdf417.PDF417Writer;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
@@ -51,7 +50,8 @@ public class CodigoQr {
             rs = st.executeQuery(SQL);
 
             while (rs.next()) {
-
+                
+                //Nombre - Marca - Precio c/u
                 bitMatrix = writer.encode(rs.getString("Nombre") + " - " + rs.getString("Marca") + " - " + rs.getDouble("Precio_unitario"), BarcodeFormat.QR_CODE, 200, 200);
                 MatrixToImageWriter.writeToStream(bitMatrix, "png", new FileOutputStream(new File("d://Generadas//Código QR - " + rs.getString("Nombre") + ".png")));
 

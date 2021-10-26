@@ -65,9 +65,9 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jbtnAgregarProd = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        jbtnCerrarSesion1 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jbtnGenerarQr = new javax.swing.JLabel();
+        jbtnCerrarSesion = new javax.swing.JLabel();
         jbtnGuardarCambios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -257,17 +257,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 180, 10));
 
-        jbtnCerrarSesion1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnCerrarSesion1.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnCerrarSesion1.setText("Cerrar sesión");
-        jbtnCerrarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnCerrarSesion1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnCerrarSesion1MouseClicked(evt);
-            }
-        });
-        jPanel5.add(jbtnCerrarSesion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
-
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, 10));
 
@@ -281,6 +270,17 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jbtnGenerarQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+
+        jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnCerrarSesion.setText("Cerrar sesión");
+        jbtnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnCerrarSesionMouseClicked(evt);
+            }
+        });
+        jPanel5.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 222, 662));
 
@@ -345,21 +345,23 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnGuardarCambiosActionPerformed
 
-    private void jbtnCerrarSesion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesion1MouseClicked
+    private void jbtnGenerarQrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnGenerarQrMouseClicked
         jbtnGenerarQr.setForeground(new Color(102, 255, 255));
+        CodigoQr codigoQr = new CodigoQr();
+        codigoQr.generarQr();
+        jbtnGenerarQr.setForeground(Color.white);
+    }//GEN-LAST:event_jbtnGenerarQrMouseClicked
+
+    private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
+        jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
         if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
             us.setNombre("");
             FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
             frmInicioSesion.setVisible(true);
             this.dispose();
         }
-        jbtnGenerarQr.setForeground(Color.white);
-    }//GEN-LAST:event_jbtnCerrarSesion1MouseClicked
-
-    private void jbtnGenerarQrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnGenerarQrMouseClicked
-        CodigoQr codigoQr = new CodigoQr();
-        codigoQr.generarQr();
-    }//GEN-LAST:event_jbtnGenerarQrMouseClicked
+        jbtnCerrarSesion.setForeground(Color.white);
+    }//GEN-LAST:event_jbtnCerrarSesionMouseClicked
 
     //Validar que los campos no estén vacíos
     private boolean verificarCampos() {
@@ -394,7 +396,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel jbtnAgregarProd;
     private javax.swing.JButton jbtnCerrar;
-    private javax.swing.JLabel jbtnCerrarSesion1;
+    private javax.swing.JLabel jbtnCerrarSesion;
     private javax.swing.JLabel jbtnDatosPersonales;
     private javax.swing.JLabel jbtnGenerarQr;
     private javax.swing.JButton jbtnGuardarCambios;

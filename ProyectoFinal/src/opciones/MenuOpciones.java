@@ -60,4 +60,10 @@ public class MenuOpciones {
         }
     }
 
+    public void soloLetras(KeyEvent evt) {
+        if (!(Character.isLetter(evt.getKeyChar()))) {
+            evt.consume();
+        }
+    }
+
 }
