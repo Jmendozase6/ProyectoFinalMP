@@ -262,11 +262,11 @@ public class FrmRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private boolean validarCamposVacios() {
-        if (jtxtNombre.getText().isEmpty() || jtxtNombre.getText().equals("   Ingrese su nombre")) {
+        if (jtxtNombre.getText().isBlank() || jtxtNombre.getText().equals("   Ingrese su nombre")) {
             return false;
-        } else if (jtxtUsuario.getText().isEmpty() || jtxtUsuario.getText().equals("   Ingrese su nombre de usuario")) {
+        } else if (jtxtUsuario.getText().isBlank() || jtxtUsuario.getText().equals("   Ingrese su nombre de usuario")) {
             return false;
-        } else if (String.valueOf(jtxtContrasena.getPassword()).isEmpty() || String.valueOf(jtxtContrasena.getPassword()).equals("********")) {
+        } else if (String.valueOf(jtxtContrasena.getPassword()).isBlank() || String.valueOf(jtxtContrasena.getPassword()).equals("********")) {
             return false;
         }
         return true;
@@ -284,11 +284,11 @@ public class FrmRegistro extends javax.swing.JFrame {
             jtxtNombre.setText("");
             jtxtNombre.setForeground(Color.WHITE);
         }
-        if (jtxtUsuario.getText().isEmpty()) {
+        if (jtxtUsuario.getText().isBlank()) {
             jtxtUsuario.setText("   Ingrese su nombre de usuario");
             jtxtUsuario.setForeground(Color.GRAY);
         }
-        if (String.valueOf(jtxtContrasena.getPassword()).isEmpty()) {
+        if (String.valueOf(jtxtContrasena.getPassword()).isBlank()) {
             jtxtContrasena.setText("********");
             jtxtContrasena.setForeground(Color.GRAY);
         }
@@ -299,11 +299,11 @@ public class FrmRegistro extends javax.swing.JFrame {
             jtxtUsuario.setText("");
             jtxtUsuario.setForeground(Color.WHITE);
         }
-        if (jtxtNombre.getText().isEmpty()) {
+        if (jtxtNombre.getText().isBlank()) {
             jtxtNombre.setText("   Ingrese su nombre");
             jtxtNombre.setForeground(Color.GRAY);
         }
-        if (String.valueOf(jtxtContrasena.getPassword()).isEmpty()) {
+        if (String.valueOf(jtxtContrasena.getPassword()).isBlank()) {
             jtxtContrasena.setText("********");
             jtxtContrasena.setForeground(Color.GRAY);
         }
@@ -314,11 +314,11 @@ public class FrmRegistro extends javax.swing.JFrame {
             jtxtContrasena.setText("");
             jtxtContrasena.setForeground(Color.WHITE);
         }
-        if (jtxtUsuario.getText().isEmpty()) {
+        if (jtxtUsuario.getText().isBlank()) {
             jtxtUsuario.setText("   Ingrese su nombre de usuario");
             jtxtUsuario.setForeground(Color.GRAY);
         }
-        if (jtxtNombre.getText().isEmpty()) {
+        if (jtxtNombre.getText().isBlank()) {
             jtxtNombre.setText("   Ingrese su nombre");
             jtxtNombre.setForeground(Color.GRAY);
         }
@@ -334,10 +334,14 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     private void jbtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarseActionPerformed
         if (validarCamposVacios()) {
+            
             sqlR.agregarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()), jlblError);
             limpiarCampos();
+
         } else {
+
             jlblError.setForeground(Color.decode("#E83232"));
+
         }
     }//GEN-LAST:event_jbtnRegistrarseActionPerformed
 

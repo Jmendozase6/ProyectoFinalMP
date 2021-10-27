@@ -36,11 +36,11 @@ public class SqlDashboard {
 
     public void buscarDatos(String valor, JTable jtblProductos) {
 
-        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio Unitario", "Cantidad", "Proveedor"};
-        Object[] registros = new Object[7];
+        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio c/u", "Cantidad", "Proveedor", "Fecha entrada"};
+        Object[] registros = new Object[8];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
 
-        String SQL = "SELECT * FROM productos WHERE Nombre like '%" + valor + "%' ";
+        String SQL = "SELECT * FROM productos WHERE Nombre like '%" + valor.trim() + "%' ";
 
         try {
 
@@ -56,6 +56,7 @@ public class SqlDashboard {
                 registros[4] = rs.getString("Precio_unitario");
                 registros[5] = rs.getString("Cantidad");
                 registros[6] = rs.getString("Proveedor");
+                registros[7] = rs.getDate("Fecha_entrada");
 
                 modelo.addRow(registros);
             }
@@ -71,9 +72,9 @@ public class SqlDashboard {
 
     public void mostrarDatos(JTable jtblProductos) {
 
-        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio Unitario", "Cantidad", "Proveedor"};
+        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio c/u", "Cantidad", "Proveedor", "Fecha entrada"};
 
-        Object[] registros = new Object[7];
+        Object[] registros = new Object[8];
 
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
         String SQL = "SELECT * FROM productos";
@@ -92,6 +93,7 @@ public class SqlDashboard {
                 registros[4] = rs.getString("Precio_unitario");
                 registros[5] = rs.getString("Cantidad");
                 registros[6] = rs.getString("Proveedor");
+                registros[7] = rs.getDate("Fecha_entrada");
 
                 modelo.addRow(registros);
             }
@@ -112,9 +114,9 @@ public class SqlDashboard {
 
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
-            pst.setString(1, nombre);
-            pst.setString(2, categoria);
-            pst.setString(3, marca);
+            pst.setString(1, nombre.trim());
+            pst.setString(2, categoria.trim());
+            pst.setString(3, marca.trim());
             pst.setDouble(4, precioUnitario);
             pst.setDouble(5, cantidad);
             pst.setString(6, proveedor);
@@ -137,7 +139,7 @@ public class SqlDashboard {
     }
 
     public void eliminarProducto(int idProducto) {
-        
+
         String SQL = "DELETE FROM productos WHERE Id=" + idProducto;
 
         try {

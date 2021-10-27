@@ -39,9 +39,9 @@ public class SqlDatosPersonales {
         String SQL = "UPDATE usuarios SET Nombre=?, Usuario=?, Contrasena=? WHERE id=?";
 
         try {
-            us.setNombre(nombre);
-            us.setUsuario(usuario);
-            us.setContrasena(contrasena);
+            us.setNombre(nombre.trim());
+            us.setUsuario(usuario.trim());
+            us.setContrasena(contrasena.trim());
 
             pst = (PreparedStatement) con.prepareStatement(SQL);
 

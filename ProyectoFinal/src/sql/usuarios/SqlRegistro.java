@@ -11,7 +11,6 @@ import conexion.ConexionSQL;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -38,14 +37,15 @@ public class SqlRegistro {
 
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
-            pst.setString(1, nombre);
-            pst.setString(2, user);
-            pst.setString(3, pass);
+            pst.setString(1, nombre.trim());
+            pst.setString(2, user.trim());
+            pst.setString(3, pass.trim());
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro exitoso");
             error.setForeground(new Color(34, 35, 40));
             return true;
+
         } catch (HeadlessException | SQLException e) {
 
             JOptionPane.showMessageDialog(null, "Error de registro" + e.getMessage(), "Error", 0);

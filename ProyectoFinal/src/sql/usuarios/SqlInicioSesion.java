@@ -35,7 +35,7 @@ public class SqlInicioSesion {
     public void validarUsuario(String usuario, String pass, JFrame rootPane) {
 
         int resultado;
-        String SQL = "SELECT * FROM usuarios WHERE Usuario='" + usuario + "' AND Contrasena='" + pass + "'";
+        String SQL = "SELECT * FROM usuarios WHERE Usuario='" + usuario.trim() + "' AND Contrasena='" + pass.trim() + "'";
 
         try {
 
@@ -47,10 +47,10 @@ public class SqlInicioSesion {
                 resultado = 1;
 
                 if (resultado == 1) {
-                    
+
                     us.setIdUsuario(rs.getInt("Id"));
-                    us.setUsuario(usuario);
-                    us.setContrasena(pass);
+                    us.setUsuario(usuario.trim());
+                    us.setContrasena(pass.trim());
 
                     FrmDashboard f = new FrmDashboard();
                     f.setVisible(true);

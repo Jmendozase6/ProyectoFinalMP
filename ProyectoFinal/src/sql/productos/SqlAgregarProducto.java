@@ -12,9 +12,7 @@ import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import java.sql.ResultSet;
 
 /**
@@ -33,38 +31,30 @@ public class SqlAgregarProducto {
         this.con = cc.getConnection();
     }
 
-    public boolean agregarProducto(Date date, JTextField jtxtNombre, JTextField jtxtCategoria, JTextField jtxtMarca, JTextField jtxtPrecioUni, JTextField jtxtCantidad, JComboBox jcbxProveedor, JFrame rootPane) {
+    public boolean agregarProducto(Date date, String nombre, String categoria, String marca, double precioUnitario, double cantidad, String proveedor) {
 
-        String nombre, categoria, marca, proveedor, cantidad;
-        double precioUnitario;
         SQL = "INSERT INTO productos (Nombre,Categoria,Marca,Precio_unitario,Cantidad,Proveedor,Fecha_entrada) values(?,?,?,?,?,?,?)";
 
-        nombre = jtxtNombre.getText();
-        marca = jtxtMarca.getText();
-        categoria = jtxtCategoria.getText();
-        precioUnitario = Double.parseDouble(jtxtPrecioUni.getText());
-        cantidad = jtxtCantidad.getText();
-        proveedor = jcbxProveedor.getSelectedItem().toString();
         java.sql.Date date2 = new java.sql.Date(date.getTime());
 
         try {
 
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
-            pst.setString(1, nombre);
-            pst.setString(2, categoria);
-            pst.setString(3, marca);
+            pst.setString(1, nombre.trim());
+            pst.setString(2, categoria.trim());
+            pst.setString(3, marca.trim());
             pst.setDouble(4, precioUnitario);
-            pst.setString(5, cantidad);
+            pst.setDouble(5, cantidad);
             pst.setString(6, proveedor);
             pst.setDate(7, date2);
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(rootPane, "Registro de producto exitoso");
+            JOptionPane.showMessageDialog(null, "Registro de producto exitoso");
             return true;
 
         } catch (HeadlessException | SQLException e) {
 
-            JOptionPane.showMessageDialog(rootPane, "Error de registro" + e.getMessage(), "Error", 0);
+            JOptionPane.showMessageDialog(null, "Error de registro" + e.getMessage(), "Error", 0);
 
         }
 

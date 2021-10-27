@@ -337,11 +337,15 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
     private void jbtnGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarCambiosActionPerformed
         if (verificarCampos()) {
+
             sqlDP.actualizarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()));
             sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
+
             jlblError.setForeground(Color.white);
         } else {
+
             jlblError.setForeground(Color.decode("#E83232"));
+
         }
     }//GEN-LAST:event_jbtnGuardarCambiosActionPerformed
 
@@ -365,11 +369,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
     //Validar que los campos no estén vacíos
     private boolean verificarCampos() {
-        if (jtxtNombre.getText().isEmpty()) {
+        if (jtxtNombre.getText().isBlank()) {
             return false;
-        } else if (jtxtUsuario.getText().isEmpty()) {
+        } else if (jtxtUsuario.getText().isBlank()) {
             return false;
-        } else if (jtxtContrasena.getPassword().length == 0) {
+        } else if (String.valueOf(jtxtContrasena.getPassword()).isBlank()) {
             return false;
         }
         return true;

@@ -239,9 +239,9 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public boolean validarCamposVacios() {
-        if (jtxtUsuario.getText().isEmpty() || jtxtUsuario.getText().equals("   Ingrese su nombre de usuario")) {
+        if (jtxtUsuario.getText().isBlank() || jtxtUsuario.getText().equals("   Ingrese su nombre de usuario")) {
             return false;
-        } else if (String.valueOf(jtxtContrasena.getPassword()).isEmpty() || String.valueOf(jtxtContrasena.getPassword()).equals("********")) {
+        } else if (String.valueOf(jtxtContrasena.getPassword()).isBlank() || String.valueOf(jtxtContrasena.getPassword()).equals("********")) {
             return false;
         }
         return true;
@@ -258,7 +258,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
             jtxtUsuario.setText("");
             jtxtUsuario.setForeground(Color.WHITE);
         }
-        if (String.valueOf(jtxtContrasena.getPassword()).isEmpty()) {
+        if (String.valueOf(jtxtContrasena.getPassword()).isBlank()) {
             jtxtContrasena.setText("********");
             jtxtContrasena.setForeground(Color.GRAY);
         }
@@ -269,7 +269,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
             jtxtContrasena.setText("");
             jtxtContrasena.setForeground(Color.WHITE);
         }
-        if (jtxtUsuario.getText().isEmpty()) {
+        if (jtxtUsuario.getText().isBlank()) {
             jtxtUsuario.setText("   Ingrese su nombre de usuario");
             jtxtUsuario.setForeground(Color.GRAY);
         }
@@ -284,10 +284,14 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnMinimizarActionPerformed
 
     private void jbtnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnIniciarSesionActionPerformed
-        if (validarCamposVacios()) {
+        if (validarCamposVacios() == true) {
+
             sqlI.validarUsuario(jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()), this);
+
         } else {
+
             jlblError.setForeground(Color.decode("#E83232"));
+
         }
     }//GEN-LAST:event_jbtnIniciarSesionActionPerformed
 

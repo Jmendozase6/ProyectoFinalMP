@@ -34,7 +34,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     public FrmAgregarProducto() {
         initComponents();
         mostrarProveedores();
-        jcbxProveedor.setSelectedIndex(-1);
     }
 
     @SuppressWarnings("unchecked")
@@ -369,7 +368,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
         if (validarCamposVacios()) {
 
-            if (sqlAG.agregarProducto(date, jtxtNombre, jtxtCategoria, jtxtMarca, jtxtPrecioUni, jtxtCantidad, jcbxProveedor, this)) {
+            if (sqlAG.agregarProducto(date, jtxtNombre.getText(), jtxtCategoria.getText(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUni.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString())) {
                 limpiarCampos();
             }
 
@@ -411,11 +410,14 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
 
     private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
         jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
+
         if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+
             us.setNombre("");
             FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
             frmInicioSesion.setVisible(true);
             this.dispose();
+
         }
         jbtnCerrarSesion.setForeground(Color.white);
     }//GEN-LAST:event_jbtnCerrarSesionMouseClicked
@@ -432,17 +434,18 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
 
     private void mostrarProveedores() {
         sqlAG.mostrarProveedores(jcbxProveedor);
+        jcbxProveedor.setSelectedIndex(-1);
     }
 
     //Valida que ninguno de los campos estén vacios o que no hayan sido seleccionados
     private boolean validarCamposVacios() {
-        if (jtxtNombre.getText().isEmpty()) {
+        if (jtxtNombre.getText().isBlank()) {
             return false;
-        } else if (jtxtMarca.getText().isEmpty()) {
+        } else if (jtxtMarca.getText().isBlank()) {
             return false;
-        } else if (jtxtPrecioUni.getText().isEmpty()) {
+        } else if (jtxtPrecioUni.getText().isBlank()) {
             return false;
-        } else if (jtxtCantidad.getText().isEmpty()) {
+        } else if (jtxtCantidad.getText().isBlank()) {
             return false;
         } else if (jcbxProveedor.getSelectedIndex() == -1) {
             return false;
