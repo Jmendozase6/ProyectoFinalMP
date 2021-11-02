@@ -27,7 +27,6 @@ public class FrmDashboard extends javax.swing.JFrame {
     MenuOpciones mc = new MenuOpciones();
     Usuario us = Usuario.getInstance();
     SqlDashboard sqlD = new SqlDashboard();
-    //La clase que contiene las consultas sql correspondientes
     SqlAgregarProducto sqlAG = new SqlAgregarProducto();
 
     public FrmDashboard() {
@@ -35,6 +34,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         sqlD.mostrarDatos(jtblProductos);
         editarTabla();
         mostrarProveedores();
+        mostrarCategorias();
     }
 
     @SuppressWarnings("unchecked")
@@ -74,12 +74,12 @@ public class FrmDashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jtxtCategoria = new javax.swing.JTextField();
         jtxtNombre = new javax.swing.JTextField();
         jtxtIdProducto = new javax.swing.JTextField();
         jbtnEliminar = new javax.swing.JButton();
-        jbtnAgregar = new javax.swing.JButton();
+        jbtnActualizar = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
+        jcbxCategoria = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -248,11 +248,6 @@ public class FrmDashboard extends javax.swing.JFrame {
                 jtblProductosMouseClicked(evt);
             }
         });
-        jtblProductos.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtblProductosKeyReleased(evt);
-            }
-        });
         jScrollPane1.setViewportView(jtblProductos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 1040, 420));
@@ -358,11 +353,6 @@ public class FrmDashboard extends javax.swing.JFrame {
         jLabel6.setText("Categoría");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 40));
 
-        jtxtCategoria.setBackground(new java.awt.Color(153, 255, 255));
-        jtxtCategoria.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
-        jtxtCategoria.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel3.add(jtxtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 250, 40));
-
         jtxtNombre.setBackground(new java.awt.Color(153, 255, 255));
         jtxtNombre.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
         jtxtNombre.setForeground(new java.awt.Color(0, 0, 0));
@@ -391,25 +381,30 @@ public class FrmDashboard extends javax.swing.JFrame {
         });
         jPanel3.add(jbtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, 190, 40));
 
-        jbtnAgregar.setBackground(new java.awt.Color(255, 255, 255));
-        jbtnAgregar.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
-        jbtnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/btnAgregar.png"))); // NOI18N
-        jbtnAgregar.setText("Actualizar");
-        jbtnAgregar.setBorder(null);
-        jbtnAgregar.setContentAreaFilled(false);
-        jbtnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jbtnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        jbtnActualizar.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnActualizar.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
+        jbtnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/btnAgregar.png"))); // NOI18N
+        jbtnActualizar.setText("Actualizar");
+        jbtnActualizar.setBorder(null);
+        jbtnActualizar.setContentAreaFilled(false);
+        jbtnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnAgregarActionPerformed(evt);
+                jbtnActualizarActionPerformed(evt);
             }
         });
-        jPanel3.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 190, 40));
+        jPanel3.add(jbtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 190, 40));
 
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 10, 190));
+
+        jcbxCategoria.setBackground(new java.awt.Color(153, 255, 255));
+        jcbxCategoria.setFont(new java.awt.Font("Montserrat Medium", 0, 15)); // NOI18N
+        jcbxCategoria.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jcbxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 250, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 486, 1040, 230));
 
@@ -442,6 +437,7 @@ public class FrmDashboard extends javax.swing.JFrame {
 
     private void jtxtBuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtxtBuscarFocusGained
         jtxtBuscar.setText("");
+        limpiarCampos();
     }//GEN-LAST:event_jtxtBuscarFocusGained
 
     private void jtxtPrecioUnitarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPrecioUnitarioKeyTyped
@@ -452,21 +448,22 @@ public class FrmDashboard extends javax.swing.JFrame {
         mc.soloDigitos(evt);
     }//GEN-LAST:event_jtxtCantidadKeyTyped
 
-    private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
+    private void jbtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnActualizarActionPerformed
         if (validarCamposVacios()) {
-
-            sqlD.actualizarDatosProducto(jtxtNombre.getText().trim(), jtxtCategoria.getText().trim(), jtxtMarca.getText().trim(), Double.parseDouble(jtxtPrecioUnitario.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString(), Integer.parseInt(jtxtIdProducto.getText()));
-            limpiarTabla();
-            sqlD.mostrarDatos(jtblProductos);
-            editarTabla();
-            limpiarCampos();
+            if (!(jtxtIdProducto.getText().isBlank())) {
+                sqlD.actualizarDatosProducto(jtxtNombre.getText().trim(), jcbxCategoria.getSelectedItem().toString(), jtxtMarca.getText().trim(), Double.parseDouble(jtxtPrecioUnitario.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString(), Integer.parseInt(jtxtIdProducto.getText()));
+                limpiarTabla();
+                sqlD.mostrarDatos(jtblProductos);
+                editarTabla();
+                limpiarCampos();
+            }
 
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "Rellene todos los campos", "Campos vacíos", 2);
+            JOptionPane.showMessageDialog(rootPane, "No seleccionó ninguna fila \no dejó campos vacíos", "Error al actualizar", 2);
 
         }
-    }//GEN-LAST:event_jbtnAgregarActionPerformed
+    }//GEN-LAST:event_jbtnActualizarActionPerformed
 
     private void jbtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarActionPerformed
         try {
@@ -502,10 +499,6 @@ public class FrmDashboard extends javax.swing.JFrame {
     private void jtxtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarKeyTyped
         mc.soloLetras(evt);
     }//GEN-LAST:event_jtxtBuscarKeyTyped
-
-    private void jtblProductosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtblProductosKeyReleased
-        mostrarDatosProductos();
-    }//GEN-LAST:event_jtblProductosKeyReleased
 
     private void jtblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblProductosMouseClicked
         mostrarDatosProductos();
@@ -558,6 +551,11 @@ public class FrmDashboard extends javax.swing.JFrame {
         jtblProductos.setColumnModel(columnModel);
     }
 
+    private void mostrarCategorias() {
+        sqlAG.mostrarCategorias(jcbxCategoria);
+        jcbxCategoria.setSelectedIndex(-1);
+    }
+
     private void mostrarProveedores() {
         sqlAG.mostrarProveedores(jcbxProveedor);
         jcbxProveedor.setSelectedIndex(-1);
@@ -566,7 +564,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     private boolean validarCamposVacios() {
         if (jtxtNombre.getText().isBlank()) {
             return false;
-        } else if (jtxtCategoria.getText().isBlank()) {
+        } else if (jcbxCategoria.getSelectedIndex() == -1) {
             return false;
         } else if (jtxtMarca.getText().isBlank()) {
             return false;
@@ -582,14 +580,14 @@ public class FrmDashboard extends javax.swing.JFrame {
 
     private void limpiarCampos() {
         jtxtCantidad.setText("");
-        jtxtCategoria.setText("");
         jtxtIdProducto.setText("");
         jtxtMarca.setText("");
         jtxtNombre.setText("");
         jtxtPrecioUnitario.setText("");
+        jcbxCategoria.setSelectedIndex(-1);
         jcbxProveedor.setSelectedIndex(-1);
     }
-    
+
     //Muestra el producto seleccionado en los texfields
     private void mostrarDatosProductos() {
         int nFila = jtblProductos.getSelectedRow();
@@ -598,7 +596,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         } else {
             jtxtIdProducto.setText(jtblProductos.getValueAt(nFila, 0).toString());
             jtxtNombre.setText(jtblProductos.getValueAt(nFila, 1).toString());
-            jtxtCategoria.setText(jtblProductos.getValueAt(nFila, 2).toString());
+            jcbxCategoria.setSelectedItem(jtblProductos.getValueAt(nFila, 2));
             jtxtMarca.setText(jtblProductos.getValueAt(nFila, 3).toString());
             jtxtPrecioUnitario.setText(jtblProductos.getValueAt(nFila, 4).toString());
             jtxtCantidad.setText(jtblProductos.getValueAt(nFila, 5).toString());
@@ -641,7 +639,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JButton jbtnAgregar;
+    private javax.swing.JButton jbtnActualizar;
     private javax.swing.JButton jbtnAgregarProducto;
     private javax.swing.JButton jbtnCerrar;
     private javax.swing.JButton jbtnCerrarSesion;
@@ -650,11 +648,11 @@ public class FrmDashboard extends javax.swing.JFrame {
     private javax.swing.JButton jbtnGenerarQR;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JButton jbtnPantallaPrincipal;
+    private javax.swing.JComboBox<String> jcbxCategoria;
     private javax.swing.JComboBox<String> jcbxProveedor;
     private javax.swing.JTable jtblProductos;
     private javax.swing.JTextField jtxtBuscar;
     private javax.swing.JTextField jtxtCantidad;
-    private javax.swing.JTextField jtxtCategoria;
     private javax.swing.JTextField jtxtIdProducto;
     private javax.swing.JTextField jtxtMarca;
     private javax.swing.JTextField jtxtNombre;

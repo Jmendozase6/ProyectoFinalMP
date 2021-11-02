@@ -32,6 +32,8 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     public FrmAgregarProducto() {
         initComponents();
         mostrarProveedores();
+        mostrarCategorias();
+        jtxtNombre.requestFocus();
     }
 
     @SuppressWarnings("unchecked")
@@ -50,7 +52,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         lblPrecioUni = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
         lblProveedor = new javax.swing.JLabel();
-        jcbxProveedor = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -60,7 +61,8 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jbtnAgregar = new javax.swing.JButton();
         lblMarca1 = new javax.swing.JLabel();
-        jtxtCategoria = new javax.swing.JTextField();
+        jcbxProveedor = new javax.swing.JComboBox<>();
+        jcbxCategoria = new javax.swing.JComboBox<>();
         jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -164,12 +166,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         lblProveedor.setText("Proveedor");
         jPanel2.add(lblProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, -1, -1));
 
-        jcbxProveedor.setBackground(new java.awt.Color(204, 204, 204));
-        jcbxProveedor.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        jcbxProveedor.setForeground(new java.awt.Color(0, 0, 0));
-        jcbxProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 250, 40));
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/Borde1.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, -1, -1));
 
@@ -214,11 +210,19 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         lblMarca1.setText("Categoría");
         jPanel2.add(lblMarca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
-        jtxtCategoria.setBackground(new java.awt.Color(243, 242, 245));
-        jtxtCategoria.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
-        jtxtCategoria.setForeground(new java.awt.Color(0, 0, 0));
-        jtxtCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jtxtCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 250, 40));
+        jcbxProveedor.setBackground(new java.awt.Color(204, 204, 204));
+        jcbxProveedor.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jcbxProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        jcbxProveedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jcbxProveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jcbxProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 500, 250, 40));
+
+        jcbxCategoria.setBackground(new java.awt.Color(204, 204, 204));
+        jcbxCategoria.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        jcbxCategoria.setForeground(new java.awt.Color(0, 0, 0));
+        jcbxCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        jcbxCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jcbxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 250, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 90, 1060, 630));
 
@@ -381,7 +385,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
         if (validarCamposVacios()) {
 
-            if (sqlAG.agregarProducto(date, jtxtNombre.getText(), jtxtCategoria.getText(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUni.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString())) {
+            if (sqlAG.agregarProducto(date, jtxtNombre.getText(), jcbxCategoria.getSelectedItem().toString(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUni.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString())) {
                 limpiarCampos();
             }
 
@@ -429,11 +433,17 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     // Limpia los textfield
     private void limpiarCampos() {
         jtxtNombre.setText("");
-        jtxtCategoria.setText("");
         jtxtMarca.setText("");
         jtxtPrecioUni.setText("");
         jtxtCantidad.setText("");
+        jcbxCategoria.setSelectedIndex(-1);
         jcbxProveedor.setSelectedIndex(-1);
+    }
+
+    //Ejecuta el método mostrarCategorias de la clase SqlAgregarProducto y el primer valor que se muestra en blanco
+    private void mostrarCategorias() {
+        sqlAG.mostrarCategorias(jcbxCategoria);
+        jcbxCategoria.setSelectedIndex(-1);
     }
 
     //Ejecuta el método mostrarProveedores de la clase SqlAgregarProducto y el primer valor que se muestra en blanco
@@ -453,6 +463,8 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         } else if (jtxtCantidad.getText().isBlank()) {
             return false;
         } else if (jcbxProveedor.getSelectedIndex() == -1) {
+            return false;
+        } else if (jcbxCategoria.getSelectedIndex() == -1) {
             return false;
         }
         return true;
@@ -487,9 +499,9 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private javax.swing.JButton jbtnGenerarQR;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JButton jbtnPantallaPrincipal;
+    private javax.swing.JComboBox<String> jcbxCategoria;
     private javax.swing.JComboBox<String> jcbxProveedor;
     private javax.swing.JTextField jtxtCantidad;
-    private javax.swing.JTextField jtxtCategoria;
     private javax.swing.JTextField jtxtMarca;
     private javax.swing.JTextField jtxtNombre;
     private javax.swing.JTextField jtxtPrecioUni;

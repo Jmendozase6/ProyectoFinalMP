@@ -83,4 +83,26 @@ public class SqlAgregarProducto {
         }
 
     }
+
+    public void mostrarCategorias(JComboBox cbxCategoria) {
+
+        SQL = "SELECT * FROM categorias";
+
+        try {
+
+            pst = (PreparedStatement) con.prepareStatement(SQL);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                cbxCategoria.addItem(rs.getString("Nombre"));
+
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println("Error: " + e.getMessage());
+
+        }
+    }
 }
