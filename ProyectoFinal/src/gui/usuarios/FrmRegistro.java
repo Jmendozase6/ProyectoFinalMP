@@ -8,6 +8,7 @@ package gui.usuarios;
 import FiveCodMover.FiveCodMoverJFrame;
 import opciones.MenuOpciones;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import sql.usuarios.SqlRegistro;
 
 /**
@@ -146,6 +147,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         jbtnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         jbtnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
         jbtnRegistrarse.setText("Registrarse");
+        jbtnRegistrarse.setBorderPainted(false);
         jbtnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnRegistrarse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbtnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
@@ -220,14 +222,14 @@ public class FrmRegistro extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Si desea crear una cuenta, presione");
+        jLabel4.setText("Si ya tienes una cuenta puedes");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 488, -1));
 
         jLabel6.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("el botón \"Registrarse\"");
+        jLabel6.setText("iniciar sesión aquí");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 480, -1));
 
@@ -285,12 +287,10 @@ public class FrmRegistro extends javax.swing.JFrame {
             jtxtNombre.setForeground(Color.WHITE);
         }
         if (jtxtUsuario.getText().isBlank()) {
-            jtxtUsuario.setText("   Ingrese su nombre de usuario");
-            jtxtUsuario.setForeground(Color.GRAY);
+            usuarioPlaceH();
         }
         if (String.valueOf(jtxtContrasena.getPassword()).isBlank()) {
-            jtxtContrasena.setText("********");
-            jtxtContrasena.setForeground(Color.GRAY);
+            contraPlaceH();
         }
     }//GEN-LAST:event_jtxtNombreMousePressed
 
@@ -300,12 +300,10 @@ public class FrmRegistro extends javax.swing.JFrame {
             jtxtUsuario.setForeground(Color.WHITE);
         }
         if (jtxtNombre.getText().isBlank()) {
-            jtxtNombre.setText("   Ingrese su nombre");
-            jtxtNombre.setForeground(Color.GRAY);
+            nombrePlaceH();
         }
         if (String.valueOf(jtxtContrasena.getPassword()).isBlank()) {
-            jtxtContrasena.setText("********");
-            jtxtContrasena.setForeground(Color.GRAY);
+            contraPlaceH();
         }
     }//GEN-LAST:event_jtxtUsuarioMousePressed
 
@@ -315,12 +313,10 @@ public class FrmRegistro extends javax.swing.JFrame {
             jtxtContrasena.setForeground(Color.WHITE);
         }
         if (jtxtUsuario.getText().isBlank()) {
-            jtxtUsuario.setText("   Ingrese su nombre de usuario");
-            jtxtUsuario.setForeground(Color.GRAY);
+            usuarioPlaceH();
         }
         if (jtxtNombre.getText().isBlank()) {
-            jtxtNombre.setText("   Ingrese su nombre");
-            jtxtNombre.setForeground(Color.GRAY);
+            nombrePlaceH();
         }
     }//GEN-LAST:event_jtxtContrasenaMousePressed
 
@@ -334,9 +330,15 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     private void jbtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarseActionPerformed
         if (validarCamposVacios()) {
-            
-            sqlR.agregarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()), jlblError);
-            limpiarCampos();
+            if (!(sqlR.verificarExistente(jtxtUsuario.getText()))) {
+                sqlR.agregarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()), jlblError);
+                limpiarCampos();
+                nombrePlaceH();
+                usuarioPlaceH();
+                contraPlaceH();
+            } else{
+                JOptionPane.showMessageDialog(rootPane, "El nombre de usuario ya existe");
+            }
 
         } else {
 
@@ -361,6 +363,21 @@ public class FrmRegistro extends javax.swing.JFrame {
         jtxtNombre.setText("");
         jtxtUsuario.setText("");
         jtxtContrasena.setText("");
+    }
+
+    private void nombrePlaceH() {
+        jtxtNombre.setText("   Ingrese su nombre");
+        jtxtNombre.setForeground(Color.GRAY);
+    }
+
+    private void usuarioPlaceH() {
+        jtxtUsuario.setText("   Ingrese su nombre de usuario");
+        jtxtUsuario.setForeground(Color.GRAY);
+    }
+
+    private void contraPlaceH() {
+        jtxtContrasena.setText("********");
+        jtxtContrasena.setForeground(Color.GRAY);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

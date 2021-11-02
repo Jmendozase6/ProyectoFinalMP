@@ -7,9 +7,11 @@ package sql.usuarios;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
 import conexion.ConexionSQL;
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,6 +26,8 @@ public class SqlRegistro {
     private final Connection con;
     private String SQL;
     private PreparedStatement pst;
+    private Statement st;
+    private ResultSet rs;
 
     public SqlRegistro() {
         this.con = cc.getConnection();
@@ -52,6 +56,27 @@ public class SqlRegistro {
             return false;
         }
 
+    }
+
+    public boolean verificarExistente(String usuario) {
+
+        SQL = "SELECT * FROM usuarios WHERE usuario like '%" + usuario.trim() + "%' ";
+
+        try {
+
+            st = (Statement) con.createStatement();
+            rs = st.executeQuery(SQL);
+
+            if (rs.next()) {
+                return true;
+            }
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, "Ocurrió un error" + e.getMessage());
+
+        }
+        return false;
     }
 
 }

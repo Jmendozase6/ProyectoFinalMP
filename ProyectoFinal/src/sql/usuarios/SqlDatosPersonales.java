@@ -74,12 +74,13 @@ public class SqlDatosPersonales {
             st = (Statement) con.createStatement();
             rs = st.executeQuery(SQL);
 
-            while (rs.next()) {
+            if (rs.next()) {
                 jtxtNombre.setText(rs.getString("Nombre"));
                 jtxtUsuario.setText(rs.getString("Usuario"));
                 jtxtContrasena.setText(rs.getString("Contrasena"));
             }
-
+            us.setNombre(jtxtNombre.getText());
+            
         } catch (SQLException e) {
 
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);

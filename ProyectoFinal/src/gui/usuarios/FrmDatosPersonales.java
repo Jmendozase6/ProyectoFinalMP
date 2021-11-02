@@ -9,7 +9,7 @@ import gui.productos.FrmDashboard;
 import gui.productos.FrmAgregarProducto;
 import opciones.MenuOpciones;
 import FiveCodMover.FiveCodMoverJFrame;
-import generadorqr.CodigoQr;
+import gui.productos.FrmGenerarQr;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import modelos.Usuario;
@@ -28,7 +28,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     public FrmDatosPersonales() {
         initComponents();
         sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
-        us.setNombre(jtxtNombre.getText());
     }
 
     @SuppressWarnings("unchecked")
@@ -59,15 +58,15 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jbtnPantallaPrincipal = new javax.swing.JLabel();
-        jbtnDatosPersonales = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jbtnAgregarProd = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        jbtnGenerarQr = new javax.swing.JLabel();
-        jbtnCerrarSesion = new javax.swing.JLabel();
+        jbtnPantallaPrincipal = new javax.swing.JButton();
+        jbtnAgregarProducto = new javax.swing.JButton();
+        jbtnGenerarQR = new javax.swing.JButton();
+        jbtnCerrarSesion = new javax.swing.JButton();
+        jbtnDatosPersonales = new javax.swing.JButton();
         jbtnGuardarCambios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -220,36 +219,8 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 180, 10));
 
-        jbtnPantallaPrincipal.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnPantallaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnPantallaPrincipal.setText("Pantalla Principal");
-        jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnPantallaPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnPantallaPrincipalMouseClicked(evt);
-            }
-        });
-        jPanel5.add(jbtnPantallaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
-
-        jbtnDatosPersonales.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnDatosPersonales.setForeground(new java.awt.Color(102, 255, 255));
-        jbtnDatosPersonales.setText("Datos Personales");
-        jbtnDatosPersonales.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel5.add(jbtnDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 180, 10));
-
-        jbtnAgregarProd.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnAgregarProd.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnAgregarProd.setText("Agregar producto");
-        jbtnAgregarProd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnAgregarProd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnAgregarProdMouseClicked(evt);
-            }
-        });
-        jPanel5.add(jbtnAgregarProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 180, 10));
@@ -260,27 +231,70 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, 10));
 
-        jbtnGenerarQr.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnGenerarQr.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnGenerarQr.setText("Generar Qr");
-        jbtnGenerarQr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnGenerarQr.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnGenerarQrMouseClicked(evt);
+        jbtnPantallaPrincipal.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnPantallaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnPantallaPrincipal.setText("Pantalla Principal");
+        jbtnPantallaPrincipal.setContentAreaFilled(false);
+        jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnPantallaPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnPantallaPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnPantallaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPantallaPrincipalActionPerformed(evt);
             }
         });
-        jPanel5.add(jbtnGenerarQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        jPanel5.add(jbtnPantallaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 100, 200, 20));
+
+        jbtnAgregarProducto.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnAgregarProducto.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnAgregarProducto.setText("Agregar producto");
+        jbtnAgregarProducto.setContentAreaFilled(false);
+        jbtnAgregarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnAgregarProducto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnAgregarProducto.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAgregarProductoActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jbtnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 240, 210, 20));
+
+        jbtnGenerarQR.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnGenerarQR.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnGenerarQR.setText("Generar QR");
+        jbtnGenerarQR.setContentAreaFilled(false);
+        jbtnGenerarQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnGenerarQR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnGenerarQR.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnGenerarQR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnGenerarQRActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jbtnGenerarQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 310, 200, 20));
 
         jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrarSesion.setText("Cerrar sesión");
+        jbtnCerrarSesion.setContentAreaFilled(false);
         jbtnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnCerrarSesionMouseClicked(evt);
+        jbtnCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel5.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        jPanel5.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 380, 200, 20));
+
+        jbtnDatosPersonales.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnDatosPersonales.setForeground(new java.awt.Color(102, 255, 255));
+        jbtnDatosPersonales.setText("Datos Personales");
+        jbtnDatosPersonales.setContentAreaFilled(false);
+        jbtnDatosPersonales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnDatosPersonales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnDatosPersonales.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jPanel5.add(jbtnDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 170, 200, 20));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 222, 662));
 
@@ -288,6 +302,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jbtnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
         jbtnGuardarCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
         jbtnGuardarCambios.setText("Guardar cambios");
+        jbtnGuardarCambios.setBorderPainted(false);
         jbtnGuardarCambios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnGuardarCambios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbtnGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
@@ -319,25 +334,13 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         FiveCodMoverJFrame.MouseDraggedFrame(evt, this);
     }//GEN-LAST:event_formMouseDragged
 
-    private void jbtnPantallaPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalMouseClicked
-        FrmDashboard frmDashboard = new FrmDashboard();
-        frmDashboard.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jbtnPantallaPrincipalMouseClicked
-
-    private void jbtnAgregarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnAgregarProdMouseClicked
-        FrmAgregarProducto frmAgregarProducto = new FrmAgregarProducto();
-        frmAgregarProducto.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jbtnAgregarProdMouseClicked
-
     private void jtgbtnVerPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtgbtnVerPassActionPerformed
         mc.verPass(jtgbtnVerPass, jtxtContrasena);
     }//GEN-LAST:event_jtgbtnVerPassActionPerformed
 
     private void jbtnGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarCambiosActionPerformed
         if (verificarCampos()) {
-
+            //Se actualizan los datos y se vuelven a mostrar
             sqlDP.actualizarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()));
             sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
 
@@ -349,23 +352,31 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnGuardarCambiosActionPerformed
 
-    private void jbtnGenerarQrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnGenerarQrMouseClicked
-        jbtnGenerarQr.setForeground(new Color(102, 255, 255));
-        CodigoQr codigoQr = new CodigoQr();
-        codigoQr.generarQr();
-        jbtnGenerarQr.setForeground(Color.white);
-    }//GEN-LAST:event_jbtnGenerarQrMouseClicked
+    private void jbtnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarProductoActionPerformed
+        new FrmAgregarProducto().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnAgregarProductoActionPerformed
 
-    private void jbtnCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionMouseClicked
+    private void jbtnGenerarQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQRActionPerformed
+        jbtnGenerarQR.setForeground(new Color(102, 255, 255));
+        new FrmGenerarQr().setVisible(true);
+        jbtnGenerarQR.setForeground(Color.white);
+    }//GEN-LAST:event_jbtnGenerarQRActionPerformed
+
+    private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
         jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
         if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
             us.setNombre("");
-            FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
-            frmInicioSesion.setVisible(true);
+            new FrmInicioSesion().setVisible(true);
             this.dispose();
         }
         jbtnCerrarSesion.setForeground(Color.white);
-    }//GEN-LAST:event_jbtnCerrarSesionMouseClicked
+    }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
+
+    private void jbtnPantallaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalActionPerformed
+        new FrmDashboard().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
 
     //Validar que los campos no estén vacíos
     private boolean verificarCampos() {
@@ -398,14 +409,14 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JLabel jbtnAgregarProd;
+    private javax.swing.JButton jbtnAgregarProducto;
     private javax.swing.JButton jbtnCerrar;
-    private javax.swing.JLabel jbtnCerrarSesion;
-    private javax.swing.JLabel jbtnDatosPersonales;
-    private javax.swing.JLabel jbtnGenerarQr;
+    private javax.swing.JButton jbtnCerrarSesion;
+    private javax.swing.JButton jbtnDatosPersonales;
+    private javax.swing.JButton jbtnGenerarQR;
     private javax.swing.JButton jbtnGuardarCambios;
     private javax.swing.JButton jbtnMinimizar;
-    private javax.swing.JLabel jbtnPantallaPrincipal;
+    private javax.swing.JButton jbtnPantallaPrincipal;
     private javax.swing.JLabel jlblError;
     private javax.swing.JToggleButton jtgbtnVerPass;
     private javax.swing.JPasswordField jtxtContrasena;

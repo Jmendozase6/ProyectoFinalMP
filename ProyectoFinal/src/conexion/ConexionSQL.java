@@ -17,10 +17,17 @@ import javax.swing.JOptionPane;
 public class ConexionSQL {
 
     private Connection connect = null;
-    private final String DB = "proyecto_final";
-    private final String USER = "root";
-    private final String PASS = "02658817";
-    private final String URL = "jdbc:mysql://localhost/" + DB;
+    private final String DB;
+    private final String USER;
+    private final String PASS;
+    private final String URL;
+
+    public ConexionSQL() {
+        this.DB = "proyecto_final";
+        this.USER = "root";
+        this.PASS = "02658817";
+        this.URL = "jdbc:mysql://localhost/" + this.DB;
+    }
 
     public Connection getConnection() {
 

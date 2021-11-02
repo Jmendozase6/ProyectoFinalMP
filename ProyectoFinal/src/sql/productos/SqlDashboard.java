@@ -97,7 +97,6 @@ public class SqlDashboard {
 
                 modelo.addRow(registros);
             }
-
             jtblProductos.setModel(modelo);
 
         } catch (SQLException e) {

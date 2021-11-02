@@ -5,6 +5,8 @@
  */
 package main;
 
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import gui.usuarios.FrmInicioSesion;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -20,7 +22,8 @@ public class Ejecutar {
 
         try {
 
-            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+            UIManager.setLookAndFeel(new FlatIntelliJLaf());
+//            UIManager.setLookAndFeel(new NimbusLookAndFeel());
             FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
             frmInicioSesion.setVisible(true);
 

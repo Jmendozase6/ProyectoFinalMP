@@ -124,6 +124,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jbtnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jbtnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
         jbtnIniciarSesion.setText("Iniciar sesión");
+        jbtnIniciarSesion.setBorderPainted(false);
         jbtnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbtnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +162,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Si aún no tiene una cuenta puede");
+        jLabel4.setText("¿Aún no tienes una cuenta?");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 488, -1));
 
@@ -175,7 +176,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("registrarse ahora");
+        jLabel6.setText("registrate aquí");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 480, -1));
 
@@ -187,6 +188,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jbtnRegistrarse.setForeground(new java.awt.Color(0, 62, 195));
         jbtnRegistrarse.setText("Registrarse");
         jbtnRegistrarse.setBorder(null);
+        jbtnRegistrarse.setBorderPainted(false);
         jbtnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,8 +261,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
             jtxtUsuario.setForeground(Color.WHITE);
         }
         if (String.valueOf(jtxtContrasena.getPassword()).isBlank()) {
-            jtxtContrasena.setText("********");
-            jtxtContrasena.setForeground(Color.GRAY);
+            contraPlaceH();
         }
     }//GEN-LAST:event_jtxtUsuarioMousePressed
 
@@ -270,8 +271,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
             jtxtContrasena.setForeground(Color.WHITE);
         }
         if (jtxtUsuario.getText().isBlank()) {
-            jtxtUsuario.setText("   Ingrese su nombre de usuario");
-            jtxtUsuario.setForeground(Color.GRAY);
+            usuarioPlaceH();
         }
     }//GEN-LAST:event_jtxtContrasenaMousePressed
 
@@ -306,8 +306,17 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private void jtgbtnVerPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtgbtnVerPassActionPerformed
         mc.verPass(jtgbtnVerPass, jtxtContrasena);
     }//GEN-LAST:event_jtgbtnVerPassActionPerformed
+    
+    private void usuarioPlaceH() {
+        jtxtUsuario.setText("   Ingrese su nombre de usuario");
+        jtxtUsuario.setForeground(Color.GRAY);
+    }
 
-
+    private void contraPlaceH() {
+        jtxtContrasena.setText("********");
+        jtxtContrasena.setForeground(Color.GRAY);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
