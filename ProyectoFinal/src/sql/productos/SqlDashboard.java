@@ -65,7 +65,7 @@ public class SqlDashboard {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Error al filtrar datos" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al filtrar datos." + e.getMessage());
 
         }
     }
@@ -101,7 +101,7 @@ public class SqlDashboard {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Error al mostrar los datos" + e.getMessage(), "Error", 0);
+            JOptionPane.showMessageDialog(null, "Error al mostrar los datos." + e.getMessage(), "Error", 0);
         }
     }
 
@@ -114,7 +114,7 @@ public class SqlDashboard {
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
             pst.setString(1, nombre.trim());
-            pst.setString(2, categoria.trim());
+            pst.setString(2, categoria);
             pst.setString(3, marca.trim());
             pst.setDouble(4, precioUnitario);
             pst.setDouble(5, cantidad);
@@ -125,14 +125,14 @@ public class SqlDashboard {
 
             if (n >= 0) {
 
-                JOptionPane.showMessageDialog(null, "Los datos se actualizaron correctamente");
+                JOptionPane.showMessageDialog(null, "Los datos se actualizaron correctamente.");
 
             }
 
         } catch (HeadlessException | SQLException e) {
 
             System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "No se actualizaron los datos" + e.getMessage(), "Error", 0);
+            JOptionPane.showMessageDialog(null, "No se actualizaron los datos." + e.getMessage(), "Error", 0);
 
         }
     }

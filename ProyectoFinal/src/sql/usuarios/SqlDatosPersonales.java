@@ -55,13 +55,13 @@ public class SqlDatosPersonales {
 
             if (n >= 0) {
 
-                JOptionPane.showMessageDialog(null, "Los datos se actualizaron correctamente");
+                JOptionPane.showMessageDialog(null, "Los datos se actualizaron correctamente.");
 
             }
 
         } catch (HeadlessException | SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "No se actualizaron los datos", "Error", 0);
+            JOptionPane.showMessageDialog(null, "No se actualizaron los datos.", "Error", 0);
 
         }
     }

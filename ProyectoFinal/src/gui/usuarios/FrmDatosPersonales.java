@@ -365,7 +365,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
         jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
             us.setNombre("");
             new FrmInicioSesion().setVisible(true);
             this.dispose();

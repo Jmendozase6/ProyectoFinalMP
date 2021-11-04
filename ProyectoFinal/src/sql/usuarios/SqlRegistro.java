@@ -46,13 +46,13 @@ public class SqlRegistro {
             pst.setString(3, pass.trim());
 
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro exitoso");
+            JOptionPane.showMessageDialog(null, "Registro exitoso.");
             error.setForeground(new Color(34, 35, 40));
             return true;
 
         } catch (HeadlessException | SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Error de registro" + e.getMessage(), "Error", 0);
+            JOptionPane.showMessageDialog(null, "Error de registro." + e.getMessage(), "Error", 0);
             return false;
         }
 
@@ -60,7 +60,7 @@ public class SqlRegistro {
 
     public boolean verificarExistente(String usuario) {
 
-        SQL = "SELECT * FROM usuarios WHERE usuario like '%" + usuario.trim() + "%' ";
+        SQL = "SELECT (Usuario) FROM usuarios WHERE Usuario like '%" + usuario.trim() + "%' ";
 
         try {
 
@@ -73,7 +73,7 @@ public class SqlRegistro {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Ocurrió un error" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Ocurrió un error." + e.getMessage());
 
         }
         return false;

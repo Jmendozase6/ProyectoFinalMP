@@ -336,7 +336,7 @@ public class FrmRegistro extends javax.swing.JFrame {
                 nombrePlaceH();
                 usuarioPlaceH();
                 contraPlaceH();
-            } else{
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "El nombre de usuario ya existe");
             }
 

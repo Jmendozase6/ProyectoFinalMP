@@ -35,19 +35,17 @@ public class SqlAgregarProducto {
 
         SQL = "INSERT INTO productos (Nombre,Categoria,Marca,Precio_unitario,Cantidad,Proveedor,Fecha_entrada) values(?,?,?,?,?,?,?)";
 
-        java.sql.Date date2 = new java.sql.Date(date.getTime());
-
         try {
 
             pst = (PreparedStatement) con.prepareStatement(SQL);
 
             pst.setString(1, nombre.trim());
-            pst.setString(2, categoria.trim());
+            pst.setString(2, categoria);
             pst.setString(3, marca.trim());
             pst.setDouble(4, precioUnitario);
             pst.setDouble(5, cantidad);
             pst.setString(6, proveedor);
-            pst.setDate(7, date2);
+            pst.setDate(7, (java.sql.Date) date);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro de producto exitoso");
             return true;
@@ -63,7 +61,7 @@ public class SqlAgregarProducto {
 
     public void mostrarProveedores(JComboBox cbxProveedores) {
 
-        SQL = "SELECT * FROM proveedores";
+        SQL = "SELECT (Nombres) FROM proveedores";
 
         try {
 
@@ -86,7 +84,7 @@ public class SqlAgregarProducto {
 
     public void mostrarCategorias(JComboBox cbxCategoria) {
 
-        SQL = "SELECT * FROM categorias";
+        SQL = "SELECT (Nombre) FROM categorias";
 
         try {
 

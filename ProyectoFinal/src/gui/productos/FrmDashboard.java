@@ -8,6 +8,7 @@ package gui.productos;
 import FiveCodMover.FiveCodMoverJFrame;
 import gui.usuarios.FrmDatosPersonales;
 import gui.usuarios.FrmInicioSesion;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -15,8 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import opciones.MenuOpciones;
 import modelos.Usuario;
-import sql.productos.SqlAgregarProducto;
-import sql.productos.SqlDashboard;
+import sql.productos.*;
 
 /**
  *
@@ -57,11 +57,12 @@ public class FrmDashboard extends javax.swing.JFrame {
         jbtnDatosPersonales = new javax.swing.JButton();
         jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtblProductos = new javax.swing.JTable();
         jtxtBuscar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        JpanelVentana = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtblProductos = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jcbxProveedor = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -218,6 +219,39 @@ public class FrmDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(jbtnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
+        jtxtBuscar.setBackground(new java.awt.Color(243, 242, 245));
+        jtxtBuscar.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jtxtBuscar.setForeground(new java.awt.Color(51, 51, 51));
+        jtxtBuscar.setText("Buscar...");
+        jtxtBuscar.setBorder(null);
+        jtxtBuscar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtxtBuscarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtxtBuscarFocusLost(evt);
+            }
+        });
+        jtxtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtBuscarKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtBuscarKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jtxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 18, 750, 31));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBarraBuscar.png"))); // NOI18N
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 18, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLupa.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 18, -1, -1));
+
+        JpanelVentana.setBackground(new java.awt.Color(26, 28, 32));
+        JpanelVentana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jtblProductos = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int column){
                 return false;
@@ -250,37 +284,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtblProductos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 1040, 420));
-
-        jtxtBuscar.setBackground(new java.awt.Color(243, 242, 245));
-        jtxtBuscar.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
-        jtxtBuscar.setForeground(new java.awt.Color(51, 51, 51));
-        jtxtBuscar.setText("Buscar...");
-        jtxtBuscar.setBorder(null);
-        jtxtBuscar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtxtBuscarFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtxtBuscarFocusLost(evt);
-            }
-        });
-        jtxtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtBuscarKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxtBuscarKeyTyped(evt);
-            }
-        });
-        jPanel1.add(jtxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 18, 750, 31));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBarraBuscar.png"))); // NOI18N
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 18, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLupa.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 18, -1, -1));
+        JpanelVentana.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1040, 420));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(81, 104, 244), new java.awt.Color(81, 104, 244)));
@@ -406,7 +410,9 @@ public class FrmDashboard extends javax.swing.JFrame {
         jcbxCategoria.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jcbxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 250, 40));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 486, 1040, 230));
+        JpanelVentana.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 435, 1040, 230));
+
+        jPanel1.add(JpanelVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 1050, 670));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -507,7 +513,7 @@ public class FrmDashboard extends javax.swing.JFrame {
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
         jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea salir?", "Comprobación", 0) == 0) {
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
             us.setNombre("");
             new FrmInicioSesion().setVisible(true);
             this.dispose();
@@ -618,6 +624,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JpanelVentana;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
