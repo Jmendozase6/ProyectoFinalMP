@@ -145,7 +145,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
         jbtnRegistrarse.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
+        jbtnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnRegistrarse.setText("Registrarse");
         jbtnRegistrarse.setBorderPainted(false);
         jbtnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -122,7 +122,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
         jbtnIniciarSesion.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
+        jbtnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnIniciarSesion.setText("Iniciar sesión");
         jbtnIniciarSesion.setBorderPainted(false);
         jbtnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -114,7 +114,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         });
         jPanel2.add(jbtnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user-config.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgUserConfig.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -147,7 +147,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         lblNombre.setText("Nombre");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/passwordBlanco.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgPasswordBlanco.png"))); // NOI18N
         jLabel8.setToolTipText("");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 265, -1, -1));
 
@@ -300,7 +300,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
         jbtnGuardarCambios.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnGuardarCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnIniciarSesion.png"))); // NOI18N
+        jbtnGuardarCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnGuardarCambios.setText("Guardar cambios");
         jbtnGuardarCambios.setBorderPainted(false);
         jbtnGuardarCambios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

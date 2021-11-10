@@ -173,7 +173,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 603, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgInicioSesion.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, 180));
 
         jtxtMarca.setBackground(new java.awt.Color(243, 242, 245));
         jtxtMarca.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
@@ -388,7 +388,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
             if (sqlAG.agregarProducto(date, jtxtNombre.getText(), jcbxCategoria.getSelectedItem().toString(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUni.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString())) {
                 limpiarCampos();
             }
-
+            
         } else {
 
             JOptionPane.showMessageDialog(rootPane, "Rellene todos los campos", "Campos vacíos", 2);

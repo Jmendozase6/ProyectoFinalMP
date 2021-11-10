@@ -16,13 +16,14 @@ import javax.swing.JOptionPane;
  */
 public class ConexionSQL {
 
-    private Connection connect = null;
+    private Connection connect;
     private final String DB;
     private final String USER;
     private final String PASS;
     private final String URL;
 
     public ConexionSQL() {
+        this.connect = null;
         this.DB = "proyecto_final";
         this.USER = "root";
         this.PASS = "02658817";

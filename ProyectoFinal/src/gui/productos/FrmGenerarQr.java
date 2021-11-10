@@ -5,8 +5,11 @@
  */
 package gui.productos;
 
-import generar.CodigoQr;
+import generarqr.CodigoQr;
 import FiveCodMover.FiveCodMoverJFrame;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import opciones.MenuOpciones;
 
 /**

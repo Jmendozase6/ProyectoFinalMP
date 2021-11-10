@@ -5,7 +5,7 @@
  */
 package gui.productos;
 
-import generar.CodigoQr;
+import generarqr.CodigoQr;
 import opciones.MenuOpciones;
 
 /**
@@ -122,7 +122,7 @@ public class PnlGenerarQR extends javax.swing.JPanel {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgTamanoCodigoQr.png"))); // NOI18N
         jLabel5.setFocusable(false);
         add(jLabel5);
-        jLabel5.setBounds(51, 281, 231, 123);
+        jLabel5.setBounds(51, 281, 231, 140);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgConexionTamano.png"))); // NOI18N
         add(jLabel7);

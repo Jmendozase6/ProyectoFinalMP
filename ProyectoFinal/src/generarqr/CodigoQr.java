@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package generar;
+package generarqr;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -59,7 +59,6 @@ public class CodigoQr {
             JOptionPane.showMessageDialog(null, "Los códigos se han generado con éxito.");
 
         } catch (SQLException e) {
-
             System.err.println(e.getMessage());
 
         } catch (WriterException | FileNotFoundException ex) {
@@ -67,7 +66,9 @@ public class CodigoQr {
             Logger.getLogger(CodigoQr.class.getName()).log(Level.SEVERE, null, ex);
 
         } catch (IOException ex) {
+
             Logger.getLogger(CodigoQr.class.getName()).log(Level.SEVERE, null, ex);
+
         }
     }
 

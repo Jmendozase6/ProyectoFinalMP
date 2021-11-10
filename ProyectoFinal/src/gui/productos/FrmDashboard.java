@@ -60,7 +60,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         jtxtBuscar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        JpanelVentana = new javax.swing.JPanel();
+        content = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblProductos = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -249,8 +249,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLupa.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 18, -1, -1));
 
-        JpanelVentana.setBackground(new java.awt.Color(26, 28, 32));
-        JpanelVentana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        content.setBackground(new java.awt.Color(26, 28, 32));
 
         jtblProductos = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int column){
@@ -283,8 +282,6 @@ public class FrmDashboard extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jtblProductos);
-
-        JpanelVentana.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1040, 420));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(81, 104, 244), new java.awt.Color(81, 104, 244)));
@@ -410,9 +407,23 @@ public class FrmDashboard extends javax.swing.JFrame {
         jcbxCategoria.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jcbxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 250, 40));
 
-        JpanelVentana.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 435, 1040, 230));
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        jPanel1.add(JpanelVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 1050, 670));
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 1050, 670));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -624,7 +635,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JpanelVentana;
+    private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

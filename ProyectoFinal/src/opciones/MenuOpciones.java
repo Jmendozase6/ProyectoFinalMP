@@ -53,6 +53,11 @@ public class MenuOpciones {
         }
     }
 
+    /**
+     * Solo permite la entrada de digitos, así como puntos y comas
+     *
+     * @param evt
+     */
     public void soloDigitos(KeyEvent evt) {
         char car = evt.getKeyChar();
         if ((car < '0' || car > '9') && (car < ',' || car > '.')) {
@@ -60,6 +65,11 @@ public class MenuOpciones {
         }
     }
 
+    /**
+     * Admite solo la entrada de letras
+     *
+     * @param evt
+     */
     public void soloLetras(KeyEvent evt) {
         if (!(Character.isLetter(evt.getKeyChar()))) {
             evt.consume();
