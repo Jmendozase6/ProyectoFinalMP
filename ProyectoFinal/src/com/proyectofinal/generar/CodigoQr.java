@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectofinal.generarqr;
+package com.proyectofinal.generar;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -38,7 +38,7 @@ public class CodigoQr {
         con = cc.getConnection();
     }
 
-    public void generarQr(int ancho, int alto) {
+    public void generarQr(int ancho, int alto, String ruta) {
 
         String SQL = "SELECT * FROM productos";
 
@@ -53,7 +53,7 @@ public class CodigoQr {
 
                 //Nombre - Marca - Precio c/u
                 bitMatrix = writer.encode(rs.getString("Nombre") + " - " + rs.getString("Marca") + " - " + rs.getDouble("Precio_unitario"), BarcodeFormat.QR_CODE, ancho, alto);
-                MatrixToImageWriter.writeToStream(bitMatrix, "png", new FileOutputStream(new File("C://Users//Jhair//OneDrive//Escritorio//Códigos Qr Generados//Código QR - " + rs.getString("Nombre") + ".png")));
+                MatrixToImageWriter.writeToStream(bitMatrix, "png", new FileOutputStream(new File(ruta+"//Código QR - " + rs.getString("Nombre") + ".png")));
 
             }
             JOptionPane.showMessageDialog(null, "Los códigos se han generado con éxito.");

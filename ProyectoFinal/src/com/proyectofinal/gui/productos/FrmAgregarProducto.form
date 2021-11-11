@@ -362,6 +362,7 @@
                   <Image iconType="3" name="/imgProducto/btnAgregar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clic aqu&#xed;"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -375,7 +376,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="570" y="570" width="190" height="40"/>
+                  <AbsoluteConstraints x="570" y="560" width="190" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -476,6 +477,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/imgCerrar.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Cerrar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -501,6 +503,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/imgMinimizar.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Minimizar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>

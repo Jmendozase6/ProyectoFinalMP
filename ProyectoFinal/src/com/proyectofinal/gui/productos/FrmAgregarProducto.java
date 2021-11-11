@@ -9,7 +9,6 @@ import FiveCodMover.FiveCodMoverJFrame;
 import com.proyectofinal.gui.usuarios.FrmDatosPersonales;
 import com.proyectofinal.gui.usuarios.FrmInicioSesion;
 import java.awt.Color;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import com.proyectofinal.modelos.Usuario;
 import com.proyectofinal.opciones.MenuOpciones;
@@ -25,8 +24,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     MenuOpciones mc = new MenuOpciones();
     //La clase que contiene las consultas sql correspondientes
     SqlAgregarProducto sqlAG = new SqlAgregarProducto();
-    //Agregar la fecha
-    Date date = new Date();
     Usuario us = Usuario.getInstance();
 
     public FrmAgregarProducto() {
@@ -195,6 +192,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jbtnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/btnAgregar.png"))); // NOI18N
         jbtnAgregar.setText("Agregar");
+        jbtnAgregar.setToolTipText("Clic aquí");
         jbtnAgregar.setBorder(null);
         jbtnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -203,7 +201,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
                 jbtnAgregarActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, 190, 40));
+        jPanel2.add(jbtnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 190, 40));
 
         lblMarca1.setFont(new java.awt.Font("Montserrat Medium", 0, 20)); // NOI18N
         lblMarca1.setForeground(new java.awt.Color(0, 0, 0));
@@ -229,6 +227,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
+        jbtnCerrar.setToolTipText("Cerrar");
         jbtnCerrar.setBorder(null);
         jbtnCerrar.setContentAreaFilled(false);
         jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -241,6 +240,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
 
         jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
+        jbtnMinimizar.setToolTipText("Minimizar");
         jbtnMinimizar.setBorder(null);
         jbtnMinimizar.setBorderPainted(false);
         jbtnMinimizar.setContentAreaFilled(false);
@@ -388,7 +388,7 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
         if (validarCamposVacios()) {
 
-            if (sqlAG.agregarProducto(date, jtxtNombre.getText(), jcbxCategoria.getSelectedItem().toString(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUni.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString())) {
+            if (sqlAG.agregarProducto(jtxtNombre.getText(), jcbxCategoria.getSelectedItem().toString(), jtxtMarca.getText(), Double.parseDouble(jtxtPrecioUni.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString())) {
                 limpiarCampos();
             }
 

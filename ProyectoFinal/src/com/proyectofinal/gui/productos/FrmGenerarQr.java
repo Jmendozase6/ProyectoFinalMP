@@ -5,12 +5,11 @@
  */
 package com.proyectofinal.gui.productos;
 
-import com.proyectofinal.generarqr.CodigoQr;
+import com.proyectofinal.generar.CodigoQr;
 import FiveCodMover.FiveCodMoverJFrame;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.proyectofinal.generar.FileChooser;
 import com.proyectofinal.opciones.MenuOpciones;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +17,7 @@ import com.proyectofinal.opciones.MenuOpciones;
  */
 public class FrmGenerarQr extends javax.swing.JFrame {
 
+    FileChooser file = new FileChooser();
     CodigoQr codigoQr = new CodigoQr();
     MenuOpciones mc = new MenuOpciones();
 
@@ -58,7 +58,7 @@ public class FrmGenerarQr extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(243, 242, 245));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(81, 104, 244)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         jtxtAlto.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jtxtAlto.setModel(new javax.swing.SpinnerNumberModel(150, 150, 300, 10));
@@ -115,6 +115,7 @@ public class FrmGenerarQr extends javax.swing.JFrame {
         jbtnGenerarQR.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         jbtnGenerarQR.setForeground(new java.awt.Color(255, 255, 255));
         jbtnGenerarQR.setText("Generar códigos");
+        jbtnGenerarQR.setToolTipText("Clic aquí");
         jbtnGenerarQR.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jbtnGenerarQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnGenerarQR.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +132,7 @@ public class FrmGenerarQr extends javax.swing.JFrame {
         jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
+        jbtnCerrar.setToolTipText("Cerrar");
         jbtnCerrar.setBorder(null);
         jbtnCerrar.setContentAreaFilled(false);
         jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -142,6 +144,7 @@ public class FrmGenerarQr extends javax.swing.JFrame {
 
         jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
+        jbtnMinimizar.setToolTipText("Minimizar");
         jbtnMinimizar.setBorder(null);
         jbtnMinimizar.setBorderPainted(false);
         jbtnMinimizar.setContentAreaFilled(false);
@@ -157,38 +160,39 @@ public class FrmGenerarQr extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jLabel4))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(jtxtAlto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jtxtAncho, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jbtnGenerarQR, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jLabel7)
-                        .addGap(36, 36, 36)
-                        .addComponent(panelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(190, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jbtnCerrar)
                 .addGap(10, 10, 10)
                 .addComponent(jbtnMinimizar)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(30, 30, 30)
+                                            .addComponent(jLabel4))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel1)
+                                            .addGap(54, 54, 54)
+                                            .addComponent(jtxtAlto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addGap(32, 32, 32)
+                                            .addComponent(jtxtAncho, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel7))
+                            .addComponent(jLabel3))
+                        .addGap(36, 36, 36)
+                        .addComponent(panelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jbtnGenerarQR, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,11 +223,11 @@ public class FrmGenerarQr extends javax.swing.JFrame {
                         .addGap(70, 70, 70)
                         .addComponent(jLabel7))
                     .addComponent(panelModelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtnGenerarQR, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,8 +256,14 @@ public class FrmGenerarQr extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtAnchoStateChanged
 
     private void jbtnGenerarQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQRActionPerformed
-        codigoQr.generarQr((int) jtxtAncho.getValue(), (int) jtxtAlto.getValue());
-        this.dispose();
+        String ruta = file.seleccionarRuta();
+        if (!ruta.isBlank()) {
+            codigoQr.generarQr((int) jtxtAncho.getValue(), (int) jtxtAlto.getValue(), ruta);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "No seleccionó ninguna ruta.", "Error", 0);
+        }
+
     }//GEN-LAST:event_jbtnGenerarQRActionPerformed
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged

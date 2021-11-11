@@ -103,6 +103,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jbtnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jbtnIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnIniciarSesion.setText("Iniciar sesión");
+        jbtnIniciarSesion.setToolTipText("Clic aquí");
         jbtnIniciarSesion.setBorderPainted(false);
         jbtnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -197,6 +198,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jbtnRegistrarse.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnRegistrarse.setForeground(new java.awt.Color(0, 62, 195));
         jbtnRegistrarse.setText("Registrarse");
+        jbtnRegistrarse.setToolTipText("Clic aquí");
         jbtnRegistrarse.setBorder(null);
         jbtnRegistrarse.setBorderPainted(false);
         jbtnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -214,6 +216,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
 
         jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
+        jbtnMinimizar.setToolTipText("Minimizar");
         jbtnMinimizar.setBorder(null);
         jbtnMinimizar.setBorderPainted(false);
         jbtnMinimizar.setContentAreaFilled(false);
@@ -228,6 +231,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
+        jbtnCerrar.setToolTipText("Cerrar");
         jbtnCerrar.setBorder(null);
         jbtnCerrar.setContentAreaFilled(false);
         jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -128,6 +128,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         jbtnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         jbtnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnRegistrarse.setText("Registrarse");
+        jbtnRegistrarse.setToolTipText("Clic aquí");
         jbtnRegistrarse.setBorderPainted(false);
         jbtnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnRegistrarse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -176,6 +177,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         jtxtNombre.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jtxtNombre.setForeground(new java.awt.Color(153, 153, 153));
         jtxtNombre.setText("Ingrese su nombre");
+        jtxtNombre.setToolTipText("");
         jtxtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
         jtxtNombre.setMargin(new java.awt.Insets(2, 10, 2, 6));
         jtxtNombre.setSelectionColor(new java.awt.Color(81, 104, 244));
@@ -191,6 +193,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
+        jbtnCerrar.setToolTipText("Cerrar");
         jbtnCerrar.setBorder(null);
         jbtnCerrar.setContentAreaFilled(false);
         jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -215,6 +218,7 @@ public class FrmRegistro extends javax.swing.JFrame {
         jbtnIniciarSesion.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnIniciarSesion.setForeground(new java.awt.Color(0, 62, 195));
         jbtnIniciarSesion.setText("Iniciar sesión");
+        jbtnIniciarSesion.setToolTipText("Clic aquí");
         jbtnIniciarSesion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jbtnIniciarSesion.setBorderPainted(false);
         jbtnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -249,6 +253,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
         jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
+        jbtnMinimizar.setToolTipText("Minimizar");
         jbtnMinimizar.setBorder(null);
         jbtnMinimizar.setBorderPainted(false);
         jbtnMinimizar.setContentAreaFilled(false);

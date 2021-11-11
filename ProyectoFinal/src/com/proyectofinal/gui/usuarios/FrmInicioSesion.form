@@ -169,6 +169,7 @@
                   <Image iconType="3" name="/imagenes/imgBnIniciarSesion.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Iniciar sesi&#xf3;n"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clic aqu&#xed;"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
@@ -403,6 +404,7 @@
                   <Color blue="c3" green="3e" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Registrarse"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clic aqu&#xed;"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -442,6 +444,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/imgMinimizar.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Minimizar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -471,6 +474,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/imgCerrar.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Cerrar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>

@@ -93,6 +93,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jbtnCerrar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgCerrar.png"))); // NOI18N
+        jbtnCerrar.setToolTipText("Cerrar");
         jbtnCerrar.setBorder(null);
         jbtnCerrar.setContentAreaFilled(false);
         jbtnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -105,6 +106,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
         jbtnMinimizar.setBackground(new java.awt.Color(26, 28, 32));
         jbtnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgMinimizar.png"))); // NOI18N
+        jbtnMinimizar.setToolTipText("Minimizar");
         jbtnMinimizar.setBorder(null);
         jbtnMinimizar.setBorderPainted(false);
         jbtnMinimizar.setContentAreaFilled(false);
