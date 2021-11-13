@@ -12,10 +12,10 @@ import javax.swing.JFileChooser;
  *
  * @author Jhair
  */
-public class FileChooser {
+public class RutaGuardado {
 
     public String seleccionarRuta() {
-        String selectPath = "";
+        String rutaSeleccionada = "";
         //Seteamos una ruta por defecto
         JFileChooser chooser = new JFileChooser("C:\\Users\\Jhair\\OneDrive\\Escritorio");
 
@@ -34,10 +34,10 @@ public class FileChooser {
         // Si el directorio guardado es consistente con el objeto de archivo seleccionado, devolverá 0 si tiene éxito
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             //Obtener la ruta
-            selectPath = chooser.getSelectedFile().getPath();
+            rutaSeleccionada = chooser.getSelectedFile().getPath();
         }
 
-        return selectPath;
+        return rutaSeleccionada;
     }
 
 }

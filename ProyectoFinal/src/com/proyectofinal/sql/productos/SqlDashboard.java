@@ -8,7 +8,7 @@ package com.proyectofinal.sql.productos;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
-import com.proyectofinal.conexion.ConexionSQL;
+import com.proyectofinal.conexion.Conexion;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ import com.proyectofinal.modelos.Usuario;
  */
 public class SqlDashboard {
 
-    private final ConexionSQL cc = new ConexionSQL();
+    private final Conexion cc = new Conexion();
     private final Connection con;
     PreparedStatement pst;
     Statement st;

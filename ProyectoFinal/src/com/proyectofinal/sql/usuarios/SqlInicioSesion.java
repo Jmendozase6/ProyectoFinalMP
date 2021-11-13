@@ -7,7 +7,7 @@ package com.proyectofinal.sql.usuarios;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
-import com.proyectofinal.conexion.ConexionSQL;
+import com.proyectofinal.conexion.Conexion;
 import com.proyectofinal.gui.productos.FrmDashboard;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
@@ -22,7 +22,7 @@ import com.proyectofinal.modelos.Usuario;
  */
 public class SqlInicioSesion {
 
-    private final ConexionSQL cc = new ConexionSQL();
+    private final Conexion cc = new Conexion();
     private final Connection con;
     Usuario us = Usuario.getInstance();
     ResultSet rs;

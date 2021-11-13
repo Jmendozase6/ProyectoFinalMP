@@ -7,7 +7,7 @@ package com.proyectofinal.gui.productos;
 
 import com.proyectofinal.generar.CodigoQr;
 import FiveCodMover.FiveCodMoverJFrame;
-import com.proyectofinal.generar.FileChooser;
+import com.proyectofinal.generar.RutaGuardado;
 import com.proyectofinal.opciones.MenuOpciones;
 import javax.swing.JOptionPane;
 
@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmGenerarQr extends javax.swing.JFrame {
 
-    FileChooser file = new FileChooser();
+    RutaGuardado file = new RutaGuardado();
     CodigoQr codigoQr = new CodigoQr();
     MenuOpciones mc = new MenuOpciones();
 

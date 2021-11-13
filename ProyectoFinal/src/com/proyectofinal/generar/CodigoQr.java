@@ -12,7 +12,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
-import com.proyectofinal.conexion.ConexionSQL;
+import com.proyectofinal.conexion.Conexion;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  */
 public class CodigoQr {
 
-    private final ConexionSQL cc = new ConexionSQL();
+    private final Conexion cc = new Conexion();
     private final Connection con;
     private Statement st;
     private ResultSet rs;

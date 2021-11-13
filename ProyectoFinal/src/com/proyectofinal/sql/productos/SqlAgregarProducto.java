@@ -7,7 +7,7 @@ package com.proyectofinal.sql.productos;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
-import com.proyectofinal.conexion.ConexionSQL;
+import com.proyectofinal.conexion.Conexion;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
 import javax.swing.JComboBox;
@@ -20,7 +20,7 @@ import java.sql.ResultSet;
  */
 public class SqlAgregarProducto {
 
-    private final ConexionSQL cc = new ConexionSQL();
+    private final Conexion cc = new Conexion();
     private final Connection con;
     PreparedStatement pst;
     ResultSet rs;
@@ -30,6 +30,7 @@ public class SqlAgregarProducto {
     
 
     public SqlAgregarProducto() {
+        this.cc.getInstance();
         this.con = cc.getConnection();
     }
 

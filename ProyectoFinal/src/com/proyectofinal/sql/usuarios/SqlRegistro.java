@@ -8,7 +8,7 @@ package com.proyectofinal.sql.usuarios;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
-import com.proyectofinal.conexion.ConexionSQL;
+import com.proyectofinal.conexion.Conexion;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class SqlRegistro {
 
-    private final ConexionSQL cc = new ConexionSQL();
+    private final Conexion cc = new Conexion();
     private final Connection con;
     private String SQL;
     private PreparedStatement pst;
