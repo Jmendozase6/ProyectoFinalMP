@@ -335,7 +335,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&#xbf;A&#xfa;n no tienes una cuenta?"/>
+                <Property name="text" type="java.lang.String" value="&#xbf;Tienes alg&#xfa;n problema?"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
               <Constraints>
@@ -371,7 +371,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Registrate aqu&#xed;"/>
+                <Property name="text" type="java.lang.String" value="Contacta al administrador"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
               <Constraints>
