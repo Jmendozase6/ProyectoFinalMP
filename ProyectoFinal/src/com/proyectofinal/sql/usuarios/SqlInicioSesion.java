@@ -22,11 +22,11 @@ import com.proyectofinal.modelos.Usuario;
  */
 public class SqlInicioSesion {
 
-    private final Conexion cc = new Conexion();
+    private final Conexion cc = Conexion.getInstance();
     private final Connection con;
+    private static ResultSet rs;
+    private static Statement st;
     Usuario us = Usuario.getInstance();
-    ResultSet rs;
-    Statement st;
 
     public SqlInicioSesion() {
         this.con = cc.getConnection();

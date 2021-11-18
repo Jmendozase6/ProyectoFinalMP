@@ -23,13 +23,23 @@ public class Conexion {
     private static final String PASS = "02658817";
     private static final String URL = "jdbc:mysql://localhost/" + DB;
 
+    private Conexion() {
+
+    }
+
+    public static Conexion getInstance() {
+        if (instancia == null) {
+            instancia = new Conexion();
+        }
+        return instancia;
+    }
+
     public Connection getConnection() {
 
         try {
 
             Class.forName("org.gjt.mm.mysql.Driver");
             connect = (Connection) DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Conexión exitosa");
             return connect;
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -44,7 +54,7 @@ public class Conexion {
     public void closeConnection() throws SQLException {
         try {
             connect.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
             connect.close();
         } finally {
@@ -52,10 +62,4 @@ public class Conexion {
         }
     }
 
-    public Conexion getInstance() {
-        if(instancia==null){
-            instancia = new Conexion();
-        }
-        return instancia;
-    }
 }

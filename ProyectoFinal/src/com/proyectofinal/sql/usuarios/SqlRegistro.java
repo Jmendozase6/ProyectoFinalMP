@@ -22,12 +22,12 @@ import javax.swing.JOptionPane;
  */
 public class SqlRegistro {
 
-    private final Conexion cc = new Conexion();
+    private final Conexion cc = Conexion.getInstance();
     private final Connection con;
-    private String SQL;
-    private PreparedStatement pst;
-    private Statement st;
-    private ResultSet rs;
+    private static String SQL;
+    private static PreparedStatement pst;
+    private static Statement st;
+    private static ResultSet rs;
 
     public SqlRegistro() {
         this.con = cc.getConnection();

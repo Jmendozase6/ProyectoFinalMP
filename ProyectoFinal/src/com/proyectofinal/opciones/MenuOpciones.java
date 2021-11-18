@@ -5,8 +5,11 @@
  */
 package com.proyectofinal.opciones;
 
+import com.proyectofinal.conexion.Conexion;
 import java.awt.Frame;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JToggleButton;
@@ -24,9 +27,15 @@ public class MenuOpciones {
     /**
      * Permite cerrar la ventana.
      */
+    private final Conexion cc = Conexion.getInstance();
+
     public void cerrarPrograma() {
-        if (JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Comprobación", 0) == 0) {
-            System.exit(0);
+        try {
+            if (JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Comprobación", 0) == 0) {
+                cc.closeConnection();
+                System.exit(0);
+            }
+        } catch (HeadlessException | SQLException e) {
         }
     }
 

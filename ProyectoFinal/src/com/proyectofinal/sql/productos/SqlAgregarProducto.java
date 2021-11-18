@@ -20,17 +20,15 @@ import java.sql.ResultSet;
  */
 public class SqlAgregarProducto {
 
-    private final Conexion cc = new Conexion();
+    private final Conexion cc = Conexion.getInstance();
     private final Connection con;
-    PreparedStatement pst;
-    ResultSet rs;
-    String SQL;
-    java.util.Date dateUtil = new java.util.Date();
-    java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime());
-    
+    private static PreparedStatement pst;
+    private static ResultSet rs;
+    private static String SQL;
+    private final java.util.Date dateUtil = new java.util.Date();
+    private final java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime());
 
     public SqlAgregarProducto() {
-        this.cc.getInstance();
         this.con = cc.getConnection();
     }
 

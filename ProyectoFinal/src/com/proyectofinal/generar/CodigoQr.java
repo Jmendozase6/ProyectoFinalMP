@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  */
 public class CodigoQr {
 
-    private final Conexion cc = new Conexion();
+    private final Conexion cc = Conexion.getInstance();
     private final Connection con;
     private Statement st;
     private ResultSet rs;

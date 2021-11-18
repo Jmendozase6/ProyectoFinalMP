@@ -20,9 +20,9 @@ public class RutaGuardado {
         JFileChooser chooser = new JFileChooser("C:\\Users\\Jhair\\OneDrive\\Escritorio");
 
         /*   De acuerdo con JFileChooser para seleccionar el cuadro de carpeta emergente 
-    *    1. Sólo seleccione el directorio JFileChooser.DIRECTORIES_ONLY
-    *    2. Seleccione solo el archivo JFileChooser.FILES_ONLY
-    *    3. Tanto los directorios como los archivos pueden ser JFileChooser.FILES_AND_DIRECTORIES
+        *    1. Sólo seleccione el directorio JFileChooser.DIRECTORIES_ONLY
+        *    2. Seleccione solo el archivo JFileChooser.FILES_ONLY
+        *    3. Tanto los directorios como los archivos pueden ser JFileChooser.FILES_AND_DIRECTORIES
          */
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 

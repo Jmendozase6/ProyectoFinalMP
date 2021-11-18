@@ -545,9 +545,18 @@ public class FrmDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnAgregarProductoActionPerformed
 
     private void jbtnGenerarQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQRActionPerformed
-        jbtnGenerarQR.setForeground(new Color(102, 255, 255));
-        new FrmGenerarQr().setVisible(true);
-        jbtnGenerarQR.setForeground(Color.white);
+//        jbtnGenerarQR.setForeground(new Color(102, 255, 255));
+//        new FrmGenerarQr().setVisible(true);
+//        jbtnGenerarQR.setForeground(Color.white);
+//        try {
+//            PanelGenerarQr panel = new PanelGenerarQr();
+//            content.add(panel,BorderLayout.CENTER);
+//            panel.setVisible(true);
+//            panel.setBounds(200, 200, 400, 300);
+//            content.repaint();
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
     }//GEN-LAST:event_jbtnGenerarQRActionPerformed
 
     private void jbtnDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDatosPersonalesActionPerformed
@@ -629,16 +638,18 @@ public class FrmDashboard extends javax.swing.JFrame {
     }
 
     private void limpiarTabla() {
+        
         try {
+            
             DefaultTableModel modelo = (DefaultTableModel) jtblProductos.getModel();
             int filas = jtblProductos.getRowCount();
             for (int i = 0; filas > i; i++) {
                 modelo.removeRow(0);
             }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al limpiar la tabla");
         }
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

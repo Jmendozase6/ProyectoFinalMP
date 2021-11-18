@@ -22,8 +22,7 @@ public class Ejecutar {
 
             UIManager.setLookAndFeel(new FlatIntelliJLaf());
 //            UIManager.setLookAndFeel(new NimbusLookAndFeel());
-            FrmInicioSesion frmInicioSesion = new FrmInicioSesion();
-            frmInicioSesion.setVisible(true);
+            new FrmInicioSesion().setVisible(true);
 
         } catch (UnsupportedLookAndFeelException e) {
 

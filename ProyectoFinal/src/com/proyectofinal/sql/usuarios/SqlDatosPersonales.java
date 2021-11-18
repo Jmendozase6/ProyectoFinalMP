@@ -23,12 +23,12 @@ import com.proyectofinal.modelos.Usuario;
  */
 public class SqlDatosPersonales {
 
-    private final Conexion cc = new Conexion();
+    private final Conexion cc = Conexion.getInstance();
     private final Connection con;
+    private static ResultSet rs;
+    private static PreparedStatement pst;
+    private static Statement st;
     Usuario us = Usuario.getInstance();
-    ResultSet rs;
-    PreparedStatement pst;
-    Statement st;
 
     public SqlDatosPersonales() {
         this.con = cc.getConnection();
@@ -80,7 +80,7 @@ public class SqlDatosPersonales {
                 jtxtContrasena.setText(rs.getString("Contrasena"));
             }
             us.setNombre(jtxtNombre.getText());
-            
+
         } catch (SQLException e) {
 
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);

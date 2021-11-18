@@ -23,11 +23,11 @@ import com.proyectofinal.modelos.Usuario;
  */
 public class SqlDashboard {
 
-    private final Conexion cc = new Conexion();
+    private final Conexion cc = Conexion.getInstance();
     private final Connection con;
-    PreparedStatement pst;
-    Statement st;
-    ResultSet rs;
+    private static PreparedStatement pst;
+    private static Statement st;
+    private static ResultSet rs;
     Usuario us = Usuario.getInstance();
 
     public SqlDashboard() {
