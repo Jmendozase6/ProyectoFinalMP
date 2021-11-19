@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectofinal.gui.productos;
+package com.proyectofinal.vista.productos;
 
 import com.proyectofinal.sql.productos.SqlDashboard;
 import com.proyectofinal.sql.productos.SqlAgregarProducto;
 import FiveCodMover.FiveCodMoverJFrame;
-import com.proyectofinal.gui.usuarios.FrmDatosPersonales;
-import com.proyectofinal.gui.usuarios.FrmInicioSesion;
+import com.proyectofinal.vista.usuarios.FrmDatosPersonales;
+import com.proyectofinal.vista.usuarios.FrmInicioSesion;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import com.proyectofinal.opciones.MenuOpciones;
 import com.proyectofinal.modelos.Usuario;
+import com.proyectofinal.vista.admin.FrmProveedores;
 
 /**
  *
@@ -48,14 +48,20 @@ public class FrmDashboard extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        jbtnCerrarSesion = new javax.swing.JButton();
+        jbtnUsuarios = new javax.swing.JButton();
         jbtnPantallaPrincipal = new javax.swing.JButton();
         jbtnAgregarProducto = new javax.swing.JButton();
-        jbtnGenerarQR = new javax.swing.JButton();
+        jbtnGenerarQr = new javax.swing.JButton();
         jbtnDatosPersonales = new javax.swing.JButton();
         labelIcon = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        jbtnProveedores = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JSeparator();
+        jbtnCategorias = new javax.swing.JButton();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        jbtnCerrarSesion = new javax.swing.JButton();
         jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
         jtxtBuscar = new javax.swing.JTextField();
@@ -82,6 +88,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         jbtnActualizar = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
         jcbxCategoria = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -121,25 +128,22 @@ public class FrmDashboard extends javax.swing.JFrame {
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 180, 10));
 
-        jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, 10));
-
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 180, 10));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 180, 10));
 
-        jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnCerrarSesion.setText("Cerrar sesión");
-        jbtnCerrarSesion.setContentAreaFilled(false);
-        jbtnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jbtnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jbtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+        jbtnUsuarios.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnUsuarios.setText("Usuarios");
+        jbtnUsuarios.setContentAreaFilled(false);
+        jbtnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnUsuarios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnUsuarios.setInheritsPopupMenu(true);
+        jbtnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnCerrarSesionActionPerformed(evt);
+                jbtnUsuariosActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 380, 200, 20));
+        jPanel2.add(jbtnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 200, 20));
 
         jbtnPantallaPrincipal.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnPantallaPrincipal.setForeground(new java.awt.Color(102, 255, 255));
@@ -164,19 +168,18 @@ public class FrmDashboard extends javax.swing.JFrame {
         });
         jPanel2.add(jbtnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 240, 210, 20));
 
-        jbtnGenerarQR.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        jbtnGenerarQR.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnGenerarQR.setText("Generar QR");
-        jbtnGenerarQR.setContentAreaFilled(false);
-        jbtnGenerarQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnGenerarQR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jbtnGenerarQR.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jbtnGenerarQR.addActionListener(new java.awt.event.ActionListener() {
+        jbtnGenerarQr.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnGenerarQr.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnGenerarQr.setText("Generar QR");
+        jbtnGenerarQr.setContentAreaFilled(false);
+        jbtnGenerarQr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnGenerarQr.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnGenerarQr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnGenerarQRActionPerformed(evt);
+                jbtnGenerarQrActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtnGenerarQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 310, 200, 20));
+        jPanel2.add(jbtnGenerarQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 310, 200, 20));
 
         jbtnDatosPersonales.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnDatosPersonales.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,6 +197,58 @@ public class FrmDashboard extends javax.swing.JFrame {
 
         labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLogo.png"))); // NOI18N
         jPanel2.add(labelIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 180, 10));
+
+        jbtnProveedores.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnProveedores.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnProveedores.setText("Proveedores");
+        jbtnProveedores.setContentAreaFilled(false);
+        jbtnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnProveedores.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnProveedoresActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtnProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 200, 20));
+
+        jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 180, 10));
+
+        jbtnCategorias.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnCategorias.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnCategorias.setText("Categorías");
+        jbtnCategorias.setContentAreaFilled(false);
+        jbtnCategorias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnCategorias.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCategoriasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtnCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 200, 20));
+
+        jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 180, 10));
+
+        jSeparator11.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 180, 10));
+
+        jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnCerrarSesion.setText("Cerrar sesión");
+        jbtnCerrarSesion.setContentAreaFilled(false);
+        jbtnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnCerrarSesion.setInheritsPopupMenu(true);
+        jbtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCerrarSesionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 200, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 222, 662));
 
@@ -414,6 +469,14 @@ public class FrmDashboard extends javax.swing.JFrame {
         jcbxCategoria.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jcbxCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 250, 40));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 60, -1, -1));
+
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
@@ -476,7 +539,7 @@ public class FrmDashboard extends javax.swing.JFrame {
         if (validarCamposVacios()) {
             if (!(jtxtIdProducto.getText().isBlank())) {
                 sqlD.actualizarDatosProducto(jtxtNombre.getText().trim(), jcbxCategoria.getSelectedItem().toString(), jtxtMarca.getText().trim(), Double.parseDouble(jtxtPrecioUnitario.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString(), Integer.parseInt(jtxtIdProducto.getText()));
-                limpiarTabla();
+                mc.limpiarTabla(jtblProductos);
                 sqlD.mostrarDatos(jtblProductos);
                 editarTabla();
                 limpiarCampos();
@@ -493,18 +556,14 @@ public class FrmDashboard extends javax.swing.JFrame {
         try {
 
             int id = Integer.parseInt(jtxtIdProducto.getText());
-            if (id == -1) {
-
-            } else {
-
+            if (id != -1) {
                 if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar?", "Comprobación", 2) == 0) {
                     sqlD.eliminarProducto(id);
-                    limpiarTabla();
+                    mc.limpiarTabla(jtblProductos);
                     sqlD.mostrarDatos(jtblProductos);
                     editarTabla();
                     limpiarCampos();
                 }
-
             }
         } catch (NumberFormatException e) {
 
@@ -529,36 +588,54 @@ public class FrmDashboard extends javax.swing.JFrame {
         jtxtNombre.requestFocus();
     }//GEN-LAST:event_jtblProductosMouseClicked
 
-    private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        jbtnCerrarSesion.setForeground(new Color(102, 255, 255));
+    private void jbtnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUsuariosActionPerformed
+        jbtnUsuarios.setForeground(new Color(102, 255, 255));
         if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
             us.setNombre("");
             new FrmInicioSesion().setVisible(true);
             this.dispose();
         }
-        jbtnCerrarSesion.setForeground(Color.white);
-    }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
+        jbtnUsuarios.setForeground(Color.white);
+    }//GEN-LAST:event_jbtnUsuariosActionPerformed
 
     private void jbtnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarProductoActionPerformed
         new FrmAgregarProducto().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnAgregarProductoActionPerformed
 
-    private void jbtnGenerarQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQRActionPerformed
-        jbtnGenerarQR.setForeground(new Color(102, 255, 255));
+    private void jbtnGenerarQrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQrActionPerformed
+        jbtnGenerarQr.setForeground(new Color(102, 255, 255));
         new FrmGenerarQr().setVisible(true);
-        jbtnGenerarQR.setForeground(Color.white);
-    }//GEN-LAST:event_jbtnGenerarQRActionPerformed
+        jbtnGenerarQr.setForeground(Color.white);
+    }//GEN-LAST:event_jbtnGenerarQrActionPerformed
 
     private void jbtnDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDatosPersonalesActionPerformed
         new FrmDatosPersonales().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnDatosPersonalesActionPerformed
 
+    private void jbtnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnProveedoresActionPerformed
+        new FrmProveedores().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnProveedoresActionPerformed
+
+    private void jbtnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCategoriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnCategoriasActionPerformed
+
+    private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        mc.limpiarTabla(jtblProductos);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void editarTabla() {
         //Editar las propiedades(fuente,tamaño,color) de los titulos de la tabla
         jtblProductos.getTableHeader().setFont(new Font("Montserrat Medium", 1, 16));
         jtblProductos.getTableHeader().setForeground(Color.BLACK);
+        jtblProductos.getTableHeader().setBackground(Color.decode("#CCCCCC"));
 
         TableColumnModel columnModel = jtblProductos.getColumnModel();
 
@@ -586,20 +663,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     }
 
     private boolean validarCamposVacios() {
-        if (jtxtNombre.getText().isBlank()) {
-            return false;
-        } else if (jcbxCategoria.getSelectedIndex() == -1) {
-            return false;
-        } else if (jtxtMarca.getText().isBlank()) {
-            return false;
-        } else if (jtxtPrecioUnitario.getText().isBlank()) {
-            return false;
-        } else if (jtxtCantidad.getText().isBlank()) {
-            return false;
-        } else if (jcbxProveedor.getSelectedIndex() == -1) {
-            return false;
-        }
-        return true;
+        return !(jtxtNombre.getText().isBlank() || jtxtCantidad.getText().isBlank() || jtxtMarca.getText().isBlank() || jtxtPrecioUnitario.getText().isBlank() || jcbxCategoria.getSelectedIndex() == -1 || jcbxProveedor.getSelectedIndex() == -1);
     }
 
     private void limpiarCampos() {
@@ -628,21 +692,10 @@ public class FrmDashboard extends javax.swing.JFrame {
         }
     }
 
-    private void limpiarTabla() {
-        try {
-            DefaultTableModel modelo = (DefaultTableModel) jtblProductos.getModel();
-            int filas = jtblProductos.getRowCount();
-            for (int i = 0; filas > i; i++) {
-                modelo.removeRow(0);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla");
-        }
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel content;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -658,21 +711,27 @@ public class FrmDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JButton jbtnActualizar;
     private javax.swing.JButton jbtnAgregarProducto;
+    private javax.swing.JButton jbtnCategorias;
     private javax.swing.JButton jbtnCerrar;
     private javax.swing.JButton jbtnCerrarSesion;
     private javax.swing.JButton jbtnDatosPersonales;
     private javax.swing.JButton jbtnEliminar;
-    private javax.swing.JButton jbtnGenerarQR;
+    private javax.swing.JButton jbtnGenerarQr;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JButton jbtnPantallaPrincipal;
+    private javax.swing.JButton jbtnProveedores;
+    private javax.swing.JButton jbtnUsuarios;
     private javax.swing.JComboBox<String> jcbxCategoria;
     private javax.swing.JComboBox<String> jcbxProveedor;
     private javax.swing.JTable jtblProductos;

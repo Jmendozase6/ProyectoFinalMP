@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectofinal.gui.productos;
+package com.proyectofinal.vista.productos;
 
 import com.proyectofinal.generar.CodigoQr;
 import FiveCodMover.FiveCodMoverJFrame;

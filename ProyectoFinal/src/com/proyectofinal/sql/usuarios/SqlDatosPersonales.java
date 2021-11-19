@@ -80,7 +80,7 @@ public class SqlDatosPersonales {
                 jtxtContrasena.setText(rs.getString("Contrasena"));
             }
             us.setNombre(jtxtNombre.getText());
-            
+
         } catch (SQLException e) {
 
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 0);

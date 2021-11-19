@@ -29,7 +29,7 @@ public class Conexion {
 
             Class.forName("org.gjt.mm.mysql.Driver");
             connect = (Connection) DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Conexión exitosa");
+//            System.out.println("Conexión exitosa");
             return connect;
 
         } catch (ClassNotFoundException | SQLException e) {

@@ -25,9 +25,10 @@ public class SqlDashboard {
 
     private final Conexion cc = new Conexion();
     private final Connection con;
-    PreparedStatement pst;
-    Statement st;
-    ResultSet rs;
+    private PreparedStatement pst;
+    private Statement st;
+    private ResultSet rs;
+    private final String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio c/u", "Cantidad", "Proveedor", "Fecha entrada"};
     Usuario us = Usuario.getInstance();
 
     public SqlDashboard() {
@@ -36,7 +37,6 @@ public class SqlDashboard {
 
     public void buscarDatos(String valor, JTable jtblProductos) {
 
-        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio c/u", "Cantidad", "Proveedor", "Fecha entrada"};
         Object[] registros = new Object[8];
         DefaultTableModel modelo = new DefaultTableModel(null, titulos);
 
@@ -71,8 +71,6 @@ public class SqlDashboard {
     }
 
     public void mostrarDatos(JTable jtblProductos) {
-
-        String[] titulos = {"Id", "Nombre", "Categoría", "Marca", "Precio c/u", "Cantidad", "Proveedor", "Fecha entrada"};
 
         Object[] registros = new Object[8];
 

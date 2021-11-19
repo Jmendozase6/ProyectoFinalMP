@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectofinal.gui.usuarios;
+package com.proyectofinal.vista.usuarios;
 
 import FiveCodMover.FiveCodMoverJFrame;
 import com.proyectofinal.opciones.MenuOpciones;

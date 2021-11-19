@@ -9,7 +9,9 @@ import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JTable;
 import javax.swing.JToggleButton;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -76,4 +78,14 @@ public class MenuOpciones {
         }
     }
 
+    /**
+     * Permite limpiar las tablas
+     *
+     * @param jtblLimpiar
+     */
+    public void limpiarTabla(JTable jtblLimpiar) {
+        DefaultTableModel model = (DefaultTableModel) jtblLimpiar.getModel();
+        model.setRowCount(0);
+        jtblLimpiar.setModel(model);
+    }
 }

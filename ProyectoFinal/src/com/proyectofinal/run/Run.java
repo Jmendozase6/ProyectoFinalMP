@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.proyectofinal.main;
+package com.proyectofinal.run;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.proyectofinal.gui.usuarios.FrmInicioSesion;
+import com.proyectofinal.vista.usuarios.FrmInicioSesion;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -14,7 +14,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author JHAIR
  */
-public class Ejecutar {
+public class Run {
 
     public static void main(String[] args) {
 

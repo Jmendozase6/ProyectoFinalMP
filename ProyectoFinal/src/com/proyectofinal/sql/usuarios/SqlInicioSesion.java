@@ -8,7 +8,7 @@ package com.proyectofinal.sql.usuarios;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import com.proyectofinal.conexion.Conexion;
-import com.proyectofinal.gui.productos.FrmDashboard;
+import com.proyectofinal.vista.productos.FrmDashboard;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -22,9 +22,9 @@ public class SqlAgregarProducto {
 
     private final Conexion cc = new Conexion();
     private final Connection con;
-    PreparedStatement pst;
-    ResultSet rs;
-    String SQL;
+    private PreparedStatement pst;
+    private ResultSet rs;
+    private String SQL;
     java.util.Date dateUtil = new java.util.Date();
     java.sql.Date dateSql = new java.sql.Date(dateUtil.getTime());
     

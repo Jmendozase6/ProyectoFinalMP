@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -33,9 +34,9 @@ public class SqlRegistro {
         this.con = cc.getConnection();
     }
 
-    public boolean agregarUsuario(String nombre, String user, String pass, JLabel error) {
+    public boolean agregarUsuario(String nombre, String user, String pass, String tipoUsuario, JLabel error) {
 
-        SQL = "INSERT INTO usuarios (Nombre,Usuario,Contrasena) values(?,?,?)";
+        SQL = "INSERT INTO usuarios (Nombre,Usuario,Contrasena,tipoUsuario) values(?,?,?,?)";
 
         try {
 
@@ -44,6 +45,7 @@ public class SqlRegistro {
             pst.setString(1, nombre.trim());
             pst.setString(2, user.trim());
             pst.setString(3, pass.trim());
+            pst.setString(4, tipoUsuario.trim());
 
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro exitoso.");
@@ -77,6 +79,27 @@ public class SqlRegistro {
 
         }
         return false;
+    }
+
+    public void mostrarTipoUsuario(JComboBox jcbxTipo) {
+
+        SQL = "SELECT (tipo) FROM tipousuario";
+
+        try {
+
+            pst = (PreparedStatement) con.prepareStatement(SQL);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                jcbxTipo.addItem(rs.getString("tipo"));
+
+            }
+            jcbxTipo.setSelectedIndex(-1);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }
