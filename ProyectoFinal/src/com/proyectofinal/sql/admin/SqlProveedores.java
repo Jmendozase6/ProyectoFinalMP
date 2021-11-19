@@ -36,7 +36,7 @@ public class SqlProveedores {
         this.con = cc.getConnection();
     }
 
-    public boolean agregarProveedor(String nombre, int dni, String empresa) {
+    public boolean registrarProveedor(String nombre, int dni, String empresa) {
 
         SQL = "INSERT INTO proveedores (Nombres,DNI,Empresa) values(?,?,?)";
 
