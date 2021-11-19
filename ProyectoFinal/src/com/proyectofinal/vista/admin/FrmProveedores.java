@@ -5,9 +5,13 @@
  */
 package com.proyectofinal.vista.admin;
 
+import FiveCodMover.FiveCodMoverJFrame;
+import com.proyectofinal.modelos.Usuario;
 import com.proyectofinal.vista.productos.FrmGenerarQr;
 import com.proyectofinal.opciones.MenuOpciones;
 import com.proyectofinal.sql.admin.SqlProveedores;
+import com.proyectofinal.vista.productos.FrmAgregarProducto;
+import com.proyectofinal.vista.usuarios.FrmInicioSesion;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -23,6 +27,7 @@ public class FrmProveedores extends javax.swing.JFrame {
     SqlProveedores sqlP = new SqlProveedores();
     private int idProveedor;
     private int nFila;
+    Usuario us = Usuario.getInstance();
 
     public FrmProveedores() {
         initComponents();
@@ -45,7 +50,6 @@ public class FrmProveedores extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         jbtnCerrarSesion = new javax.swing.JButton();
         jbtnPantallaPrincipal = new javax.swing.JButton();
         jbtnAgregarProducto = new javax.swing.JButton();
@@ -77,13 +81,23 @@ public class FrmProveedores extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jbtnEliminar = new javax.swing.JButton();
+        jSeparator12 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(26, 28, 32));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,9 +153,6 @@ public class FrmProveedores extends javax.swing.JFrame {
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 180, 10));
 
-        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 180, 10));
-
         jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrarSesion.setText("Cerrar sesión");
@@ -149,13 +160,18 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbtnCerrarSesion.setInheritsPopupMenu(true);
+        jbtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCerrarSesionActionPerformed(evt);
+            }
+        });
         jPanel2.add(jbtnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 200, 20));
 
         jbtnPantallaPrincipal.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnPantallaPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         jbtnPantallaPrincipal.setText("Pantalla Principal");
         jbtnPantallaPrincipal.setContentAreaFilled(false);
-        jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnPantallaPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnPantallaPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jPanel2.add(jbtnPantallaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 100, 200, 20));
@@ -167,6 +183,11 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnAgregarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnAgregarProducto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnAgregarProducto.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAgregarProductoActionPerformed(evt);
+            }
+        });
         jPanel2.add(jbtnAgregarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 240, 210, 20));
 
         jbtnProveedores.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -292,10 +313,12 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnActualizar.setBackground(new java.awt.Color(102, 204, 255));
         jbtnActualizar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgBtnActualizar.png"))); // NOI18N
         jbtnActualizar.setText("Actualizar");
-        jbtnActualizar.setBorderPainted(false);
         jbtnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnActualizar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbtnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jbtnActualizar.setMargin(new java.awt.Insets(2, 8, 2, 14));
         jbtnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnActualizarActionPerformed(evt);
@@ -317,10 +340,11 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnRegistrar.setBackground(new java.awt.Color(76, 196, 76));
         jbtnRegistrar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnRegistrar.setText("Registrar ");
-        jbtnRegistrar.setBorderPainted(false);
+        jbtnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgBtnRegistro.png"))); // NOI18N
+        jbtnRegistrar.setText("Registrar");
         jbtnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbtnRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbtnRegistrar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jbtnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnRegistrarActionPerformed(evt);
@@ -361,21 +385,18 @@ public class FrmProveedores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtblProveedores);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 100, 650, 420));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 100, 650, 560));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgActualizar.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, 190, 170));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 550, 190, 170));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgBienActualizar.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 180, 180));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, 180, 180));
 
         jLabel5.setFont(new java.awt.Font("Montserrat", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Proveedores");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, -1, -1));
-
-        jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 130, 20));
 
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, 20));
@@ -383,13 +404,18 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnEliminar.setBackground(new java.awt.Color(232, 50, 50));
         jbtnEliminar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgEliminar.png"))); // NOI18N
         jbtnEliminar.setText("Eliminar");
+        jbtnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnEliminarActionPerformed(evt);
             }
         });
         jPanel1.add(jbtnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 670, 150, 40));
+
+        jSeparator12.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 130, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -439,6 +465,7 @@ public class FrmProveedores extends javax.swing.JFrame {
 
     private void jbtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarActionPerformed
         if (validarCampos()) {
+
             nFila = jtblProveedores.getSelectedRow();
             idProveedor = Integer.parseInt(jtblProveedores.getValueAt(nFila, 0).toString());
 
@@ -448,13 +475,17 @@ public class FrmProveedores extends javax.swing.JFrame {
                 sqlP.mostrarDatosTabla(jtblProveedores);
                 editarTabla();
                 limpiarCampos();
+                jlblError.setVisible(false);
+
             } else {
-                JOptionPane.showMessageDialog(rootPane, "El número de DNI es incorrecto", "Error", 0);
+
+                JOptionPane.showMessageDialog(rootPane, "El número de DNI es incorrecto.", "Error", 0);
+
             }
 
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "No puede dejar campos vacíos", "Error al registrar", 2);
+            jlblError.setVisible(true);
 
         }
     }//GEN-LAST:event_jbtnRegistrarActionPerformed
@@ -470,35 +501,73 @@ public class FrmProveedores extends javax.swing.JFrame {
                 sqlP.mostrarDatosTabla(jtblProveedores);
                 editarTabla();
                 limpiarCampos();
+                jlblError.setVisible(false);
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "El número de DNI es incorrecto", "Error", 0);
+                JOptionPane.showMessageDialog(rootPane, "El número de DNI es incorrecto.", "Error", 0);
             }
 
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "No puede dejar campos vacíos", "Error al registrar", 2);
+            jlblError.setVisible(true);
 
         }
     }//GEN-LAST:event_jbtnActualizarActionPerformed
 
     private void jbtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarActionPerformed
-        nFila = jtblProveedores.getSelectedRow();
-        idProveedor = Integer.parseInt(jtblProveedores.getValueAt(nFila, 0).toString());
-        sqlP.eliminarProveedor(idProveedor);
-        sqlP.mostrarDatosTabla(jtblProveedores);
-        editarTabla();
-        limpiarCampos();
+        try {
+
+            nFila = jtblProveedores.getSelectedRow();
+            idProveedor = Integer.parseInt(jtblProveedores.getValueAt(nFila, 0).toString());
+            
+            if (idProveedor != -1) {
+                sqlP.eliminarProveedor(idProveedor);
+                sqlP.mostrarDatosTabla(jtblProveedores);
+                editarTabla();
+                limpiarCampos();
+            }
+        } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+
+            JOptionPane.showMessageDialog(rootPane, "No seleccionó ningun proveedor.", "Error", 0);
+        }
+
+
     }//GEN-LAST:event_jbtnEliminarActionPerformed
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        FiveCodMoverJFrame.MousePressed(evt);
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        FiveCodMoverJFrame.MouseDraggedFrame(evt, this);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
+            us.setNombre("");
+            new FrmInicioSesion().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
+
+    private void jbtnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarProductoActionPerformed
+        new FrmAgregarProducto().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnAgregarProductoActionPerformed
 
     private void mostrarDatosFormulario() {
         nFila = jtblProveedores.getSelectedRow();
+
         if (nFila == -1) {
+
             JOptionPane.showMessageDialog(rootPane, "No seleccionó ninguna fila.", "Error", 2);
+
         } else {
+
             jtxtNombreR.setText(jtblProveedores.getValueAt(nFila, 1).toString());
             jtxtDniR.setText(jtblProveedores.getValueAt(nFila, 2).toString());
             jtxtEmpresaR.setText(jtblProveedores.getValueAt(nFila, 3).toString());
+
         }
     }
 
@@ -544,11 +613,10 @@ public class FrmProveedores extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;

@@ -55,7 +55,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jtxtMarca = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jbtnAgregar = new javax.swing.JButton();
         lblMarca1 = new javax.swing.JLabel();
         jcbxProveedor = new javax.swing.JComboBox<>();
@@ -80,7 +79,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jbtnCategorias = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
         jbtnCerrarSesion = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
@@ -191,9 +189,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/imgBorde2.png"))); // NOI18N
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProducto/Borde1.png"))); // NOI18N
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, -1, -1));
-
         jbtnAgregar.setBackground(new java.awt.Color(243, 242, 245));
         jbtnAgregar.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jbtnAgregar.setForeground(new java.awt.Color(255, 255, 255));
@@ -303,6 +298,11 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnPantallaPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnPantallaPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnPantallaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPantallaPrincipalActionPerformed(evt);
+            }
+        });
         jPanel5.add(jbtnPantallaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 100, 200, 20));
 
         jbtnAgregarProducto.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -383,9 +383,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
 
         jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 180, 10));
-
-        jSeparator11.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 180, 10));
 
         jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -493,12 +490,20 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnProveedoresActionPerformed
 
     private void jbtnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCategoriasActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jbtnCategoriasActionPerformed
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
+            us.setNombre("");
+            new FrmInicioSesion().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
+
+    private void jbtnPantallaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
 
     // Limpia los textfield
     private void limpiarCampos() {
@@ -543,7 +548,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -557,7 +561,6 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;

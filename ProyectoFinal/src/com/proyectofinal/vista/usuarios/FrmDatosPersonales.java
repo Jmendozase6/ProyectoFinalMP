@@ -38,11 +38,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblUs = new javax.swing.JLabel();
         lblCon = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -51,9 +51,9 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jtxtNombre = new javax.swing.JTextField();
         jtxtUsuario = new javax.swing.JTextField();
         jtxtContrasena = new javax.swing.JPasswordField();
+        lblNombre1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        imagen = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -73,7 +73,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jbtnCategorias = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
         jbtnCerrarSesion = new javax.swing.JButton();
         jbtnGuardarCambios = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
@@ -127,8 +126,12 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         });
         jPanel2.add(jbtnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgDatosPersonales.png"))); // NOI18N
+        jLabel3.setFocusable(false);
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, 450));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgUserConfig.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 170, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 156, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,11 +145,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         lblCon.setForeground(new java.awt.Color(0, 0, 0));
         lblCon.setText("Contraseña");
         jPanel1.add(lblCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
-
-        lblNombre.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
-        lblNombre.setText("Nombre");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgPasswordBlanco.png"))); // NOI18N
         jLabel8.setToolTipText("");
@@ -202,24 +200,27 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jtxtContrasena.setSelectionColor(new java.awt.Color(81, 104, 244));
         jPanel1.add(jtxtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 250, 40));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 360, 370));
+        lblNombre1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        lblNombre1.setForeground(new java.awt.Color(0, 0, 0));
+        lblNombre1.setText("Nombre");
+        jPanel1.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 360, 370));
 
         jPanel4.setBackground(new java.awt.Color(81, 104, 244));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 270, 460, 70));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 500, 523, 70));
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Datos Personales");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 77, -1, -1));
-
-        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgDatosPersonales.png"))); // NOI18N
-        imagen.setFocusable(false);
-        jPanel2.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 311, 432));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Datos personales");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 360, -1));
 
         jPanel3.setBackground(new java.awt.Color(81, 104, 244));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 240, 70));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 240, 70));
 
         jPanel5.setBackground(new java.awt.Color(81, 104, 244));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -346,9 +347,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 180, 10));
 
-        jSeparator11.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 180, 10));
-
         jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         jbtnCerrarSesion.setText("Cerrar sesión");
@@ -365,11 +363,13 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 58, 222, 662));
 
+        jbtnGuardarCambios.setBackground(new java.awt.Color(81, 104, 244));
         jbtnGuardarCambios.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnGuardarCambios.setForeground(new java.awt.Color(255, 255, 255));
         jbtnGuardarCambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnGuardarCambios.setText("Guardar cambios");
         jbtnGuardarCambios.setBorderPainted(false);
+        jbtnGuardarCambios.setContentAreaFilled(false);
         jbtnGuardarCambios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnGuardarCambios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbtnGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
@@ -377,13 +377,13 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
                 jbtnGuardarCambiosActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtnGuardarCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 610, 250, 40));
+        jPanel2.add(jbtnGuardarCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 600, 250, 40));
 
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 130, 20));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 130, 20));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 190, 130, 20));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 180, 130, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -434,8 +434,8 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnUsuariosActionPerformed
 
     private void jbtnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarProductoActionPerformed
-        this.dispose();
         new FrmAgregarProducto().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbtnAgregarProductoActionPerformed
 
     private void jbtnGenerarQrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQrActionPerformed
@@ -458,7 +458,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnCategoriasActionPerformed
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
+            us.setNombre("");
+            new FrmInicioSesion().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
 
     //Validar que los campos no estén vacíos
@@ -467,10 +471,10 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel imagen;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -481,7 +485,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -508,7 +511,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtUsuario;
     private javax.swing.JLabel labelIcon;
     private javax.swing.JLabel lblCon;
-    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblUs;
     // End of variables declaration//GEN-END:variables
 

@@ -115,7 +115,7 @@ public class SqlProveedores {
 
             pst.setString(1, nombre.trim());
             pst.setInt(2, dni);
-            pst.setString(3, empresa);
+            pst.setString(3, empresa.trim());
             pst.setInt(4, idProveedor);
 
             int n = pst.executeUpdate();

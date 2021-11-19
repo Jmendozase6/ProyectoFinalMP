@@ -48,6 +48,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jlblInicioSesion = new javax.swing.JLabel();
         jbtnRegistrarse = new javax.swing.JButton();
         labelIcon = new javax.swing.JLabel();
+        jbtnEnviarEmail = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
         jbtnCerrar = new javax.swing.JButton();
 
@@ -175,7 +176,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("¿Tienes algún problema?");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 488, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 480, -1));
 
         jLabel5.setFont(new java.awt.Font("Montserrat SemiBold", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,7 +188,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Contacta al administrador");
+        jLabel6.setText("Puedes contactar al administrador");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 480, -1));
 
@@ -207,10 +208,25 @@ public class FrmInicioSesion extends javax.swing.JFrame {
                 jbtnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel3.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 250, 40));
+        jPanel3.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 250, 40));
 
         labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLogo.png"))); // NOI18N
         jPanel3.add(labelIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, -1, -1));
+
+        jbtnEnviarEmail.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnEnviarEmail.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jbtnEnviarEmail.setForeground(new java.awt.Color(0, 62, 195));
+        jbtnEnviarEmail.setText("Enviar E-mail");
+        jbtnEnviarEmail.setToolTipText("Clic aquí");
+        jbtnEnviarEmail.setBorder(null);
+        jbtnEnviarEmail.setBorderPainted(false);
+        jbtnEnviarEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnEnviarEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnEnviarEmailActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jbtnEnviarEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 250, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 500, 590));
 
@@ -257,7 +273,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public boolean validarCamposVacios() {
+    private boolean validarCamposVacios() {
         if (jtxtUsuario.getText().isBlank() || jtxtUsuario.getText().equals("Ingrese su nombre de usuario")) {
             return false;
         } else if (String.valueOf(jtxtContrasena.getPassword()).isBlank() || String.valueOf(jtxtContrasena.getPassword()).equals("********")) {
@@ -283,8 +299,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnMinimizarActionPerformed
 
     private void jbtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarseActionPerformed
-        FrmRegistro frmRegistro = new FrmRegistro();
-        frmRegistro.setVisible(true);
+        new FrmRegistro().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnRegistrarseActionPerformed
 
@@ -324,6 +339,10 @@ public class FrmInicioSesion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnIniciarSesionActionPerformed
 
+    private void jbtnEnviarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEnviarEmailActionPerformed
+        
+    }//GEN-LAST:event_jbtnEnviarEmailActionPerformed
+
     private void usuarioPlaceH() {
         jtxtUsuario.setText("Ingrese su nombre de usuario");
         jtxtUsuario.setForeground(Color.GRAY);
@@ -349,6 +368,7 @@ public class FrmInicioSesion extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbtnCerrar;
+    private javax.swing.JButton jbtnEnviarEmail;
     private javax.swing.JButton jbtnIniciarSesion;
     private javax.swing.JButton jbtnMinimizar;
     private javax.swing.JButton jbtnRegistrarse;
