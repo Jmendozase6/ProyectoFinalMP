@@ -5,11 +5,14 @@
  */
 package com.proyecto.control.opciones;
 
+import com.proyecto.modelos.Usuario;
+import com.proyecto.vista.usuarios.FrmInicioSesion;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
@@ -21,6 +24,8 @@ import javax.swing.table.DefaultTableModel;
  * @author JHAIR
  */
 public class OpcionesGenerales {
+
+    Usuario us = Usuario.getInstance();
 
     /**
      * AL QUITARLE EL UNDECORATED AL FRAME, DEBEMOS HACER LAS OPERACIONES DE
@@ -105,13 +110,25 @@ public class OpcionesGenerales {
 
     /**
      *
+     * @param jbtnProveedores
+     * @param jbtnCategorias
+     * @param jbtnUsuarios
      */
-    public void modoEmpleado(JButton jbtn1, JButton jbtn2, JButton jbtn3, JButton jbtn4, JButton jbtn5, JButton jbtn6) {
-        jbtn1.setEnabled(false);
-        jbtn2.setEnabled(false);
-        jbtn3.setEnabled(false);
-        jbtn4.setEnabled(false);
-        jbtn5.setEnabled(false);
-        jbtn6.setEnabled(false);
+    public void modoEmpleado(JButton jbtnProveedores, JButton jbtnCategorias, JButton jbtnUsuarios) {
+        jbtnProveedores.setVisible(false);
+        jbtnCategorias.setVisible(false);
+        jbtnUsuarios.setVisible(false);
+    }
+
+    /**
+     *
+     * @param JFrameCerrar
+     */
+    public void cerrarSesion(JFrame JFrameCerrar) {
+        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
+            us.setNombre("");
+            new FrmInicioSesion().setVisible(true);
+            JFrameCerrar.dispose();
+        }
     }
 }

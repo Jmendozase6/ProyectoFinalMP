@@ -11,7 +11,6 @@ import com.proyecto.control.opciones.OpcionesGenerales;
 import com.proyecto.control.sql.admin.SqlProveedor;
 import com.proyecto.vista.productos.DialogCodigoQr;
 import com.proyecto.vista.productos.FrmAgregarProducto;
-import com.proyecto.vista.usuarios.FrmInicioSesion;
 import com.proyecto.vista.usuarios.FrmUsuarios;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumnModel;
@@ -312,7 +311,7 @@ public class FrmProveedores extends javax.swing.JFrame {
         jPanel3.add(jtxtEmpresaR, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 250, 40));
 
         jbtnActualizar.setBackground(new java.awt.Color(102, 204, 255));
-        jbtnActualizar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jbtnActualizar.setFont(new java.awt.Font("Montserrat Medium", 0, 17)); // NOI18N
         jbtnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgBtnActualizar.png"))); // NOI18N
         jbtnActualizar.setText("Actualizar");
@@ -339,7 +338,7 @@ public class FrmProveedores extends javax.swing.JFrame {
         jPanel3.add(jtxtDniR, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 250, 40));
 
         jbtnRegistrar.setBackground(new java.awt.Color(76, 196, 76));
-        jbtnRegistrar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jbtnRegistrar.setFont(new java.awt.Font("Montserrat Medium", 0, 17)); // NOI18N
         jbtnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         jbtnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgBtnRegistro.png"))); // NOI18N
         jbtnRegistrar.setText("Registrar");
@@ -442,7 +441,9 @@ public class FrmProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnMinimizarActionPerformed
 
     private void jbtnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCategoriasActionPerformed
-
+        DialogCategoria dialog = new DialogCategoria(this, true);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jbtnCategoriasActionPerformed
 
     private void jtblProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblProveedoresMouseClicked
@@ -540,11 +541,7 @@ public class FrmProveedores extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
-            us.setNombre("");
-            new FrmInicioSesion().setVisible(true);
-            this.dispose();
-        }
+        mc.cerrarSesion(this);
     }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
 
     private void jbtnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarProductoActionPerformed

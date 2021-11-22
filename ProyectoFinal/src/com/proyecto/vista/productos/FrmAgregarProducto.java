@@ -7,13 +7,13 @@ package com.proyecto.vista.productos;
 
 import FiveCodMover.FiveCodMoverJFrame;
 import com.proyecto.vista.usuarios.FrmDatosPersonales;
-import com.proyecto.vista.usuarios.FrmInicioSesion;
 import javax.swing.JOptionPane;
 import com.proyecto.modelos.Usuario;
 import com.proyecto.control.opciones.OpcionesGenerales;
 import com.proyecto.control.sql.admin.SqlCategoria;
 import com.proyecto.control.sql.admin.SqlProveedor;
 import com.proyecto.control.sql.productos.SqlAgregarProducto;
+import com.proyecto.vista.admin.DialogCategoria;
 import com.proyecto.vista.admin.FrmProveedores;
 import com.proyecto.vista.usuarios.FrmUsuarios;
 
@@ -34,6 +34,9 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
         initComponents();
         mostrarProveedores();
         mostrarCategorias();
+        if (us.getTipoUsuario() == 2) {
+            mc.modoEmpleado(jbtnProveedores, jbtnCategorias, jbtnUsuarios);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -468,19 +471,18 @@ public class FrmAgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnProveedoresActionPerformed
 
     private void jbtnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCategoriasActionPerformed
-
+        DialogCategoria dialog = new DialogCategoria(this, true);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jbtnCategoriasActionPerformed
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
-            us.setNombre("");
-            new FrmInicioSesion().setVisible(true);
-            this.dispose();
-        }
+        mc.cerrarSesion(this);
     }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
 
     private void jbtnPantallaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalActionPerformed
-        // TODO add your handling code here:
+        new FrmDashboard().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
 
     private void jbtnGenerarQrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQrActionPerformed

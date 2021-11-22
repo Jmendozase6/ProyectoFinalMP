@@ -48,7 +48,6 @@ public class SqlDatosPersonales {
             pst.setString(1, us.getNombre());
             pst.setString(2, us.getUsuario());
             pst.setString(3, us.getContrasena());
-
             pst.setInt(4, us.getIdUsuario());
 
             int n = pst.executeUpdate();

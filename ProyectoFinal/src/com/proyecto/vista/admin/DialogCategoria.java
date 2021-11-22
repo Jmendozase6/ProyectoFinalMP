@@ -39,6 +39,16 @@ public class DialogCategoria extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(26, 28, 32));
@@ -232,6 +242,14 @@ public class DialogCategoria extends javax.swing.JDialog {
         if (jcbxCategoria.getSelectedItem() != null)
             jtxtCategoria.setText(jcbxCategoria.getSelectedItem().toString());
     }//GEN-LAST:event_jcbxCategoriaActionPerformed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        FiveCodMover.FiveCodMoverJDialog.MouseDraggedJDialog(evt, this);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        FiveCodMover.FiveCodMoverJDialog.MousePressed(evt);
+    }//GEN-LAST:event_formMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -16,6 +16,7 @@ import com.proyecto.vista.admin.DialogCategoria;
 import com.proyecto.vista.admin.FrmProveedores;
 import com.proyecto.vista.productos.DialogCodigoQr;
 import com.proyecto.vista.productos.FrmAgregarProducto;
+import com.proyecto.vista.productos.FrmDashboard;
 import javax.swing.table.TableColumnModel;
 
 /**
@@ -299,6 +300,11 @@ public class FrmUsuarios extends javax.swing.JFrame {
         jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnPantallaPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnPantallaPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnPantallaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPantallaPrincipalActionPerformed(evt);
+            }
+        });
         jPanel4.add(jbtnPantallaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 100, 200, 20));
 
         jbtnAgregarProducto.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -421,7 +427,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 return false;
             }
         };
-        jtblUsuarios.setBackground(new java.awt.Color(255, 255, 255));
+        jtblUsuarios.setBackground(new java.awt.Color(243, 242, 245));
         jtblUsuarios.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jtblUsuarios.setForeground(new java.awt.Color(0, 0, 0));
         jtblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -610,11 +616,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnCategoriasActionPerformed
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
-            us.setNombre("");
-            new FrmInicioSesion().setVisible(true);
-            this.dispose();
-        }
+        mc.cerrarSesion(this);
     }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
 
     private void jbtnGenerarQrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQrActionPerformed
@@ -634,17 +636,25 @@ public class FrmUsuarios extends javax.swing.JFrame {
             int idUsuario = Integer.parseInt(jtblUsuarios.getValueAt(jtblUsuarios.getSelectedRow(), 0).toString());
 
             if (idUsuario != -1) {
-                sqlU.eliminarCategoria(idUsuario);
-                mc.limpiarTabla(jtblUsuarios);
-                sqlU.mostrarDatos(jtblUsuarios);
-                anchoColumnas();
+                
+                if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta cuenta?", "Comprobación", 0) == 0) {
+                    sqlU.eliminarCategoria(idUsuario);
+                    mc.limpiarTabla(jtblUsuarios);
+                    sqlU.mostrarDatos(jtblUsuarios);
+                    anchoColumnas();
+                }
+
             }
 
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
 
-            JOptionPane.showMessageDialog(rootPane, "No seleccionó ningun proveedor.", "Error", 0);
+            JOptionPane.showMessageDialog(rootPane, "No seleccionó ningun usuario.", "Error", 0);
         }
     }//GEN-LAST:event_jbtnEliminarActionPerformed
+
+    private void jbtnPantallaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalActionPerformed
+        new FrmDashboard().setVisible(true);
+    }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
 
     private void anchoColumnas() {
 

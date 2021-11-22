@@ -19,7 +19,8 @@ public class EnviarEmail {
     private final String host = "smtp.gmail.com";
     private final String correoEnvia = "jhairm064@gmail.com";
     private final String contrasena = "jhairsernaque123";
-    private final String destinatario = "jhairmendoza2003@gmail.com"; //Correo
+    private final String destinatario = "ManagementSySout@gmail.com"; //Correo
+
     Properties prop = new Properties();
 
     public EnviarEmail() {
@@ -29,7 +30,7 @@ public class EnviarEmail {
         prop.put("mail.smtp.port", "587");
     }
 
-    public void enviarEmail(String asunto, String mensaje, String ruta) {
+    public void enviarEmail(String asunto, String mensajee, String ruta) {
 
         Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
             @Override
@@ -41,16 +42,22 @@ public class EnviarEmail {
         try {
 
             BodyPart adjunto = new MimeBodyPart();
+            BodyPart mensaje = new MimeBodyPart();
+            mensaje.setText(mensajee);
+
             adjunto.setDataHandler(new DataHandler(new FileDataSource(ruta)));
             adjunto.setFileName(ruta);
+
             MimeMultipart multiParte = new MimeMultipart();
+            multiParte.addBodyPart(mensaje);
             multiParte.addBodyPart(adjunto);
 
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(correoEnvia));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
+
             message.setSubject(asunto);
-            message.setText(mensaje);
+
             message.setContent(multiParte);
 
             Transport.send(message);

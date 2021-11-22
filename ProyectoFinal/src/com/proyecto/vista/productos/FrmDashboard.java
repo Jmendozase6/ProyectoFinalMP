@@ -8,7 +8,6 @@ package com.proyecto.vista.productos;
 import com.proyecto.control.sql.productos.SqlDashboard;
 import com.proyecto.control.sql.productos.SqlAgregarProducto;
 import com.proyecto.vista.usuarios.FrmDatosPersonales;
-import com.proyecto.vista.usuarios.FrmInicioSesion;
 import com.proyecto.vista.admin.FrmProveedores;
 import com.proyecto.control.opciones.OpcionesGenerales;
 import com.proyecto.modelos.Usuario;
@@ -41,11 +40,19 @@ public class FrmDashboard extends javax.swing.JFrame {
         mostrarProveedores();
         mostrarCategorias();
         if (us.getTipoUsuario() == 2) {
-            mc.modoEmpleado(jbtnProveedores, jbtnCategorias, jbtnUsuarios, jbtnEliminar, jbtnCerrar, jbtnCerrar);
+            mc.modoEmpleado(jbtnProveedores, jbtnCategorias, jbtnUsuarios);
+            modoEmpleado();
         }
     }
 
-
+    private void modoEmpleado() {
+        jbtnEliminar.setEnabled(false);
+        jcbxProveedor.setEnabled(false);
+        jcbxCategoria.setEnabled(false);
+        jcbxCategoria.setEnabled(false);
+        jtxtNombre.setEnabled(false);
+        jtxtMarca.setEnabled(false);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -607,11 +614,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnCategoriasActionPerformed
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
-            us.setNombre("");
-            new FrmInicioSesion().setVisible(true);
-            this.dispose();
-        }
+        mc.cerrarSesion(this);
     }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
 
     private void jbtnGenerarQrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQrActionPerformed

@@ -8,11 +8,12 @@ package com.proyecto.vista.usuarios;
 import com.proyecto.vista.productos.FrmAgregarProducto;
 import com.proyecto.control.opciones.OpcionesGenerales;
 import FiveCodMover.FiveCodMoverJFrame;
-import javax.swing.JOptionPane;
 import com.proyecto.modelos.Usuario;
 import com.proyecto.control.sql.usuarios.SqlDatosPersonales;
+import com.proyecto.vista.admin.DialogCategoria;
 import com.proyecto.vista.admin.FrmProveedores;
 import com.proyecto.vista.productos.DialogCodigoQr;
+import com.proyecto.vista.productos.FrmDashboard;
 
 /**
  *
@@ -28,6 +29,9 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         initComponents();
         sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
         jlblError.setVisible(false);
+        if (us.getTipoUsuario() == 2) {
+            mc.modoEmpleado(jbtnProveedores, jbtnCategorias, jbtnUsuarios);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -130,7 +134,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, 450));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgUserConfig.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 156, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 156, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -265,6 +269,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnPantallaPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnPantallaPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnPantallaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPantallaPrincipalActionPerformed(evt);
+            }
+        });
         jPanel5.add(jbtnPantallaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 100, 200, 20));
 
         jbtnAgregarProducto.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -382,7 +391,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 130, 20));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 180, 130, 20));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 130, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -412,11 +421,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
     private void jbtnGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarCambiosActionPerformed
         if (verificarCampos()) {
-            
+
             sqlDP.actualizarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()));
             sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
             jlblError.setVisible(false);
-            
+
         } else {
 
             jlblError.setVisible(true);
@@ -436,6 +445,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
 
     private void jbtnDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDatosPersonalesActionPerformed
         new FrmDatosPersonales().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbtnDatosPersonalesActionPerformed
 
     private void jbtnProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnProveedoresActionPerformed
@@ -444,15 +454,13 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnProveedoresActionPerformed
 
     private void jbtnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCategoriasActionPerformed
-        // TODO add your handling code here:
+        DialogCategoria dialog = new DialogCategoria(this, true);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jbtnCategoriasActionPerformed
 
     private void jbtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCerrarSesionActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar la sesión?", "Comprobación", 0) == 0) {
-            us.setNombre("");
-            new FrmInicioSesion().setVisible(true);
-            this.dispose();
-        }
+        mc.cerrarSesion(this);
     }//GEN-LAST:event_jbtnCerrarSesionActionPerformed
 
     private void jbtnGenerarQrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGenerarQrActionPerformed
@@ -460,6 +468,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }//GEN-LAST:event_jbtnGenerarQrActionPerformed
+
+    private void jbtnPantallaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalActionPerformed
+        new FrmDashboard().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
 
     //Validar que los campos no estén vacíos
     private boolean verificarCampos() {
