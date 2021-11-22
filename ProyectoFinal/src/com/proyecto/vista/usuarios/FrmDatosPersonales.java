@@ -30,7 +30,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         sqlDP.mostrarDatos(jtxtNombre, jtxtUsuario, jtxtContrasena);
         jlblError.setVisible(false);
         if (us.getTipoUsuario() == 2) {
-            mc.modoEmpleado(jbtnProveedores, jbtnCategorias, jbtnUsuarios);
+            mc.modoEmpleado(jbtnProveedores, jbtnCategorias, jbtnUsuarios, j1, j2);
         }
     }
 
@@ -72,9 +72,9 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         labelIcon = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jbtnProveedores = new javax.swing.JButton();
-        jSeparator9 = new javax.swing.JSeparator();
+        j1 = new javax.swing.JSeparator();
         jbtnCategorias = new javax.swing.JButton();
-        jSeparator10 = new javax.swing.JSeparator();
+        j2 = new javax.swing.JSeparator();
         jbtnCerrarSesion = new javax.swing.JButton();
         jbtnGenerarQr = new javax.swing.JButton();
         jbtnGuardarCambios = new javax.swing.JButton();
@@ -323,8 +323,8 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         });
         jPanel5.add(jbtnProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 200, 20));
 
-        jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 180, 10));
+        j1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(j1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 180, 10));
 
         jbtnCategorias.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnCategorias.setForeground(new java.awt.Color(255, 255, 255));
@@ -339,8 +339,8 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         });
         jPanel5.add(jbtnCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 200, 20));
 
-        jSeparator10.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 180, 10));
+        j2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(j2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 180, 10));
 
         jbtnCerrarSesion.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         jbtnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
@@ -480,6 +480,8 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSeparator j1;
+    private javax.swing.JSeparator j2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -493,7 +495,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -501,7 +502,6 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JButton jbtnAgregarProducto;
     private javax.swing.JButton jbtnCategorias;
     private javax.swing.JButton jbtnCerrar;

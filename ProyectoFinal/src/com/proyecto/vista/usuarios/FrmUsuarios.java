@@ -11,7 +11,7 @@ import com.proyecto.control.opciones.OpcionesGenerales;
 import com.proyecto.control.sql.admin.SqlUsuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import com.proyecto.control.sql.usuarios.SqlRegistro;
+import com.proyecto.control.sql.usuarios.SqlUsuarios;
 import com.proyecto.vista.admin.DialogCategoria;
 import com.proyecto.vista.admin.FrmProveedores;
 import com.proyecto.vista.productos.DialogCodigoQr;
@@ -26,9 +26,10 @@ import javax.swing.table.TableColumnModel;
 public class FrmUsuarios extends javax.swing.JFrame {
 
     OpcionesGenerales mc = new OpcionesGenerales();
-    SqlRegistro sqlR = new SqlRegistro();
+    SqlUsuarios sqlR = new SqlUsuarios();
     Usuario us = Usuario.getInstance();
     SqlUsuario sqlU = new SqlUsuario();
+    private int idUsuarioAc;
 
     public FrmUsuarios() {
         initComponents();
@@ -61,6 +62,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         jcbxTipoUsuario = new javax.swing.JComboBox<>();
         lblCon1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jbtnActualizar = new javax.swing.JButton();
         jbtnCerrar = new javax.swing.JButton();
         jbtnMinimizar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -173,7 +175,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 jbtnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 250, 40));
+        jPanel2.add(jbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 160, 40));
 
         jtgbtnVerPass.setBackground(new java.awt.Color(255, 255, 255));
         jtgbtnVerPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgClosedEyeBlanco.png"))); // NOI18N
@@ -239,6 +241,19 @@ public class FrmUsuarios extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-password.png"))); // NOI18N
         jLabel11.setToolTipText("");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        jbtnActualizar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
+        jbtnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
+        jbtnActualizar.setText("Actualizar");
+        jbtnActualizar.setBorderPainted(false);
+        jbtnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 160, 40));
 
         BackGround.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 115, 400, 500));
 
@@ -446,6 +461,11 @@ public class FrmUsuarios extends javax.swing.JFrame {
         jtblUsuarios.setShowGrid(true);
         jtblUsuarios.getTableHeader().setResizingAllowed(false);
         jtblUsuarios.getTableHeader().setReorderingAllowed(false);
+        jtblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtblUsuariosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtblUsuarios);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 550, 460));
@@ -531,6 +551,8 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 nombrePlaceH();
                 usuarioPlaceH();
                 contraPlaceH();
+                mc.limpiarTabla(jtblUsuarios);
+                sqlU.mostrarDatos(jtblUsuarios);
                 anchoColumnas();
             } else {
                 JOptionPane.showMessageDialog(rootPane, "El nombre de usuario ya existe.", "Error", 0);
@@ -633,12 +655,12 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         try {
 
-            int idUsuario = Integer.parseInt(jtblUsuarios.getValueAt(jtblUsuarios.getSelectedRow(), 0).toString());
+            idUsuarioAc = Integer.parseInt(jtblUsuarios.getValueAt(jtblUsuarios.getSelectedRow(), 0).toString());
 
-            if (idUsuario != -1) {
-                
+            if (idUsuarioAc != -1) {
+
                 if (JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta cuenta?", "Comprobación", 0) == 0) {
-                    sqlU.eliminarCategoria(idUsuario);
+                    sqlU.eliminarUsuario(idUsuarioAc);
                     mc.limpiarTabla(jtblUsuarios);
                     sqlU.mostrarDatos(jtblUsuarios);
                     anchoColumnas();
@@ -655,6 +677,44 @@ public class FrmUsuarios extends javax.swing.JFrame {
     private void jbtnPantallaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalActionPerformed
         new FrmDashboard().setVisible(true);
     }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
+
+    private void jbtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnActualizarActionPerformed
+
+        if (validarCamposVacios()) {
+
+            int tipoUsuario = jcbxTipoUsuario.getSelectedItem().toString().equals("Administrador") ? 1 : 2;
+            sqlR.actualizarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()), tipoUsuario, idUsuarioAc);
+            mc.limpiarTabla(jtblUsuarios);
+            sqlU.mostrarDatos(jtblUsuarios);
+            anchoColumnas();
+            jlblError.setVisible(false);
+
+        } else {
+
+            jlblError.setVisible(true);
+
+        }
+    }//GEN-LAST:event_jbtnActualizarActionPerformed
+
+    private void jtblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblUsuariosMouseClicked
+        mostrarDatosUsuarios();
+    }//GEN-LAST:event_jtblUsuariosMouseClicked
+
+    private void mostrarDatosUsuarios() {
+        int nFila = jtblUsuarios.getSelectedRow();
+        if (nFila == -1) {
+            JOptionPane.showMessageDialog(rootPane, "No seleccionó ninguna fila", "Error", 2);
+        } else {
+            idUsuarioAc = Integer.parseInt(jtblUsuarios.getValueAt(nFila, 0).toString());
+            jtxtNombre.setText(jtblUsuarios.getValueAt(nFila, 1).toString());
+            jtxtUsuario.setText(jtblUsuarios.getValueAt(nFila, 2).toString());
+            jtxtContrasena.setText(jtblUsuarios.getValueAt(nFila, 3).toString());
+            jcbxTipoUsuario.setSelectedItem(jtblUsuarios.getValueAt(nFila, 4).toString());
+            jtxtNombre.setForeground(Color.WHITE);
+            jtxtUsuario.setForeground(Color.WHITE);
+            jtxtContrasena.setForeground(Color.WHITE);
+        }
+    }
 
     private void anchoColumnas() {
 
@@ -697,6 +757,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JButton jbtnActualizar;
     private javax.swing.JButton jbtnAgregarProducto;
     private javax.swing.JButton jbtnCategorias;
     private javax.swing.JButton jbtnCerrar;

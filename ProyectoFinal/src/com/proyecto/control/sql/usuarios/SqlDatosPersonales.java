@@ -36,7 +36,7 @@ public class SqlDatosPersonales {
 
     public void actualizarUsuario(String nombre, String usuario, String contrasena) {
 
-        String SQL = "UPDATE usuarios SET Nombre=?, Usuario=?, Contrasena=? WHERE id=?";
+        String SQL = "UPDATE usuarios SET Nombre=?, Usuario=?, Contrasena=? WHERE Id=?";
 
         try {
             us.setNombre(nombre.trim());

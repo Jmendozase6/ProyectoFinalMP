@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Jhair
  */
-public class SqlRegistro {
+public class SqlUsuarios {
 
     private final Conexion cc = new Conexion();
     private final Connection con;
@@ -30,14 +30,14 @@ public class SqlRegistro {
     private Statement st;
     private ResultSet rs;
 
-    public SqlRegistro() {
+    public SqlUsuarios() {
         this.con = cc.getConnection();
     }
 
     public boolean agregarUsuario(String nombre, String user, String pass, int tipoUsuario, JLabel error) {
-        
+
         tipoUsuario++;
-        
+
         SQL = "INSERT INTO usuarios (Nombre,Usuario,Contrasena,tipoUsuario) values(?,?,?,?)";
 
         try {
@@ -64,7 +64,7 @@ public class SqlRegistro {
 
     public boolean verificarExistente(String usuario) {
 
-        SQL = "SELECT (Usuario) FROM usuarios WHERE Usuario like '%" + usuario.trim() + "%' ";
+        SQL = "SELECT (Usuario) FROM usuarios WHERE Usuario = '%" + usuario.trim() + "%' ";
 
         try {
 
@@ -77,6 +77,7 @@ public class SqlRegistro {
 
         } catch (SQLException e) {
 
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Ocurrió un error." + e.getMessage());
 
         }
@@ -104,4 +105,32 @@ public class SqlRegistro {
         }
     }
 
+    public void actualizarUsuario(String nombre, String usuario, String contrasena, int tipoUsuario, int idUsuario) {
+
+        SQL = "UPDATE usuarios SET Nombre=?, Usuario=?, Contrasena=?, tipoUsuario=? WHERE Id=?";
+
+        try {
+
+            pst = (PreparedStatement) con.prepareStatement(SQL);
+
+            pst.setString(1, nombre.trim());
+            pst.setString(2, usuario.trim());
+            pst.setString(3, contrasena.trim());
+            pst.setInt(4, tipoUsuario);
+            pst.setInt(5, idUsuario);
+
+            int n = pst.executeUpdate();
+
+            if (n >= 0) {
+
+                JOptionPane.showMessageDialog(null, "Los datos se actualizaron correctamente.");
+
+            }
+
+        } catch (HeadlessException | SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se actualizaron los datos.", "Error", 0);
+
+        }
+    }
 }

@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JToggleButton;
 import javax.swing.table.DefaultTableModel;
@@ -113,11 +114,15 @@ public class OpcionesGenerales {
      * @param jbtnProveedores
      * @param jbtnCategorias
      * @param jbtnUsuarios
+     * @param j1
+     * @param j2
      */
-    public void modoEmpleado(JButton jbtnProveedores, JButton jbtnCategorias, JButton jbtnUsuarios) {
+    public void modoEmpleado(JButton jbtnProveedores, JButton jbtnCategorias, JButton jbtnUsuarios, JSeparator j1, JSeparator j2) {
         jbtnProveedores.setVisible(false);
         jbtnCategorias.setVisible(false);
         jbtnUsuarios.setVisible(false);
+        j1.setVisible(false);
+        j2.setVisible(false);
     }
 
     /**

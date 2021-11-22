@@ -33,7 +33,7 @@ public class SqlUsuario {
         con = cc.getConnection();
     }
 
-    public void eliminarCategoria(int idUsuario) {
+    public void eliminarUsuario(int idUsuario) {
 
         SQL = "DELETE FROM usuarios WHERE Id=" + idUsuario;
 
