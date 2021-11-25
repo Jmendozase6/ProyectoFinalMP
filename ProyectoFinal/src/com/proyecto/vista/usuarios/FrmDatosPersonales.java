@@ -14,6 +14,7 @@ import com.proyecto.vista.admin.DialogCategoria;
 import com.proyecto.vista.admin.FrmProveedores;
 import com.proyecto.vista.productos.DialogCodigoQr;
 import com.proyecto.vista.productos.FrmDashboard;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -186,12 +187,22 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jtxtNombre.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jtxtNombre.setForeground(new java.awt.Color(0, 0, 0));
         jtxtNombre.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jtxtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtNombreKeyReleased(evt);
+            }
+        });
         jPanel1.add(jtxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 250, 40));
 
         jtxtUsuario.setBackground(new java.awt.Color(243, 242, 245));
         jtxtUsuario.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         jtxtUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jtxtUsuario.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jtxtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtUsuarioKeyReleased(evt);
+            }
+        });
         jPanel1.add(jtxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 250, 40));
 
         jtxtContrasena.setBackground(new java.awt.Color(243, 242, 245));
@@ -201,6 +212,11 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         jtxtContrasena.setMargin(new java.awt.Insets(2, 10, 2, 6));
         jtxtContrasena.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         jtxtContrasena.setSelectionColor(new java.awt.Color(81, 104, 244));
+        jtxtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtContrasenaKeyReleased(evt);
+            }
+        });
         jPanel1.add(jtxtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 250, 40));
 
         lblNombre1.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
@@ -420,6 +436,10 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
     }//GEN-LAST:event_jtgbtnVerPassActionPerformed
 
     private void jbtnGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarCambiosActionPerformed
+        guardarCambios();
+    }//GEN-LAST:event_jbtnGuardarCambiosActionPerformed
+
+    private void guardarCambios() {
         if (verificarCampos()) {
 
             sqlDP.actualizarUsuario(jtxtNombre.getText(), jtxtUsuario.getText(), String.valueOf(jtxtContrasena.getPassword()));
@@ -431,8 +451,7 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
             jlblError.setVisible(true);
 
         }
-    }//GEN-LAST:event_jbtnGuardarCambiosActionPerformed
-
+    }
     private void jbtnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUsuariosActionPerformed
         new FrmUsuarios().setVisible(true);
         this.dispose();
@@ -473,6 +492,24 @@ public class FrmDatosPersonales extends javax.swing.JFrame {
         new FrmDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
+
+    private void jtxtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtNombreKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            guardarCambios();
+        }
+    }//GEN-LAST:event_jtxtNombreKeyReleased
+
+    private void jtxtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtUsuarioKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            guardarCambios();
+        }
+    }//GEN-LAST:event_jtxtUsuarioKeyReleased
+
+    private void jtxtContrasenaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtContrasenaKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            guardarCambios();
+        }
+    }//GEN-LAST:event_jtxtContrasenaKeyReleased
 
     //Validar que los campos no estén vacíos
     private boolean verificarCampos() {
