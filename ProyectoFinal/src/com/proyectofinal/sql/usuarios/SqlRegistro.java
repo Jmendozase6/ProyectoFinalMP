@@ -8,7 +8,7 @@ package com.proyectofinal.sql.usuarios;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
-import com.proyectofinal.conexion.Conexion;
+import com.proyecto.control.conexion.Conexion;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
