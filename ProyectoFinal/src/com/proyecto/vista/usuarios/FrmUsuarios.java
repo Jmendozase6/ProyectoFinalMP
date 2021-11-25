@@ -152,19 +152,19 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-tipo.png"))); // NOI18N
         jLabel8.setToolTipText("");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 355, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-name.png"))); // NOI18N
         jLabel9.setToolTipText("");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 115, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-user.png"))); // NOI18N
         jLabel10.setToolTipText("");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 195, -1, -1));
 
+        jbtnRegistrarse.setBackground(new java.awt.Color(81, 104, 244));
         jbtnRegistrarse.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnRegistrarse.setText("Registrar");
         jbtnRegistrarse.setToolTipText("Clic aquí");
         jbtnRegistrarse.setBorderPainted(false);
@@ -240,11 +240,11 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icon-password.png"))); // NOI18N
         jLabel11.setToolTipText("");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 275, -1, -1));
 
+        jbtnActualizar.setBackground(new java.awt.Color(81, 104, 244));
         jbtnActualizar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
         jbtnActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        jbtnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgBnIniciarSesion.png"))); // NOI18N
         jbtnActualizar.setText("Actualizar");
         jbtnActualizar.setBorderPainted(false);
         jbtnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

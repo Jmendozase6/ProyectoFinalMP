@@ -541,12 +541,15 @@ public class FrmDashboard extends javax.swing.JFrame {
 
     private void jbtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnActualizarActionPerformed
         if (validarCamposVacios()) {
+            
             if (!(jtxtIdProducto.getText().isBlank())) {
+                
                 sqlD.actualizarDatosProducto(jtxtNombre.getText().trim(), jcbxCategoria.getSelectedItem().toString(), jtxtMarca.getText().trim(), Double.parseDouble(jtxtPrecioUnitario.getText()), Double.parseDouble(jtxtCantidad.getText()), jcbxProveedor.getSelectedItem().toString(), Integer.parseInt(jtxtIdProducto.getText()));
                 mc.limpiarTabla(jtblProductos);
                 sqlD.mostrarDatos(jtblProductos);
                 anchoColumnas();
                 limpiarCampos();
+                
             }
 
         } else {

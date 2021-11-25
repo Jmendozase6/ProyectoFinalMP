@@ -21,7 +21,7 @@ public class DialogContacto extends javax.swing.JDialog {
     EnviarEmail ee = new EnviarEmail();
     SqlInicioSesion sqlI = new SqlInicioSesion();
     RutaArchivo ra = new RutaArchivo();
-    String ruta = "";
+    String ruta;
 
     public DialogContacto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -81,7 +81,7 @@ public class DialogContacto extends javax.swing.JDialog {
         });
         jPanel2.add(jbtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jtxtAsunto.setBackground(new java.awt.Color(255, 255, 255));
+        jtxtAsunto.setBackground(new java.awt.Color(204, 204, 204));
         jtxtAsunto.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jtxtAsunto.setForeground(new java.awt.Color(51, 51, 51));
         jtxtAsunto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -92,7 +92,7 @@ public class DialogContacto extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Mensaje (Opcional)");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 415, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Montserrat SemiBold", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,7 +190,7 @@ public class DialogContacto extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Asunto");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 325, -1, -1));
 
         jbtnAdjuntar.setBackground(new java.awt.Color(76, 196, 76));
         jbtnAdjuntar.setFont(new java.awt.Font("Montserrat Medium", 0, 18)); // NOI18N
@@ -244,6 +244,8 @@ public class DialogContacto extends javax.swing.JDialog {
         jtxtAsunto.setText("");
         jtxtAsunto.setFocusable(jrbtn5.isSelected());
         jtxtAsunto.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        jtxtAsunto.requestFocus();
+        jtxtAsunto.setBackground(Color.white);
     }//GEN-LAST:event_jrbtn5MouseClicked
 
     private void jrbtn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jrbtn4MouseClicked
@@ -263,12 +265,12 @@ public class DialogContacto extends javax.swing.JDialog {
                 ee.enviarEmail(jtxtAsunto.getText(), jtxtMensaje.getText(), ruta);
 
             }
-            
+
             jtxtAsunto.setBorder(BorderFactory.createEtchedBorder());
             jtxtAsunto.setText("");
             ruta = "";
             buttonGroup1.clearSelection();
-            
+
         } else {
 
             jtxtAsunto.setBorder(BorderFactory.createLineBorder(Color.decode("#E83232")));
@@ -292,6 +294,7 @@ public class DialogContacto extends javax.swing.JDialog {
     private void desactivarAsunto() {
         jtxtAsunto.setFocusable(false);
         jtxtAsunto.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        jtxtAsunto.setBackground(new Color(204, 204, 204));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

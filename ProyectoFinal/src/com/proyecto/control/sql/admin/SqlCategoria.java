@@ -123,7 +123,7 @@ public class SqlCategoria {
 
     public int buscarId(String nombre) {
         SQL = "SELECT * FROM categorias";
-        int id = 0;
+        int id = -1;
         try {
 
             st = (Statement) con.createStatement();
@@ -135,7 +135,7 @@ public class SqlCategoria {
                 }
             }
             return id;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return id;

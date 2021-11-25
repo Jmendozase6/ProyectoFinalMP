@@ -177,7 +177,7 @@ public class DialogCategoria extends javax.swing.JDialog {
 
             labelError.setVisible(false);
             idCategoria = sqlC.buscarId(jcbxCategoria.getSelectedItem().toString());
-            System.out.println("ID ELIMINAR" + idCategoria);
+
             if (idCategoria > -1) {
                 sqlC.eliminarCategoria(idCategoria);
                 jcbxCategoria.removeAllItems();
@@ -197,7 +197,9 @@ public class DialogCategoria extends javax.swing.JDialog {
 
     private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
         if (!jtxtCategoria.getText().isBlank()) {
+
             if (sqlC.agregarCategoria(jtxtCategoria.getText())) {
+
                 jcbxCategoria.removeAllItems();
                 sqlC.mostrarCategorias(jcbxCategoria);
                 jtxtCategoria.setText("");

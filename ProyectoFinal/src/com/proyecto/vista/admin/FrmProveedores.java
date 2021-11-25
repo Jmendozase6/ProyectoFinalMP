@@ -193,7 +193,7 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnProveedores.setForeground(new java.awt.Color(102, 255, 255));
         jbtnProveedores.setText("Proveedores");
         jbtnProveedores.setContentAreaFilled(false);
-        jbtnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbtnProveedores.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jPanel2.add(jbtnProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 200, 20));
 

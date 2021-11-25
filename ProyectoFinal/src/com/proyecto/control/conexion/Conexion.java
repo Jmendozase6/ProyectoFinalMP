@@ -44,7 +44,7 @@ public class Conexion {
     public void closeConnection() throws SQLException {
         try {
             connect.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.err.println(e.getMessage());
             connect.close();
         } finally {
@@ -53,7 +53,7 @@ public class Conexion {
     }
 
     public Conexion getInstance() {
-        if(instancia==null){
+        if (instancia == null) {
             instancia = new Conexion();
         }
         return instancia;

@@ -26,9 +26,9 @@ public class SqlDatosPersonales {
     private final Conexion cc = new Conexion();
     private final Connection con;
     Usuario us = Usuario.getInstance();
-    ResultSet rs;
-    PreparedStatement pst;
-    Statement st;
+    private ResultSet rs;
+    private PreparedStatement pst;
+    private Statement st;
 
     public SqlDatosPersonales() {
         this.con = cc.getConnection();

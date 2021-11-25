@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
 
 public class EnviarEmail {
 
-    private final String host = "smtp.gmail.com";
-    private final String correoEnvia = "jhairm064@gmail.com";
-    private final String contrasena = "jhairsernaque123";
-    private final String destinatario = "ManagementSySout@gmail.com"; //Correo
+    private final String host = "smtp.gmail.com";                       //Servidor
+    private final String correoEnvia = "jhairm064@gmail.com";           //Cuenta que envía el correo
+    private final String contrasena = "jhairsernaque123";               //Contraseña
+    private final String destinatario = "ManagementSySout@gmail.com";   //Correo destinatario
 
     Properties prop = new Properties();
 
@@ -30,7 +30,7 @@ public class EnviarEmail {
         prop.put("mail.smtp.port", "587");
     }
 
-    public void enviarEmail(String asunto, String mensajee, String ruta) {
+    public void enviarEmail(String asunto, String mensaje, String ruta) {
 
         Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
             @Override
@@ -41,16 +41,16 @@ public class EnviarEmail {
 
         try {
 
-            BodyPart adjunto = new MimeBodyPart();
-            BodyPart mensaje = new MimeBodyPart();
-            mensaje.setText(mensajee);
+            BodyPart bpAdjunto = new MimeBodyPart();
+            BodyPart bpMensaje = new MimeBodyPart();
+            bpMensaje.setText(mensaje);
 
-            adjunto.setDataHandler(new DataHandler(new FileDataSource(ruta)));
-            adjunto.setFileName(ruta);
+            bpAdjunto.setDataHandler(new DataHandler(new FileDataSource(ruta)));
+            bpAdjunto.setFileName(ruta);
 
             MimeMultipart multiParte = new MimeMultipart();
-            multiParte.addBodyPart(mensaje);
-            multiParte.addBodyPart(adjunto);
+            multiParte.addBodyPart(bpMensaje);
+            multiParte.addBodyPart(bpAdjunto);
 
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(correoEnvia));
