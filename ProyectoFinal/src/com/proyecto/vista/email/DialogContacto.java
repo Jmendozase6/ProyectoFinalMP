@@ -49,6 +49,7 @@ public class DialogContacto extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jbtnAdjuntar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -174,6 +175,7 @@ public class DialogContacto extends javax.swing.JDialog {
         jbtnEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenesAdmin/imgBtnEnviarEmail.png"))); // NOI18N
         jbtnEnviar.setText(" Enviar");
         jbtnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnEnviar.setEnabled(false);
         jbtnEnviar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,10 +184,10 @@ public class DialogContacto extends javax.swing.JDialog {
         });
         jPanel2.add(jbtnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 630, 150, 40));
 
-        jLabel3.setFont(new java.awt.Font("Montserrat", 0, 19)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("¿Qué problema tienes?");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        jLabel3.setText("Recuerda que debes adjuntar un archivo");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 680, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,6 +204,11 @@ public class DialogContacto extends javax.swing.JDialog {
             }
         });
         jPanel2.add(jbtnAdjuntar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 630, 150, 40));
+
+        jLabel6.setFont(new java.awt.Font("Montserrat", 0, 19)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("¿Qué problema tienes?");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,11 +263,7 @@ public class DialogContacto extends javax.swing.JDialog {
     private void jbtnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEnviarActionPerformed
         if (!jtxtAsunto.getText().isBlank()) {
 
-            if (ruta.isBlank()) {
-
-                ee.enviarEmail(jtxtAsunto.getText(), jtxtMensaje.getText());
-
-            } else {
+            if (!ruta.isBlank()) {
 
                 ee.enviarEmail(jtxtAsunto.getText(), jtxtMensaje.getText(), ruta);
 
@@ -289,6 +292,9 @@ public class DialogContacto extends javax.swing.JDialog {
 
     private void jbtnAdjuntarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAdjuntarActionPerformed
         ruta = ra.seleccionarRuta(2);
+        if (!ruta.isBlank()) {
+            jbtnEnviar.setEnabled(true);
+        }
     }//GEN-LAST:event_jbtnAdjuntarActionPerformed
 
     private void desactivarAsunto() {
@@ -303,6 +309,7 @@ public class DialogContacto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnAdjuntar;

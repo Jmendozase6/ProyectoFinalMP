@@ -68,29 +68,4 @@ public class EnviarEmail {
         }
     }
 
-    public void enviarEmail(String asunto, String mensaje) {
-
-        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(correoEnvia, contrasena);
-            }
-        });
-
-        try {
-
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(correoEnvia));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
-            message.setSubject(asunto);
-            message.setText(mensaje);
-
-            Transport.send(message);
-            JOptionPane.showMessageDialog(null, "El correo se envió correctamente.");
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
 }
