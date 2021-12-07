@@ -11,6 +11,8 @@ import com.proyecto.control.opciones.OpcionesGenerales;
 import com.proyecto.control.sql.admin.SqlProveedor;
 import com.proyecto.vista.productos.DialogCodigoQr;
 import com.proyecto.vista.productos.FrmAgregarProducto;
+import com.proyecto.vista.productos.FrmDashboard;
+import com.proyecto.vista.usuarios.FrmDatosPersonales;
 import com.proyecto.vista.usuarios.FrmUsuarios;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumnModel;
@@ -173,6 +175,11 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnPantallaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnPantallaPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnPantallaPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnPantallaPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPantallaPrincipalActionPerformed(evt);
+            }
+        });
         jPanel2.add(jbtnPantallaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 100, 200, 20));
 
         jbtnAgregarProducto.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
@@ -204,6 +211,11 @@ public class FrmProveedores extends javax.swing.JFrame {
         jbtnDatosPersonales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbtnDatosPersonales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtnDatosPersonales.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jbtnDatosPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnDatosPersonalesActionPerformed(evt);
+            }
+        });
         jPanel2.add(jbtnDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 170, 200, 20));
 
         labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imgLogo.png"))); // NOI18N
@@ -553,6 +565,16 @@ public class FrmProveedores extends javax.swing.JFrame {
         new FrmUsuarios().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbtnUsuariosActionPerformed
+
+    private void jbtnPantallaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPantallaPrincipalActionPerformed
+        new FrmDashboard().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnPantallaPrincipalActionPerformed
+
+    private void jbtnDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDatosPersonalesActionPerformed
+        new FrmDatosPersonales().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbtnDatosPersonalesActionPerformed
 
     private void mostrarDatosFormulario() {
         nFila = jtblProveedores.getSelectedRow();

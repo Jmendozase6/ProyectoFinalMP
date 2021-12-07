@@ -46,6 +46,7 @@ public class FrmDashboard extends javax.swing.JFrame {
     }
 
     private void modoEmpleado() {
+        jtxtIdProducto.setEnabled(false);
         jbtnEliminar.setEnabled(false);
         jcbxProveedor.setEnabled(false);
         jcbxCategoria.setEnabled(false);
